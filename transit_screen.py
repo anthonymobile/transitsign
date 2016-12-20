@@ -12,6 +12,7 @@
 
 import urllib2, args, os, sys, datetime
 import xml.etree.ElementTree
+from sign_writer import OGM_Write, OGM_Write_Badge
 
 arrivals_url = 'http://mybusnow.njtransit.com/bustime/eta/getStopPredictionsETA.jsp?route=%s&stop=%s&key=%s'
 
@@ -29,6 +30,9 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-s', '--stop', dest='stop_id', required=True, help='NJTransit bus stop number')
 parser.add_argument('-r', '--route', dest='route_id', default='---', required=False, help='NJTransit bus route number')
 args = parser.parse_args()
+
+ADD ARGS - write (testing, confirm write out)
+ADD ARGS - screen or badge display
 
 
 # some functions
@@ -74,11 +78,32 @@ def format_lines (arrival_table):
 	<fd>168 PARAMUS FARVIEW AVE</fd> Final destination
 	<pt>6</pt> Prediction time
 	<pu>MINUTES</pu> Prediction units
+	'''
 
 	return ogm
 
 # show it on the screen (grab the LED display code basefrom github)
 def show_buses (ogm):
+
+	speed=3
+	effect='hold'
+
+	try:
+		if args.write == True:
+			if args.xled == 'sign':
+				from transit_functions import OGM_Write
+				OGM_Write(args.platform,ogm,effect,speed)
+				print 'Wrote to LED sign. Verify content.'
+			elif args.xled == 'badge':
+				from transit_functions import OGM_Write_Badge
+				OGM_Write_Badge(args.platform,ogm,effect,speed)
+				print 'Wrote to LED badge. Verify content.'
+		else:
+			print 'Write (-w) flag not set, not sending to LED.'
+
+	except:
+		print 'Error writing to sign. Are you sure its connected? Really are you sure?'
+
 
 	return
 
