@@ -68,6 +68,13 @@ def parse_arrivals:
 # format for display
 def format_lines (arrival_table):
 
+
+	'''fields of interest
+	<rn>128</rn> Route number
+	<fd>168 PARAMUS FARVIEW AVE</fd> Final destination
+	<pt>6</pt> Prediction time
+	<pu>MINUTES</pu> Prediction units
+
 	return ogm
 
 # show it on the screen (grab the LED display code basefrom github)
