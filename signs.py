@@ -1,12 +1,10 @@
 # sign.py
 
 
-from ledsign.minisign import MiniSign
+from pyledsign import MiniSign
+from simplefont import sign_font
 
-
-#--------------------------------------------------------
-# @benchmark
-def OGM_Write(platform,lines,effect,speed):
+def WriteSign(platform,lines,effect,speed):
 	
 	# need later to format the ogm
 	class Array:
@@ -18,7 +16,6 @@ def OGM_Write(platform,lines,effect,speed):
 			return zero_oned
 
 	# font setup
-	from simplefont import sign_font
 	pwd = os.path.dirname(os.path.realpath(__file__))
 	new_glyphs_path = '/'.join([pwd,'glyphs'])
 	
@@ -30,7 +27,6 @@ def OGM_Write(platform,lines,effect,speed):
 	sign = MiniSign(devicetype='sign', port=portname,)
 
 	font = sign_font(new_glyphs_path)
-
 
 	# sign screen_height hardcoded for now, better if it can be pulled from 
 	# the MiniSign class instance 'sign'
@@ -50,10 +46,8 @@ def OGM_Write(platform,lines,effect,speed):
 
 	time.sleep(6)
 
-#--------------------------------------------------------
-# should be able to deprecate this soon
-# @benchmark
-def OGM_Write_Badge(platform,line,effect,speed):
+
+def WriteBadge(platform,line,effect,speed):
 
 # can only be used with a 1-line service display
 
@@ -67,13 +61,3 @@ def OGM_Write_Badge(platform,line,effect,speed):
 	badge.sendqueue(device=portname)
 
 	time.sleep(6)
-
-
-
-
-#--------------------------------------------------------
-#
-
-
-
-
