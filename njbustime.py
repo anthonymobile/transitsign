@@ -1,6 +1,10 @@
 # LED screen bus arrival display
 # scapes and parses NJT MyBusNow API XML to brightLEDsigns.com display
 
+# test command 
+# python njbustime.py -s 21374 -d sign -p osx -w
+# python njbustime.py -s 21374 -d sign -p pi -w
+
 import urllib2, argparse, os, sys, datetime
 import xml.etree.ElementTree
 from signs import WriteSign, WriteBadge
@@ -62,14 +66,16 @@ ogm_format = '%s   %s min'
 if args.display_type == 'sign':
     n = 0
     for bus in arrivals:
-        insert_line = ogm_format % (bus['fd'], bus['pt'])
+        #
+        # truncate bus['fd'] here for screen size. may be too conservative
+        #
+        dest_short = bus['fd'][:15]
+        insert_line = ogm_format % (dest_short, bus['pt'])
         lines.append(insert_line) 
         n +=1  
     print ('Found %s buses arriving soon.' % n)
     ogm = lines[:2]
     effect = 'hold'
-
-sys.exit('HALT----------------------------------------------------------------------')
 
 #  badge
 # show the final destination and arrival time for next departures in the list,  scroll
@@ -87,9 +93,6 @@ print ogm
 # in case we want to use on a bigger screen
 
 # other fields of interest: bus.rn <rn>128</rn> Route number
-
-
-sys.exit('HALT----------------------------------------------------------------------')
 
 #----------------------------------------------------------------------
 # send to LED
