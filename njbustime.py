@@ -10,16 +10,16 @@ from signs import WriteSign, WriteBadge
 #----------------------------------------------------------------------
 
 arrivals_url = 'http://mybusnow.njtransit.com/bustime/eta/getStopPredictionsETA.jsp?route=%s&stop=%s&key=%s'
-# with direction? (untested) http://mybusnow.njtransit.com/bustime/eta/getStopPredictionsETA.jsp?route=%s&direction=%s&stop=%s&key=0.3003391435305782
+
 now  = datetime.datetime.now()
-route_id='all'
-key='0.3003391435305782'
+route_id = 'all'
+key = '0.3003391435305782'
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-w', '--write', dest='write', action='store_true', help="Write the outgoing message (OGM) to the LED screen")
 parser.add_argument('-s', '--stop', dest='stop_id', required=True, help='NJTransit bus stop number')
-parser.add_argument('-r', '--route', dest='route_id', default='---', required=False, help='NJTransit bus route number')
-parser.add_argument('-d', '--display', dest='display_tpe', default='sign', choices=['sign','badge'], required=True, help='brightLEDsigns.com display type')
+# parser.add_argument('-r', '--route', dest='route_id_user', required=False, help='NJTransit bus route number')
+parser.add_argument('-d', '--display', dest='display_type', default='sign', choices=['sign','badge'], required=True, help='brightLEDsigns.com display type')
 parser.add_argument("-p", "--platform", choices=['pi', 'osx'], help="OS platform(required)", required=True, default='pi')
 args = parser.parse_args()
 
@@ -30,17 +30,20 @@ args = parser.parse_args()
 
 def make_url (stop_id, route_id, key):
 
-    return submit_url % stop_id, route_id, key
+    submit_url = arrivals_url % (stop_id, route_id, key)
 
-def fetch_url (submit_url):
+    return submit_url
 
-    buses = urllib2.urlopen(submit_url)
+def get_url (url):
+
+    buses = urllib2.urlopen(url)
+    print 'fetched url'
     
     return buses
 
 def parse_arrivals(buses):
 
-    data = urllib2.urlopen(_sources[source]).read()
+    data = buses
 
     arrivals = []
 
@@ -125,11 +128,17 @@ def show_buses (ogm,effect):
 # main program
 #----------------------------------------------------------------------
 
-make_url(arrivals_url, route_id, dir_id, stop_id, showAllBusses, findstop)
+'''try:
+  args.route_id_user
+except NameError:
+  pass
+else:
+  route_id = args.route_id_user'''
 
-fetch_url(submit_url)
+print args.stop_id, route_id, key
 
-parse_arrivals(buses)
+
+parse_arrivals(get_url(make_url(args.stop_id, route_id, key)))
 
 format_lines(display_type, arrivals)
 

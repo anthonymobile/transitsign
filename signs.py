@@ -1,7 +1,6 @@
 # sign.py
 
-
-from pyledsign import MiniSign
+from pyledsign.minisign import MiniSign
 from simplefont import sign_font
 
 def WriteSign(platform,lines,effect,speed):
