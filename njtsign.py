@@ -59,16 +59,14 @@ for atype in e.findall('pre'):
 
 ogm = []
 lines = []
-ogm_format = '%s   %s min'
+ogm_format = '%s %s min'
 
 # sign
 # show the final destination and arrival time for next 2 departures in the list, static
 if args.display_type == 'sign':
     n = 0
     for bus in arrivals:
-        #
         # truncate bus['fd'] here for screen size. may be too conservative
-        #
         dest_short = bus['fd'][:15]
         insert_line = ogm_format % (dest_short, bus['pt'])
         lines.append(insert_line) 
@@ -80,14 +78,16 @@ if args.display_type == 'sign':
 #  badge
 # show the final destination and arrival time for next departures in the list,  scroll
 if args.display_type == 'badge':
-    print 'Formatting OGM for LED screen...'
+    n = 0
     for bus in arrivals:
-        insert_line = ogm_format % bus.fd, bus.pt
-        lines.append(insert_line)
-    ogm = lines[:1]
+        # not truncating as it scrolls
+        dest_short = bus['fd'][:15]
+        insert_line = ogm_format % (dest_short, bus['pt'])
+        lines.append(insert_line) 
+        n +=1  
+    print ('Found %s buses arriving soon.' % n)
+    ogm = lines[:2]
     effect = 'scroll'
-
-print ogm
 
 # n.b. lines has all the arrivals from API response
 # in case we want to use on a bigger screen
@@ -102,10 +102,10 @@ speed=3
 
 try:
     if args.write == True:
-        if args.display == 'sign':
+        if args.display_type == 'sign':
             WriteSign(args.platform,ogm,effect,speed)
 
-        elif args.display == 'badge':
+        elif args.display_type == 'badge':
             WriteBadge(args.platform,ogm,effect,speed)
 
     else:
