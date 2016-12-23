@@ -1,3 +1,4 @@
+
 from pyledsign.minisign import MiniSign
 
 mysign = MiniSign(

@@ -2,6 +2,7 @@
 
 from pyledsign.minisign import MiniSign
 from simplefont import sign_font
+import serialfind
 
 def WriteSign(platform,lines,effect,speed):
 	
@@ -19,10 +20,15 @@ def WriteSign(platform,lines,effect,speed):
 	new_glyphs_path = '/'.join([pwd,'glyphs'])
 	
 	# sign setup
+
+	portname = serialfind()
+	'''
 	if platform == 'osx':
 		portname = '/dev/tty.usbserial'
 	else:
 		portname ='/dev/ttyUSB0'
+	'''
+	
 	sign = MiniSign(devicetype='sign', port=portname,)
 
 	font = sign_font(new_glyphs_path)
@@ -52,10 +58,14 @@ def WriteBadge(platform,lines,effect,speed):
 
 	print platform,lines,effect,speed
 
+	portname = serialfind()
+
+	'''
 	if platform == 'osx':
 		portname = '/dev/tty.usbserial'
 	else:
 		portname ='/dev/ttyUSB0'
+	'''
 
 	print portname
 	'''
@@ -73,6 +83,7 @@ def WriteBadge(platform,lines,effect,speed):
 	mysign.queuemsg(
 	    data=lines[0]
 	)
+	'''
 	# queue up a second message
 	#   - using the optional effect parameter.
 	#     if not supplied, defaults to 'scroll'
@@ -86,6 +97,7 @@ def WriteBadge(platform,lines,effect,speed):
 	#   different serial port, we can send everything
 	#   to it as well...
 	#
+	'''
 	mysign.sendqueue(
 	    device=portname
 	)

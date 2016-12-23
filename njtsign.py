@@ -98,7 +98,7 @@ if args.display_type == 'badge':
 # send to LED
 #----------------------------------------------------------------------
 
-speed=3
+speed=4
 
 try:
     if args.write == True:
