@@ -1,12 +1,14 @@
-
+import serialfind
 from pyledsign.minisign import MiniSign
+
+portname = SerialFsind('osx')
 
 mysign = MiniSign(
     devicetype='sign',
 )
 # queue up a text message
 mysign.queuemsg(
-    data='Hello World'
+    data='wahhh'
 )
 # queue up a second message
 #   - using the optional effect parameter.
@@ -23,5 +25,5 @@ mysign.queuemsg(
 #   to it as well...
 #
 mysign.sendqueue(
-    device='/dev/tty.usbserial'
+    device='/dev/ttyUSB0'
 )

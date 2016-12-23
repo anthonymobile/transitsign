@@ -2,7 +2,7 @@
 
 from pyledsign.minisign import MiniSign
 from simplefont import sign_font
-import serialfind
+import SerialFind
 
 def WriteSign(platform,lines,effect,speed):
 	
@@ -21,13 +21,7 @@ def WriteSign(platform,lines,effect,speed):
 	
 	# sign setup
 
-	portname = serialfind()
-	'''
-	if platform == 'osx':
-		portname = '/dev/tty.usbserial'
-	else:
-		portname ='/dev/ttyUSB0'
-	'''
+	portname = SerialFind(platform)
 	
 	sign = MiniSign(devicetype='sign', port=portname,)
 
@@ -51,31 +45,12 @@ def WriteSign(platform,lines,effect,speed):
 
 	time.sleep(6)
 
-
+# send simple text messages
 def WriteBadge(platform,lines,effect,speed):
 
-# send simple text messages
+	portname = SerialFind(platform)
 
-	print platform,lines,effect,speed
-
-	portname = serialfind()
-
-	'''
-	if platform == 'osx':
-		portname = '/dev/tty.usbserial'
-	else:
-		portname ='/dev/ttyUSB0'
-	'''
-
-	print portname
-	'''
-	badge = MiniSign(devicetype='sign',)
-	badge.queuemsg(data=line)
-	badge.sendqueue(device=portname)
-
-	time.sleep(6)
-	'''
-
+	# setup sign
 	mysign = MiniSign(
 	    devicetype='sign',
 	)
