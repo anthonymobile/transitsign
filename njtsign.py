@@ -7,7 +7,7 @@
 
 import urllib2, argparse, os, sys, datetime
 import xml.etree.ElementTree
-from signs import WriteSign, WriteBadge
+from signs import WritePlaintext, WriteFonts
 
 #----------------------------------------------------------------------
 # setup

@@ -5,31 +5,36 @@
 
 def serialfind():
 
-	import platform, os, re
+    import platform, os, re
 
-	# 1 figure out platform
-	platform_name = platform.system()
+    # 1 figure out platform
+    platform_name = platform.system()
 
-	if platform_name == 'Darwin':
-		
-		# look for a Repleo driver
-		dev_contents = os.listdir('/dev')
-		for line in dev_contents:
-	        if not "Repleo" in line:
-	           continue
-	        try:
-	            tty_handle = ('/dev/'+str(line))
-	        except IndexError:
-	            print 'IndexError, whatever that is'
+    if platform_name == 'Darwin':
+        
+        # look for a Repleo driver
+        dev_contents = os.listdir('/dev')
+        for line in dev_contents:
+            if not "Repleo" in line:
+               continue
+            try:
+                tty_handle = ('/dev/'+str(line))
+            except IndexError:
+                print 'IndexError, whatever that is'
 
-		# look for /dev/tty.usbserial in /dev
-	    if tty_handle not exists:
-			for line in dev_contents:
-				if 'tty.usbserial' in line:
-					tty_handle = '/dev/tty.usbserial'
+        # look for /dev/tty.usbserial in /dev
+
+        try:
+            tty_handle
+        except NameError:
+            for line in dev_contents:
+                if 'tty.usbserial' in line:
+                    tty_handle = '/dev/tty.usbserial'
+        else:
+            pass
 
 
-	elif platform_name == 'Linux':
-		tty_handle = '/dev/ttyUSB0'
+    elif platform_name == 'Linux':
+        tty_handle = '/dev/ttyUSB0'
 
-	return tty_handle
+    return tty_handle
