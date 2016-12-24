@@ -1,29 +1,35 @@
-# find the Repleo USB port
-# 
+# sets the USB serial port ttyhandle
+# default for linux is /dev/ttyUSB0
+# for OSX, search for a Repleo driver handle
+# otherwise default is /dev/tty.usbserial if it exists
 
-def SerialFind(platform):
+def serialfind():
 
-	from subprocess import call
+	import platform, os, re
 
-	if platform == 'osx':
-		searchstring = 'Repleo'
+	# 1 figure out platform
+	platform_name = platform.system()
 
-	dev = call('ls /dev')
+	if platform_name == 'Darwin':
+		
+		# look for a Repleo driver
+		dev_contents = os.listdir('/dev')
+		for line in dev_contents:
+	        if not "Repleo" in line:
+	           continue
+	        try:
+	            tty_handle = ('/dev/'+str(line))
+	        except IndexError:
+	            print 'IndexError, whatever that is'
 
-	# check if tty.usbserial exists (OSX)
+		# look for /dev/tty.usbserial in /dev
+	    if tty_handle not exists:
+			for line in dev_contents:
+				if 'tty.usbserial' in line:
+					tty_handle = '/dev/tty.usbserial'
 
-	for line in dev:
-		if (line == 'tty.usbserial'):
-			then tty = '/dev/tty.usbserial'
-		elif line == 'ttyUSB0':
-			then tty = '/dev/ttyUSB0'
 
-	# if neither then check Repleo
-	dev = call('ls /dev | grep %s') % searchstring
+	elif platform_name == 'Linux':
+		tty_handle = '/dev/ttyUSB0'
 
-	for line in dev:
-		if line[:3] = 'tty'
-		then tty_handle = ('/dev/'+str(line))
-
-	return tty
-
+	return tty_handle

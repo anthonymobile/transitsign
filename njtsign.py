@@ -24,7 +24,7 @@ parser.add_argument('-w', '--write', dest='write', action='store_true', help="Wr
 parser.add_argument('-s', '--stop', dest='stop_id', required=True, help='NJTransit bus stop number')
 # parser.add_argument('-r', '--route', dest='route_id_user', required=False, help='NJTransit bus route number')
 parser.add_argument('-d', '--display', dest='display_type', default='sign', choices=['sign','badge'], required=True, help='brightLEDsigns.com display type')
-parser.add_argument('-p', '--platform', dest='platform', choices=['osx','pi'], required=True, help='Platform type determines tty handle for USB serial')
+# parser.add_argument('-p', '--platform', dest='platform', choices=['osx','pi'], required=True, help='Platform type determines tty handle for USB serial')
 args = parser.parse_args()
 
 
@@ -103,10 +103,10 @@ speed=4
 try:
     if args.write == True:
         if args.display_type == 'sign':
-            WriteSign(args.platform,ogm,effect,speed)
+            WriteFonts(ogm,effect,speed)
 
         elif args.display_type == 'badge':
-            WriteBadge(args.platform,ogm,effect,speed)
+            WritePlaintext(ogm,effect,speed)
 
     else:
         print ('---OGM-----------------')

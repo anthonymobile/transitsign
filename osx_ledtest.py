@@ -1,7 +1,7 @@
-import serialfind
+from SerialFind import SerialFind
 from pyledsign.minisign import MiniSign
 
-portname = SerialFsind('osx')
+portname = SerialFind('osx')
 
 mysign = MiniSign(
     devicetype='sign',
