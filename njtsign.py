@@ -47,7 +47,7 @@ for atype in e.findall('pre'):
             if field.text is None:
                 fields[field.tag] = ''
                 continue
-            fields[field.tag] = field.text
+            fields[field.tag] = field.text.replace("&nbsp", "")
 
     arrivals.append(fields)
 
