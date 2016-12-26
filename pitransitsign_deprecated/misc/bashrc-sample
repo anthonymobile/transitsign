@@ -1,0 +1,7 @@
+# sample basrhc for transit pi
+
+alias ttop='top -o %CPU -d 10'
+alias pp='watch -d ps -C python2'
+alias follow='journalctl -f -u cronie.service'
+export VISUAL=nano
+export EDITOR=nano

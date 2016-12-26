@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 6.7.1 (453575)"/><meta name="keywords" content="pi_transitsign"/><meta name="altitude" content="6.685792922973633"/><meta name="author" content="Anthony Townsend"/><meta name="created" content="2016-07-09 21:26:40 +0000"/><meta name="latitude" content="40.7398564703013"/><meta name="longitude" content="-74.04119041695971"/><meta name="source" content="desktop.mac"/><meta name="updated" content="2016-08-01 17:45:25 +0000"/><title>Pi Zero/Pi B Transit Headless Setup</title></head><body>
+<div><b>10.</b></div>
+<div><b>Mount microSD card in USB adapter on 3.crabdance.com and run installer script</b></div>
+<div><br/></div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div><br/></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div style="background-color: rgb(235, 241, 245); border: 1px solid rgb(187, 204, 221); padding: 1em; overflow: auto; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+<div><span style="font-family: 'Courier New';">su</span></div>
+<div><span style="font-family: 'Courier New';">cd</span></div>
+<div><span style="font-family: 'Courier New';">cd rpi-arch-builder</span></div>
+<div><span style="font-family: 'Courier New';">./installer.sh</span></div>
+</div>
+</div>
+<div><br/></div>
+<div><br/></div>
+<div><b>20.</b></div>
+<div><b>install the microSD in a Pi and login as default user and change user and root passwords</b></div>
+<div><span style="font-family: 'Courier New';"><br/></span></div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div><br/></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div style="background-color: rgb(235, 241, 245); border: 1px solid rgb(187, 204, 221); padding: 1em; overflow: auto; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+<div><span style="font-family: 'Courier New';">ssh alarm@alarm</span></div>
+<div><span style="font-family: 'Courier New';">passwd</span></div>
+<div><span style="font-family: 'Courier New';">alarm</span></div>
+<div><i><span style="font-family: 'Courier New';">newpassword</span></i></div>
+<div><i><span style="font-family: 'Courier New';">newpassword</span></i></div>
+<div><span style="font-family: 'Courier New';">su</span></div>
+<div><span style="font-family: 'Courier New';">root</span></div>
+<div><span style="font-family: 'Courier New';">passwd</span></div>
+<div><i><span style="font-family: 'Courier New';">newpassword</span></i></div>
+<div><i><span style="font-family: 'Courier New';">newpassword</span></i></div>
+<div><br/></div>
+</div>
+</div>
+<div>
+<div>
+<div>
+<div>
+<div><span style="font-family: 'Courier New';"><br/></span></div>
+</div>
+</div>
+</div>
+</div>
+<div><br/></div>
+<div><b>30.</b></div>
+<div><b>configure mosh</b></div>
+<div><br/></div>
+<div>
+<div>
+<div style="font-family: monospace; color: rgb(34, 34, 34); background-color: rgb(235, 241, 245); border: 1px solid rgb(187, 204, 221); padding: 1em; overflow: auto; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+<div>timedatectl set-timezone <i>America/New_York</i></div>
+</div>
+</div>
+</div>
+<div><br/></div>
+<div><br/></div>
+<div>uncomment #en_US.UTF-8 locale in /etc/locale.gen</div>
+<div><br/></div>
+<div>
+<div style="background-color: rgb(235, 241, 245); border: 1px solid rgb(187, 204, 221); padding: 1em; overflow: auto; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+<div><span style="font-family: 'Courier New';">nano /etc/locale.gen</span></div>
+</div>
+</div>
+<div><br/></div>
+<div><br/></div>
+<div>generate locales and keys</div>
+<div><br/></div>
+<div>
+<div style="background-color: rgb(235, 241, 245); border: 1px solid rgb(187, 204, 221); padding: 1em; overflow: auto; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+<div>
+<div><span style="font-family: 'Courier New';">locale-gen</span></div>
+<div><span style="font-family: 'Courier New';">localectl set-locale LANG=en_US.UTF-8</span></div>
+<span style="font-family: 'Courier New';">pacman -Syu mosh</span>
+<div style="margin-left:40px;"><span style="font-family: 'Courier New';"><br/></span></div>
+<div><span style="font-family: 'Courier New';">exit (back to user account)</span></div>
+</div>
+<div><span style="font-family: 'Courier New';">ssh-keygen -q -N "" -t rsa</span></div>
+</div>
+</div>
+<div>
+<div><br/></div>
+</div>
+<div><br/></div>
+<div>logout and logback in </div>
+<div>
+<div><br/></div>
+</div>
+<div>
+<div style="background-color: rgb(235, 241, 245); border: 1px solid rgb(187, 204, 221); padding: 1em; overflow: auto; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+<div><span style="font-family: 'Courier New';">logout</span></div>
+<div><span style="font-family: 'Courier New';">mosh <a href="mailto:alarm@transitn.crabdance.com">alarm@transitn.crabdance.com</a></span></div>
+<div><span style="font-family: 'Courier New';">su</span></div>
+</div>
+</div>
+<div>
+<div>
+<div><br/></div>
+</div>
+</div>
+<div><br/></div>
+<div><b><span style="font-family: 'Courier New';">40.</span></b></div>
+<div><b>update and install needed software</b></div>
+<div><span style="font-size: 13px;"><span style="font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, sans-serif;"><span style="background-color: rgb(239, 240, 241);"><span style="color: rgb(36, 39, 41);"><br/></span></span></span></span></div>
+<div><br/></div>
+<div>
+<div style="background-color: rgb(235, 241, 245); border: 1px solid rgb(187, 204, 221); padding: 1em; overflow: auto; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+<div><span style="font-family: 'Courier New';">pacman -Syu sudo ddclient python2 python2-setuptools python2-numpy</span> <span style="font-family: 'Courier New';">python2-pyserial </span><span style="font-family: 'Courier New';">perl cronie base-devel cpanminus dosfstools wget git</span></div>
+<div><span style="color: rgb(34, 34, 34);"><span style="font-family: monospace;"><br/></span></span></div>
+</div>
+</div>
+<div>
+<div><span style="font-family: 'Courier New';"><br/></span></div>
+</div>
+<div><br/></div>
+<div>50.</div>
+<div><b>enable cron</b></div>
+<div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;"><br/></span></div>
+<div><br/></div>
+<div>
+<div style="background-color: rgb(235, 241, 245); border: 1px solid rgb(187, 204, 221); padding: 1em; overflow: auto; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+<div><span style="font-family: 'Courier New';">systemctl start cronie</span></div>
+<div><span style="font-family: 'Courier New';">systemctl enable cronie</span></div>
+</div>
+</div>
+<div><br/></div>
+<div><b>60.</b></div>
+<div><b>MiniLed driver setup (to be deprecated soon in favor of <i>pyledsign</i>)</b></div>
+<div>
+<div>
+<div>
+<div><br/></div>
+</div>
+</div>
+</div>
+<div>
+<div style="background-color: rgb(235, 241, 245); border: 1px solid rgb(187, 204, 221); padding: 1em; overflow: auto; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+<div><font face="Courier New">cpanm Device::SerialPort --verbose</font></div>
+<div><span style="font-family: 'Courier New';">cpanm Device::MiniLED</span></div>
+</div>
+</div>
+<div><span style="font-family: 'Courier New';"><br/></span></div>
+<div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;"><br/></span></div>
+<div><b>70.</b></div>
+<div><b>sync the pi transit repo</b></div>
+<div><br/></div>
+<div>NEED TO FIX FOR ANONYMOUS CLONING</div>
+<div>make another ssh key as root</div>
+<div>need to add SSH key for root to github profile</div>
+<div><b><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;"><br/></span></b></div>
+<div><br/></div>
+<div>
+<div style="background-color: rgb(235, 241, 245); border: 1px solid rgb(187, 204, 221); padding: 1em; overflow: auto; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+<div><span style="font-family: 'Courier New';">cd /root</span></div>
+<div><span style="font-family: 'Courier New';">git clone --recurse-submodules git@github.com:anthonymobile/pi_transitsign.git</span></div>
+<div><span style="font-family: 'Courier New';">cd pi_transitsign/pygtfs</span></div>
+<div><span style="font-family: 'Courier New';">python2 setup.py install</span></div>
+<div><span style="font-family: 'Courier New';">cd </span><span style="font-family: 'Courier New';">pi_transitsign/pyledsign</span></div>
+<div><span style="font-family: 'Courier New';">python2 setup.py install</span></div>
+<div><br/></div>
+</div>
+</div>
+<div>
+<div>
+<div>
+<div>
+<div><span style="font-family: 'Courier New';"><br/></span></div>
+</div>
+</div>
+</div>
+</div>
+<div><br/></div>
+<div><b>80.</b></div>
+<div><b>grab the latest root .bashrc</b></div>
+<div><span style="color: rgb(34, 34, 34);"><span style="font-family: monospace;"><br/></span></span></div>
+<div>
+<div style="font-family: monospace; color: rgb(34, 34, 34); background-color: rgb(235, 241, 245); border: 1px solid rgb(187, 204, 221); padding: 1em; overflow: auto; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+<div>cp ~/pi_transitsign/misc/bashrc-sample /root/.bashrc &amp;&amp; source ~/.bashrc</div>
+</div>
+</div>
+<div>
+<div><br/></div>
+</div>
+<div><br/></div>
+<div><b>90.</b></div>
+<div><b>optional (setup a tunnel back to a home monitoring server)</b></div>
+<div><br/></div>
+<div>assuming the home server is 3.crabdance.com</div>
+<div><br/></div>
+<div>increment the port numbers on both sides in /root/pi_transitsign/misc/check_ssh_tunnel.sh</div>
+<div><br/></div>
+<div>double check permissions</div>
+<div><span style="color: rgb(34, 34, 34);"><span style="font-family: monospace;"><br/></span></span></div>
+<div>
+<div style="font-family: monospace; color: rgb(34, 34, 34); background-color: rgb(235, 241, 245); border: 1px solid rgb(187, 204, 221); padding: 1em; overflow: auto; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+<div>chmod 700 /root/pi_transitsign/misc/check_ssh_tunnel.sh</div>
+</div>
+</div>
+<div><br/></div>
+<div>copy the ssh key to 3.crabdance.com</div>
+<div>
+<div><span style="color: rgb(34, 34, 34);"><span style="font-family: monospace;"><br/></span></span></div>
+</div>
+<div>
+<div style="font-family: monospace; color: rgb(34, 34, 34); background-color: rgb(235, 241, 245); border: 1px solid rgb(187, 204, 221); padding: 1em; overflow: auto; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+<div>cat ~/.ssh/id_rsa.pub | ssh tunnel@3.crabdance.com 'cat &gt;&gt; ~/.ssh/authorized_keys'</div>
+</div>
+</div>
+<div>
+<div>
+<div>
+<div><br/></div>
+</div>
+</div>
+</div>
+<div><br/></div>
+<div><b>100.</b></div>
+<div><b>setup the cron jobs</b></div>
+<div>
+<div><br/></div>
+</div>
+<div>
+<div style="font-family: monospace; color: rgb(34, 34, 34); background-color: rgb(235, 241, 245); border: 1px solid rgb(187, 204, 221); padding: 1em; overflow: auto; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+<div><br/></div>
+<div>export VISUAL=nano</div>
+<div>crontab -e</div>
+<div>* * * * * cd /root/pi_transitsign &amp;&amp; python2 transit.py -s1 rail 4 38441 1 -m schedule -x old -l 2 -p pi -w</div>
+<div>* * * * * /root/pi_transitsign/misc/check_ssh_tunnel.sh </div>
+<div><br/></div>
+</div>
+</div>
+<div><br/></div>
+<div><br/></div>
+<div><b>999.</b></div>
+<div><b>verify all is working</b></div>
+<div><br/></div>
+<div>test sign</div>
+<div>test tunnel</div>
+<div><br/></div>
+<div><br/></div>
+<div>
+<hr/></div>
+<div><br/></div>
+<div>
+<div><b><span style="font-size: 24px;"><span style="font-family: 'Courier New';">Parts List</span></span></b></div>
+<div><span style="font-family: 'Courier New';"><br/></span></div>
+<div><span style="font-family: 'Courier New';"><br/></span></div>
+<table style="-evernote-table:true;border-collapse:collapse;table-layout:fixed;margin-left:0px;width:100%;">
+<tr>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:50.0968992248062%;">
+<div>Pi Zero Version</div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:49.8062015503876%;">
+<div>Pi B Version</div>
+</td>
+</tr>
+<tr>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:50%;">
+<div>
+<div><span style="font-family: 'Courier New';">Pi Zero - $5</span></div>
+<div><span style="font-family: 'Courier New';">Case $5</span></div>
+<div><span style="font-family: 'Courier New';">WiFi $5 (only need for troubleshooting)</span></div>
+</div>
+<div><span style="font-family: 'Courier New';">LED badge $30)</span></div>
+<div><span style="font-family: 'Courier New';">AC adapter (can run off USB power)</span></div>
+<div><span style="font-family: 'Courier New';">8 gb mem card (i think it fits on a 2 gb or smaller)</span></div>
+</td>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:50%;">
+<div><span style="font-family: 'Courier New';">Pi B </span></div>
+<div><span style="font-family: 'Courier New';">Case </span></div>
+<div>
+<div><span style="font-family: 'Courier New';">WiFi $5 (only need for troubleshooting)</span></div>
+</div>
+<div><span style="font-family: 'Courier New';">LED badge $30)</span></div>
+<div><span style="font-family: 'Courier New';">AC adapter (</span><span style="font-family: 'Courier New';">1000mA</span><span style="font-family: 'Courier New';">)</span></div>
+<div><span style="font-family: 'Courier New';">8 gb mem card (i think it fits on a 2 gb or smaller)</span></div>
+</td>
+</tr>
+</table>
+<div><span style="font-family: 'Courier New';"><br/></span></div>
+<div><span style="font-family: 'Courier New';"><br/></span></div>
+</div>
+<div><br/></div>
+</body></html>
