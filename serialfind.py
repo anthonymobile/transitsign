@@ -37,4 +37,6 @@ def serialfind():
     elif platform_name == 'Linux':
         tty_handle = '/dev/ttyUSB0'
 
+    print('Writing LED using %s', tty_handle)
+
     return tty_handle

@@ -2,8 +2,8 @@
 # scapes and parses NJT MyBusNow API XML to brightLEDsigns.com display
 
 # test command 
-# python njbustime.py -s 21374 -d sign -p osx -w
-# python njbustime.py -s 21374 -d sign -p pi -w
+# python njtsign.py -s 21374 -d badge -w
+# python njtsign.py -s 21374 -d badge -w
 
 import urllib2, argparse, os, sys, datetime
 import xml.etree.ElementTree
