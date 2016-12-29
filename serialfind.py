@@ -23,7 +23,5 @@ def serialfind():
                 tty = ('/dev/'+str(line))
             elif 'tty.usbserial' in line:
                 tty = '/dev/tty.usbserial'
-    else:
-        tty='/dev/null'
 
     return tty
