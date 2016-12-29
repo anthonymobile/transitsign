@@ -33,6 +33,8 @@ def WritePlaintext(lines,effect,speed):
 	#   to it as well...
 	#
 	'''
+
+	print(portname)
 	mysign.sendqueue(
 	    device=portname
 	)
