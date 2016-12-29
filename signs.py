@@ -8,7 +8,7 @@ import serialfind
 # send text as characters
 def WritePlaintext(lines,effect,speed):
 
-	portname = serialfind()
+	portname = serialfind.serialfind()
 
 	# setup sign
 	mysign = MiniSign(
@@ -59,7 +59,7 @@ def WriteFonts(lines,effect,speed):
 	
 	# sign setup
 
-	portname = serialfind()
+	portname = serialfind.serialfind()
 	
 	sign = MiniSign(devicetype='sign', port=portname,)
 
