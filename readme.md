@@ -69,7 +69,7 @@ passwd
 
 40. Update Arch Linux and install required s/w
 
-'''sudo pacman -Syu sudo ddclient python2 python2-setuptools python2-numpy python2-pyserial perl cronie base-devel cpanminus dosfstools wget git'''
+'''sudo pacman -Syu sudo ddclient python2 python2-setuptools python2-numpy python2-pyserial perl cronie base-devel python2-pyserial dosfstools wget git'''
 
 
 45. mosh (OPTIONAL)

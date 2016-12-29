@@ -2,8 +2,12 @@
 # scapes and parses NJT MyBusNow API XML to brightLEDsigns.com display
 
 # test command 
-# python njtsign.py -s 21374 -d badge -w
-# python njtsign.py -s 21374 -d badge -w
+# sudo python njtsign.py -s 21374 -d badge -w
+# sudo python njtsign.py -s 21374 -d sign -w
+#
+# stops 20505 (harrison and paterson)
+# 20496 hoboken terminal 
+
 
 import urllib2, argparse, os, sys, datetime
 import xml.etree.ElementTree
@@ -33,7 +37,10 @@ args = parser.parse_args()
 #----------------------------------------------------------------------
 
 submit_url = arrivals_url % (route_id, args.stop_id, key)
-print ('fetching %s' % submit_url)
+
+# CONVERT TO LOGGING
+# print ('fetching %s' % submit_url)
+#
 
 data = urllib2.urlopen(submit_url).read()
 
@@ -71,7 +78,9 @@ if args.display_type == 'sign':
         insert_line = ogm_format % (dest_short, bus['pt'])
         lines.append(insert_line) 
         n +=1  
-    print ('Found %s buses arriving soon.' % n)
+    
+    # CONVERT TO LOGGING
+    # print ('Found %s buses arriving soon.' % n)
     ogm = lines[:2]
     effect = 'hold'
 
@@ -85,7 +94,8 @@ if args.display_type == 'badge':
         insert_line = ogm_format % (dest_short, bus['pt'])
         lines.append(insert_line) 
         n +=1  
-    print ('Found %s buses arriving soon.' % n)
+    # CONVERT TO LOGGING
+    # print ('Found %s buses arriving soon.' % n)
     ogm = lines[:2]
     effect = 'scroll'
 
@@ -109,12 +119,17 @@ try:
             WritePlaintext(ogm,effect,speed)
 
     else:
-        print ('---OGM-----------------')
-        print ogm
+        pass
+        '''
+        print ('---OGM TEST-----------------')
         print 'END:: Write (-w) flag not set, not sending to LED.'
+        print ogm
+        '''
 
 except:
-    print ('---OGM-----------------')
-    print ogm
+    '''
+    print ('---OGM ERROR-----------------')
     print 'Error writing to sign. Are you sure its connected? Really are you sure?'
-
+    print ogm
+    '''
+    pass
