@@ -17,7 +17,8 @@ def WritePlaintext(lines,effect,speed):
     )
     # queue up a text message
     mysign.queuemsg(
-        data=lines[0]
+        data=lines[0],
+        effect=effect
     )
     '''
     # queue up a second message

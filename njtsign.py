@@ -66,7 +66,10 @@ for atype in e.findall('pre'):
 
 ogm = []
 lines = []
-ogm_format = '%s %s min'
+
+# ogm_format = '%s %s min'
+# short for badge
+ogm_format = '%s %sm'
 
 # sign
 # show the final destination and arrival time for next 2 departures in the list, static
@@ -90,14 +93,15 @@ if args.display_type == 'badge':
     n = 0
     for bus in arrivals:
         # not truncating as it scrolls
-        dest_short = bus['fd'][:15]
+        # fix this for longer bus IDs - optimized for 87 route
+        dest_short = (bus['fd'][:2])
         insert_line = ogm_format % (dest_short, bus['pt'])
         lines.append(insert_line) 
         n +=1  
     # CONVERT TO LOGGING
     # print ('Found %s buses arriving soon.' % n)
     ogm = lines[:2]
-    effect = 'scroll'
+    effect = 'hold'
 
 # n.b. lines has all the arrivals from API response
 # in case we want to use on a bigger screen
