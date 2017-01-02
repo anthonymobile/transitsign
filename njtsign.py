@@ -42,7 +42,19 @@ submit_url = arrivals_url % (route_id, args.stop_id, key)
 # print ('fetching %s' % submit_url)
 #
 
-data = urllib2.urlopen(submit_url).read()
+try:
+    data = urllib2.urlopen(submit_url).read()
+except urllib2.HTTPError, e:
+    print 'The server couldn\'t fulfill the request.'
+    print 'Error code: ', e.code
+    sys.exit('Exiting.')
+except urllib2.URLError, e:
+    print 'We failed to reach a server. (internet down?)'
+    # print 'Reason: ', e.reason
+    sys.exit('Exiting.')
+else:
+    pass
+    # all is good
 
 arrivals = []
 
