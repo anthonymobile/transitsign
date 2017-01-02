@@ -50,7 +50,11 @@ except urllib2.HTTPError, e:
     sys.exit('Exiting.')
 except urllib2.URLError, e:
     print 'We failed to reach a server. (internet down?)'
+    ogm = []
+    ogm.append('offline')
+    WritePlaintext(ogm,'hold',3)
     # print 'Reason: ', e.reason
+
     sys.exit('Exiting.')
 else:
     pass
