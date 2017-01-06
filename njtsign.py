@@ -83,46 +83,28 @@ for atype in e.findall('pre'):
 ogm = []
 lines = []
 
-# ogm_format = '%s %s min'
-# short for badge
-ogm_format = '%s %sm'
-
-# sign
-# show the final destination and arrival time for next 2 departures in the list, static
+# for larger LED sign, show headsign, and prediction for next 2 arrivals
 if args.display_type == 'sign':
-    n = 0
+    ogm_format = '%s %s min'
     for bus in arrivals:
-        # truncate bus['fd'] here for screen size. may be too conservative
         dest_short = bus['fd'][:15]
+        if bus['pt'] = contains ';': # fix for response of APPROACHING e.g. 0 mins prediction
+            bus['pt'] = '!!'
         insert_line = ogm_format % (dest_short, bus['pt'])
         lines.append(insert_line) 
-        n +=1  
-    
-    # CONVERT TO LOGGING
-    # print ('Found %s buses arriving soon.' % n)
     ogm = lines[:2]
     effect = 'hold'
 
-#  badge
-# show the final destination and arrival time for next departures in the list,  scroll
+# for LED badge, show route number and integer for next arrival
 if args.display_type == 'badge':
-    n = 0
+    ogm_format = '%s %sm'
     for bus in arrivals:
-        # not truncating as it scrolls
-        # fix this for longer bus IDs - optimized for 87 route
-        dest_short = (bus['fd'][:2])
+        dest_short = (bus['rt'])
         insert_line = ogm_format % (dest_short, bus['pt'])
         lines.append(insert_line) 
-        n +=1  
-    # CONVERT TO LOGGING
-    # print ('Found %s buses arriving soon.' % n)
     ogm = lines[:2]
     effect = 'hold'
 
-# n.b. lines has all the arrivals from API response
-# in case we want to use on a bigger screen
-
-# other fields of interest: bus.rn <rn>128</rn> Route number
 
 #----------------------------------------------------------------------
 # send to LED
