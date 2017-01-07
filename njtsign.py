@@ -76,8 +76,6 @@ if args.display_type == 'sign':
     ogm_format = '%s %s min'
     for bus in arrivals:
         dest_short = bus['fd'][:15]
-        if ';' in bus['pt']: # fix for response of APPROACHING e.g. 0 mins prediction
-            bus['pt'] = '!!'
         insert_line = ogm_format % (dest_short, bus['pt'])
         lines.append(insert_line) 
     ogm = lines[:2]
@@ -87,7 +85,10 @@ if args.display_type == 'sign':
 if args.display_type == 'badge':
     ogm_format = '%s %s'
     for bus in arrivals:
-        dest_short = (bus['pt'])
+        print bus
+        dest_short = (bus['rd'])
+        if ';' in bus['pt']: # fix for response of APPROACHING e.g. 0 mins prediction
+            bus['pt'] = '!!'
         insert_line = ogm_format % (dest_short, bus['pt'])
         lines.append(insert_line) 
     ogm = lines[:2]
