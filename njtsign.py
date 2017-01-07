@@ -1,13 +1,6 @@
 # LED screen bus arrival display
 # scapes and parses NJT MyBusNow API XML to brightLEDsigns.com display
 
-# test command 
-# sudo python njtsign.py -s 21374 -d badge -w
-# sudo python njtsign.py -s 21374 -d sign -w
-#
-# stops 20505 (harrison and paterson)
-# 20496 hoboken terminal 
-
 
 import urllib2, argparse, os, sys, datetime
 import xml.etree.ElementTree
@@ -28,7 +21,6 @@ parser.add_argument('-w', '--write', dest='write', action='store_true', help="Wr
 parser.add_argument('-s', '--stop', dest='stop_id', required=True, help='NJTransit bus stop number')
 # parser.add_argument('-r', '--route', dest='route_id_user', required=False, help='NJTransit bus route number')
 parser.add_argument('-d', '--display', dest='display_type', default='sign', choices=['sign','badge'], required=True, help='brightLEDsigns.com display type')
-# parser.add_argument('-p', '--platform', dest='platform', choices=['osx','pi'], required=True, help='Platform type determines tty handle for USB serial')
 args = parser.parse_args()
 
 
@@ -37,10 +29,6 @@ args = parser.parse_args()
 #----------------------------------------------------------------------
 
 submit_url = arrivals_url % (route_id, args.stop_id, key)
-
-# CONVERT TO LOGGING
-# print ('fetching %s' % submit_url)
-#
 
 try:
     data = urllib2.urlopen(submit_url).read()
@@ -122,16 +110,12 @@ try:
 
     else:
         pass
-        '''
         print ('---OGM TEST-----------------')
         print 'END:: Write (-w) flag not set, not sending to LED.'
         print ogm
-        '''
 
 except:
-    '''
     print ('---OGM ERROR-----------------')
     print 'Error writing to sign. Are you sure its connected? Really are you sure?'
     print ogm
-    '''
     pass
