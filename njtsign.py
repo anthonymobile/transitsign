@@ -1,13 +1,6 @@
 # LED screen bus arrival display
 # scapes and parses NJT MyBusNow API XML to brightLEDsigns.com display
 
-# test command 
-# sudo python njtsign.py -s 21374 -d badge -w
-# sudo python njtsign.py -s 21374 -d sign -w
-#
-# stops 20505 (harrison and paterson)
-# 20496 hoboken terminal 
-
 
 import urllib2, argparse, os, sys, datetime
 import xml.etree.ElementTree
@@ -28,7 +21,6 @@ parser.add_argument('-w', '--write', dest='write', action='store_true', help="Wr
 parser.add_argument('-s', '--stop', dest='stop_id', required=True, help='NJTransit bus stop number')
 # parser.add_argument('-r', '--route', dest='route_id_user', required=False, help='NJTransit bus route number')
 parser.add_argument('-d', '--display', dest='display_type', default='sign', choices=['sign','badge'], required=True, help='brightLEDsigns.com display type')
-# parser.add_argument('-p', '--platform', dest='platform', choices=['osx','pi'], required=True, help='Platform type determines tty handle for USB serial')
 args = parser.parse_args()
 
 
@@ -37,10 +29,6 @@ args = parser.parse_args()
 #----------------------------------------------------------------------
 
 submit_url = arrivals_url % (route_id, args.stop_id, key)
-
-# CONVERT TO LOGGING
-# print ('fetching %s' % submit_url)
-#
 
 try:
     data = urllib2.urlopen(submit_url).read()
@@ -83,46 +71,29 @@ for atype in e.findall('pre'):
 ogm = []
 lines = []
 
-# ogm_format = '%s %s min'
-# short for badge
-ogm_format = '%s %sm'
-
-# sign
-# show the final destination and arrival time for next 2 departures in the list, static
+# for larger LED sign, show headsign, and prediction for next 2 arrivals
 if args.display_type == 'sign':
-    n = 0
+    ogm_format = '%s %s min'
     for bus in arrivals:
-        # truncate bus['fd'] here for screen size. may be too conservative
         dest_short = bus['fd'][:15]
         insert_line = ogm_format % (dest_short, bus['pt'])
         lines.append(insert_line) 
-        n +=1  
-    
-    # CONVERT TO LOGGING
-    # print ('Found %s buses arriving soon.' % n)
     ogm = lines[:2]
     effect = 'hold'
 
-#  badge
-# show the final destination and arrival time for next departures in the list,  scroll
+# for LED badge, show route number and integer for next arrival
 if args.display_type == 'badge':
-    n = 0
+    ogm_format = '%s %s'
     for bus in arrivals:
-        # not truncating as it scrolls
-        # fix this for longer bus IDs - optimized for 87 route
-        dest_short = (bus['fd'][:2])
+        print bus
+        dest_short = (bus['rd'])
+        if ';' in bus['pt']: # fix for response of APPROACHING e.g. 0 mins prediction
+            bus['pt'] = '!!'
         insert_line = ogm_format % (dest_short, bus['pt'])
         lines.append(insert_line) 
-        n +=1  
-    # CONVERT TO LOGGING
-    # print ('Found %s buses arriving soon.' % n)
     ogm = lines[:2]
     effect = 'hold'
 
-# n.b. lines has all the arrivals from API response
-# in case we want to use on a bigger screen
-
-# other fields of interest: bus.rn <rn>128</rn> Route number
 
 #----------------------------------------------------------------------
 # send to LED
@@ -140,16 +111,12 @@ try:
 
     else:
         pass
-        '''
         print ('---OGM TEST-----------------')
         print 'END:: Write (-w) flag not set, not sending to LED.'
         print ogm
-        '''
 
 except:
-    '''
     print ('---OGM ERROR-----------------')
     print 'Error writing to sign. Are you sure its connected? Really are you sure?'
     print ogm
-    '''
     pass
