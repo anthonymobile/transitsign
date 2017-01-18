@@ -77,6 +77,8 @@ if args.display_type == 'sign':
     for bus in arrivals:
         print bus
         dest_short = bus['fd'][:10]
+        if ';' in bus['pt']: # fix for response of APPROACHING e.g. 0 mins prediction
+            bus['pt'] = '0!'
         insert_line = ogm_format % (dest_short, bus['pt'])
         lines.append(insert_line) 
     ogm = lines[:2]

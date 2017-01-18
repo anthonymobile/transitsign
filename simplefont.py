@@ -97,6 +97,7 @@ class SimpleFont:
         for row in result:
             new_result.append(row.tolist())
 
+        '''
         # Center the row
         for i, row in enumerate(new_result):
             # Check how much we should *remove* from right
@@ -110,6 +111,7 @@ class SimpleFont:
                 sliced_row = row[:slice_l]
                 expanded_row = [0] * int(math.fabs(slice_l)) + sliced_row
                 new_result[i] = expanded_row
+        '''
 
         return new_result
 #-------------------------------------------------------------------------------
