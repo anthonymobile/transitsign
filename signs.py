@@ -2,7 +2,7 @@
 
 from pyledsign.minisign import MiniSign
 from simplefont import sign_font
-import serialfind
+import serialfind, os, time
 
 
 # send first line as characters
@@ -64,15 +64,17 @@ def WriteFonts(lines,effect,speed):
 
     # font setup
     pwd = os.path.dirname(os.path.realpath(__file__))
-    new_glyphs_path = '/'.join([pwd,'glyphs'])
+    new_glyphs_path = '/'.join([pwd,'fonts'])
+    font = sign_font(new_glyphs_path)
     
     # sign setup
 
     portname = serialfind.serialfind()
     
-    sign = MiniSign(devicetype='sign', port=portname,)
-
-    font = sign_font(new_glyphs_path)
+    # setup sign
+    mysign = MiniSign(
+        devicetype='sign',
+    )
 
     # sign screen_height hardcoded for now, better if it can be pulled from 
     # the MiniSign class instance 'sign'
@@ -87,9 +89,9 @@ def WriteFonts(lines,effect,speed):
         return False
     
     text_for_sign = Array().zero_one(matrix)
-    typeset=sign.queuepix(height=len(matrix), width =len(matrix[0]), data  = text_for_sign);
-    sign.queuemsg(data="%s" % typeset, effect=effect);
-    sign.sendqueue(device=portname)
+    typeset=mysign.queuepix(height=len(matrix), width =len(matrix[0]), data  = text_for_sign);
+    mysign.queuemsg(data="%s" % typeset, effect=effect);
+    mysign.sendqueue(device=portname)
 
     time.sleep(6)
 

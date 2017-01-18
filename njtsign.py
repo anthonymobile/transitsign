@@ -75,10 +75,12 @@ lines = []
 if args.display_type == 'sign':
     ogm_format = '%s %s min'
     for bus in arrivals:
+        print bus
         dest_short = bus['fd'][:15]
         insert_line = ogm_format % (dest_short, bus['pt'])
         lines.append(insert_line) 
     ogm = lines[:2]
+    print ogm
     effect = 'hold'
 
 # for LED badge, show route number and integer for next arrival
@@ -92,6 +94,7 @@ if args.display_type == 'badge':
         insert_line = ogm_format % (dest_short, bus['pt'])
         lines.append(insert_line) 
     ogm = lines[:2]
+    print ogm
     effect = 'hold'
 
 
