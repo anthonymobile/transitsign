@@ -71,12 +71,31 @@ for atype in e.findall('pre'):
 ogm = []
 lines = []
 
+
+#
+# CLEAN UP HEADSIGN TEXT
+#
+lookup={
+        'HOBOKEN TERMINAL':'Hoboken',
+        'NEW YORK':'New York City'
+        }
+
+for bus in arrivals:
+    for key in lookup:
+        print 'bus_fd old %s', bus['fd']
+        print 'search key %s', key
+        if bus['fd'].find(key) != -1:
+            bus['fd'] = lookup[key]
+        print 'bus_fd new %s', bus['fd']
+        print '-------------------'
+
+
 # for larger LED sign, show headsign, and prediction for next 2 arrivals
 if args.display_type == 'sign':
     ogm_format = '%s %s min'
     for bus in arrivals:
         print bus
-        dest_short = bus['fd'][:10]
+        dest_short = bus['fd'][:13].title()
         if ';' in bus['pt']: # fix for response of APPROACHING e.g. 0 mins prediction
             bus['pt'] = '0!'
         insert_line = ogm_format % (dest_short, bus['pt'])
@@ -90,7 +109,7 @@ if args.display_type == 'badge':
     ogm_format = '%s %s'
     for bus in arrivals:
         print bus
-        dest_short = (bus['rd'])
+        dest_short = (bus['rd']).title()
         if ';' in bus['pt']: # fix for response of APPROACHING e.g. 0 mins prediction
             bus['pt'] = '!!'
         insert_line = ogm_format % (dest_short, bus['pt'])
