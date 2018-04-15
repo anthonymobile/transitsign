@@ -18,8 +18,10 @@ optional arguments:
 
 ## Dependencies
 
-**pyledsign**
+**pyserial**
+'''sudo apt-get install python-serial'''
 
+**pyledsign**
 '''
 git clone git@github.com:BrightLedSigns/pyledsign.git
 cd pyledsign; python setup.py install
