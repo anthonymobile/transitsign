@@ -1,7 +1,7 @@
 import serialfind
 from pyledsign.minisign import MiniSign
 
-portname = serialfind.serialfind()
+portname = '/dev/ttyUSB0'
 
 print portname
 

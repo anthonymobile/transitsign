@@ -1,27 +1,31 @@
 # LED screen bus arrival display
 # scapes and parses NJT MyBusNow API XML to brightLEDsigns.com display
 
-import urllib2, argparse, os, sys, datetime
+import urllib2, argparse, os, sys
+from datetime import datetime   
 import xml.etree.ElementTree
-from signs import WritePlaintext, WriteFonts
+from sign_handler import WritePlaintext, WriteFonts
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-w', '--write', dest='write', action='store_true', help="Write the outgoing message (OGM) to the LED screen")
 parser.add_argument('-s', '--stop', dest='stop_id', required=True, help='NJTransit bus stop number')
-# parser.add_argument('-r', '--route', dest='route_id_user', required=False, help='NJTransit bus route number')
-parser.add_argument('-d', '--display', dest='display_type', default='sign', choices=['sign','badge'], required=True, help='brightLEDsigns.com display type')
+parser.add_argument('-r', '--route', dest='route_id', required=False, help="NJTransit bus route number (if omitted=ALL)")
+# parser.add_argument('-d', '--display', dest='display_type', default='sign', choices=['sign','badge'], required=True, help='brightLEDsigns.com display type')
 args = parser.parse_args()
-
 
 # fetching and parsing data
 # right now shows all buses for a single stop
+# direction is implicit
 
-route_id='all'
-now  = datetime.datetime.now() 
+route_id = 'all'
+if args.route_id > 0:
+    route_id = args.route_id
+now  = datetime.now() 
 api_key = '0.3003391435305782'
 arrivals_url = 'http://mybusnow.njtransit.com/bustime/eta/getStopPredictionsETA.jsp?route=%s&stop=%s&key=%s'
-submit_url = arrivals_url % (args.stop_id,api_key)
-api_key = '0.3003391435305782'
+submit_url = arrivals_url % (route_id,args.stop_id,api_key)
+print submit_url
 
 try:
     data = urllib2.urlopen(submit_url).read()
@@ -40,7 +44,6 @@ except urllib2.URLError, e:
 else:
     pass
 
-
 arrivals = []
 
 e = xml.etree.ElementTree.fromstring(data)
@@ -56,103 +59,35 @@ for atype in e.findall('pre'):
     arrivals.append(fields)
 
 
-# format outgoing message
+# format outgoing message (big sign only)
 #
 # 8:28am Wesbter & Congress
 # 119 3m 6m 19m 85 24m
 #
 
-
-
-
-'''
-#
-# CLEAN UP HEADSIGN TEXT
-#
-lookup={
-        'HOBOKEN TERMINAL':'Hoboken',
-        'NEW YORK':'New York City'
-        }
-
-for bus in arrivals:
-    for key in lookup:
-        print 'bus_fd old %s', bus['fd']
-        print 'search key %s', key
-        if bus['fd'].find(key) != -1:
-            bus['fd'] = lookup[key]
-        print 'bus_fd new %s', bus['fd']
-        print '-------------------'
-'''
-
-
-
-'''
-# ORIGINAL MORE COMPLEX CODE
-# for larger LED sign, show route number, and prediction for next 2 arrivals
-ogm = []
-lines = []
-if args.display_type == 'sign':
-    ogm_format = '%s min %s min'
-    for bus in arrivals:
-        print bus
-        dest_short = bus['rd'][:13].title()
-        if ';' in bus['pt']: # fix for response of APPROACHING e.g. 0 mins prediction
-            bus['pt'] = '0!'
-        insert_line = ogm_format % (dest_short, bus['pt'])
-        lines.append(insert_line) 
-    ogm = lines[:2]
-    print ogm
-    effect = 'hold'
-'''
-
-#SIMPLER CODE, FOR BIG SIGN, JUST ALL BUSES FOR A STOP, SIMPLE OUTPUT OF ROUTE # and PREDICTION
 line2 = ''
 bus_format = '#%s %s min '
 for bus in arrivals:
     print bus
     if ';' in bus['pt']: # fix for response of APPROACHING e.g. 0 mins prediction
         bus['pt'] = '0!'
-    bus_entry = ogm_format % (bus['rd'], bus['pt'])
+    bus_entry = bus_format % (bus['rd'], bus['pt'])
     line2 = line2 + bus_entry
 ogm = []
 lines = []
-line1 = (datetime.now().strftime('%I:%M %p'))+'  Congress St & Webster Av'
+line1 = (datetime.now().strftime('%I:%M %p')) + '  Congress St & Webster Av'
 lines.append(line1)
 lines.append(line2)
 ogm = lines[:2]
 print ogm
 effect = 'hold'
-
-
-'''
-# for LED badge, show route number and integer for next arrival
-if args.display_type == 'badge':
-    ogm_format = '%s %s'
-    for bus in arrivals:
-        print bus
-        dest_short = (bus['rd']).title()
-        if ';' in bus['pt']: # fix for response of APPROACHING e.g. 0 mins prediction
-            bus['pt'] = '!!'
-        insert_line = ogm_format % (dest_short, bus['pt'])
-        lines.append(insert_line) 
-    ogm = lines[:2]
-    print ogm
-    effect = 'hold'
-'''
-
+speed=4
 
 # send to LED
 
-
-speed=4
-
 try:
-    if args.write == True:
-        if args.display_type == 'sign':
-            WriteFonts(ogm,effect,speed)
-
-        elif args.display_type == 'badge':
-            WritePlaintext(ogm,effect,speed)
+    if args.write == True:        
+        WriteFonts(ogm,effect,speed)
 
     else:
         pass
