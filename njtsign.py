@@ -79,7 +79,6 @@ line1 = (datetime.now().strftime('%I:%M %p')) + '  Congress St & Webster Av'
 lines.append(line1)
 lines.append(line2)
 ogm = lines[:2]
-print ogm
 effect = 'hold'
 speed=4
 
@@ -88,6 +87,9 @@ speed=4
 try:
     if args.write == True:        
         WriteFonts(ogm,effect,speed)
+        print 'i tried WriteFonts with'
+        print ogm
+        print 'Did it display?'
 
     else:
         pass
