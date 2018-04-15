@@ -2,14 +2,14 @@
 
 from pyledsign.minisign import MiniSign
 from simplefont import sign_font
-import serialfind, os, time
+import os, time
 
 
 # send first line as characters
 
 def WritePlaintext(lines,effect,speed):
 
-    portname = serialfind.serialfind()
+    portname = '/dev/ttyUSB0'
 
     # setup sign
     mysign = MiniSign(
