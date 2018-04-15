@@ -23,9 +23,7 @@ def WriteFonts(lines,effect,speed):
     
     # sign setup
     portname = '/dev/ttyUSB0'
-    mysign = MiniSign(
-        devicetype='sign',
-    )
+    mysign = MiniSign(devicetype='sign',)
 
     # sign screen_height hardcoded for now, better if it can be pulled from 
     # the MiniSign class instance 'sign'
@@ -39,51 +37,25 @@ def WriteFonts(lines,effect,speed):
     typeset=mysign.queuepix(height=len(matrix), width =len(matrix[0]), data  = text_for_sign);
     
     # send to sign
-    mysign.queuemsg(data="%s" % typeset, effect=effect);
+    mysign.queuemsg(data="%s" % typeset, effect=effect)
     mysign.sendqueue(device=portname)
     time.sleep(6)
 
 
 # LED DISPLAY 1 LINE AS PLAIN TEXT
-def WritePlaintext(lines,effect,speed):
+def WriteText(lines,effect,speed):
 
     portname = '/dev/ttyUSB0'
 
     # setup sign
-    mysign = MiniSign(
-        devicetype='sign',
-    )
+    mysign = MiniSign(devicetype='sign',)
     # queue up a text message
-    mysign.queuemsg(
-        data=lines[0],
-        effect=effect
-    )
-    '''
+    mysign.queuemsg(data=lines[0],effect=effect)
+
     # queue up a second message
     #   - using the optional effect parameter.
     #     if not supplied, defaults to 'scroll'
-    mysign.queuemsg(
-        data='MSG 2',
-    )
-    #
-    # send the message to the sign via the serial port
-    #   note that the sendqueue() method does not empty
-    #   the buffer, so if we have a second sign, on a 
-    #   different serial port, we can send everything
-    #   to it as well...
-    #
-    '''
-
-    # CONVERT TO LOGGING
-    # print(portname)
-    mysign.sendqueue(
-        device=portname
-    )
-
-    # CONVERT TO LOGGING
-    # print ('---OGM SENT-----------------')
-    # print lines[0]
-
-
-
-
+    mysign.queuemsg(data=lines[1], effect=effect)
+    mysign.sendqueue(device=portname)
+    time.sleep(6)
+    

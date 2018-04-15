@@ -4,7 +4,7 @@
 import urllib2, argparse, os, sys
 from datetime import datetime   
 import xml.etree.ElementTree
-from sign_handler import WritePlaintext, WriteFonts
+from sign_handler import WriteText, WriteFonts
 
 
 parser = argparse.ArgumentParser()
@@ -75,7 +75,7 @@ for bus in arrivals:
     line2 = line2 + bus_entry
 ogm = []
 lines = []
-line1 = (datetime.now().strftime('%I:%M %p')) + '  Congress St & Webster Av'
+line1 = (datetime.now().strftime('%I:%M %p')) + '  NJTransit Buses'
 lines.append(line1)
 lines.append(line2)
 ogm = lines[:2]
@@ -85,11 +85,20 @@ speed=4
 # send to LED
 
 try:
-    if args.write == True:        
+    '''if args.write == True:        
         WriteFonts(ogm,effect,speed)
         print 'i tried WriteFonts with'
         print ogm
         print 'Did it display?'
+    '''
+
+    if args.write == True:        
+        effect = 'scroll'
+        WriteText(ogm,effect,speed)
+        print 'i tried WriteText with'
+        print ogm
+        print 'Did it display?'
+    
 
     else:
         pass
