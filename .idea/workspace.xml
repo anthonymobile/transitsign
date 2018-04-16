@@ -2,6 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94324e56-f025-40dc-94e7-5f9fb684e14c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deprecated/Pi Zero Pi B Transit Headless Setup.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/doc/GTFS entities — pygtfs 0.1.2 documentation.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/doc/General Transit Feed Specification Reference  |  Static Transit  |  Google Developers.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/doc/The schedule module — pygtfs 0.1.2 documentation.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/doc/pitransitsign-archtiecture.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/doc/transit_pi_headless_installation.html/Pi Zero_Pi B Transit Headless Setup.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/glyphs/7x7.simpleglyphs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/glyphs/amends.simpleglyphs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/glyphs/specific.simpleglyphs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/misc/bashrc-sample" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/misc/create_ssh_tunnel.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/simplefont.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/transit.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/transit_functions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/weather.py" beforeDir="false" afterPath="$PROJECT_DIR$/weather.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_ledsign.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_ledsign.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,8 +34,8 @@
       <file leaf-file-name="test_ledsign.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test_ledsign.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="100" column="21" lean-forward="true" selection-start-line="100" selection-start-column="21" selection-end-line="101" selection-end-column="21" />
+            <state relative-caret-position="396">
+              <caret line="125" lean-forward="true" selection-start-line="125" selection-end-line="125" />
             </state>
           </provider>
         </entry>
@@ -50,6 +68,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -62,29 +81,20 @@
               <item name="njtsign" type="47feb1d3:ProjectViewModuleNode" />
               <item name="njtsign" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="njtsign" type="b2602c69:ProjectViewProjectNode" />
-              <item name="njtsign" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="njtsign" type="462c0819:PsiDirectoryNode" />
-              <item name="deprecated" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="njtsign" type="b2602c69:ProjectViewProjectNode" />
-              <item name="njtsign" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="njtsign" type="462c0819:PsiDirectoryNode" />
-              <item name="deprecated" type="462c0819:PsiDirectoryNode" />
-              <item name="pitransitsign_deprecated" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -137,10 +147,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1366" height="745" extended-state="6" />
+    <frame x="0" y="23" width="1366" height="745" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
@@ -165,13 +175,24 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/test_ledsign.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_ledsign.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1500">
+          <caret line="100" column="21" lean-forward="true" selection-start-line="100" selection-start-column="21" selection-end-line="101" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_ledsign.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../pyledsign/pyledsign/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../pyledsign/pyledsign/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -180,20 +201,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simplefont.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deprecated/pitransitsign_deprecated/transit_functions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="144" selection-start-line="144" selection-end-line="144" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/deprecated/pitransitsign_deprecated/transit_functions.py" />
     <entry file="file://$PROJECT_DIR$/test_ledsign.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="100" column="21" lean-forward="true" selection-start-line="100" selection-start-column="21" selection-end-line="101" selection-end-column="21" />
+        <state relative-caret-position="396">
+          <caret line="125" lean-forward="true" selection-start-line="125" selection-end-line="125" />
         </state>
       </provider>
     </entry>

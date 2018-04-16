@@ -3,25 +3,21 @@ from pyledsign.minisign import MiniSign
 portname = '/dev/ttyUSB0'
 print portname
 
-'''
+
 # TEST 1 - PLAIN TEXT
 
-mysign = MiniSign(
-    devicetype='sign',port=portname,
-)
-# queue up a text message
-print 'testing TEXT mode output'
+mysign = MiniSign(devicetype='sign',port=portname,)
+# queue up a text message (the weather -- see https://pyowm.readthedocs.io/en/latest/)
+from weather import get_weather
 
-mysign.queuemsg(
-    data='Hello World'
-)
+forecast = get_weather('07307')
+print 'The forecast for JC Heights is %s' % forecast 
+
+mysign.queuemsg(data='Hello World')
 # queue up a second message
 #   - using the optional effect parameter.
 #     if not supplied, defaults to 'scroll'
-mysign.queuemsg(
-    data='MSG 2',
-    effect='snow'
-)
+mysign.queuemsg(data='Is it snowing yet?',effect='snow')
 #
 # send the message to the sign via the serial port
 #   note that the sendqueue() method does not empty
@@ -29,11 +25,9 @@ mysign.queuemsg(
 #   different serial port, we can send everything
 #   to it as well...
 #
-mysign.sendqueue(
-    device=portname
-)
+mysign.sendqueue(device=portname)
 print 'done TEXT mode test'
-'''
+
 
 
 # TEST 2 - RENDERED FONT SMALL
@@ -107,8 +101,14 @@ font = sign_font(new_glyphs_path)
 mysign = MiniSign(devicetype='sign',)
 portname = '/dev/ttyUSB0'
 
+'''IS THIS STUFF FROM THE ORIGINAL PERL SIGN APP?
+
 # prepare content receptacle
 matrix = font.render_multiline(lines, 8,{"ignore_shift_h" : True, "fixed_width" : 96})
+
+    if not matrix:
+        return False
+
 class Array:
     def zero_one(self, data):
         zero_oned = ""
@@ -117,12 +117,12 @@ class Array:
             zero_oned += joined_row
         return zero_oned
 
-if not matrix:
-    return False
+
 
 # typeset the OGM
 text_for_sign = Array().zero_one(matrix)
 typeset=mysign.queuepix(height=len(matrix), width =len(matrix[0]), data  = text_for_sign);
+'''
 
 # send to sign
 mysign.queuemsg(data="%s" % typeset, effect=effect)
