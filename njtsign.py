@@ -76,7 +76,7 @@ for bus in arrivals:
     line2 = line2 + bus_entry
 ogm = []
 lines = []
-line1 = (datetime.now().strftime('%I:%M %p')) + '  Next bus...'
+line1 = (datetime.now().strftime('%-I:%M%P')) + '  Next bus...'
 lines.append(line1)
 lines.append(line2)
 ogm = lines[:2]
