@@ -68,9 +68,8 @@ Enable cron
 sudo systemctl enable cronie'''
 
 
-5. TK Setup the cron jobs
+5. TK Setup
 
-'''
-export VISUAL=nano
-crontab -e
-'''
+* * * * * cd /home/pi/njtsign && python2 njtsign.py -s 30189 -r 119 -w
+
+

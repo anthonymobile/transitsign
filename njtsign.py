@@ -75,12 +75,12 @@ for bus in arrivals:
     line2 = line2 + bus_entry
 ogm = []
 lines = []
-line1 = (datetime.now().strftime('%I:%M %p')) + '  NJTransit Buses'
+line1 = (datetime.now().strftime('%I:%M %p')) + '  Next bus...'
 lines.append(line1)
 lines.append(line2)
 ogm = lines[:2]
 effect = 'hold'
-speed=4
+speed=5
 
 # send to LED
 
