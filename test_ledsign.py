@@ -1,12 +1,13 @@
 from pyledsign.minisign import MiniSign
 
 portname = '/dev/ttyUSB0'
-
 print portname
 
-from pyledsign.minisign import MiniSign
+'''
+# TEST 1 - PLAIN TEXT
+
 mysign = MiniSign(
-    devicetype='sign',
+    devicetype='sign',port=portname,
 )
 # queue up a text message
 print 'testing TEXT mode output'
@@ -32,20 +33,16 @@ mysign.sendqueue(
     device=portname
 )
 print 'done TEXT mode test'
+'''
 
 
+# TEST 2 - RENDERED FONT SMALL
+# the test from the docs
 
-
-# queue up a rendered font
 print 'testing FONT mode output'
 
-# LED DISPLAY the test from the docs
-
 from pyledsign.minisign import MiniSign
-mysign = MiniSign(
-    devicetype='sign',
-    port='/dev/ttyUSB0',
-)
+mysign = MiniSign(devicetype='sign',)
 # make a 5x5 pixel outlined box 
 # height max is 256
 pic=mysign.queuepix(
@@ -58,26 +55,19 @@ pic=mysign.queuepix(
         "10001" \
         "11111"
 );
+
+mysign.queuemsg(data="a 5 pixel box: %s" % pic);
+mysign.sendqueue(device=portname)
+
+
+# TEST 3 - RENDERED FONT FULL SCREEN
 # now use that in a message
-mysign.queuemsg(
-    data="a 5 pixel box: %s" % pic
-);
-mysign.sendqueue(
-    device='/dev/ttyUSB0'
-)
-
-
 # random 16 by 96 box of pixels (the sign's dimensions)
 
-# LED DISPLAY the test from the docs
-
-from pyledsign.minisign import MiniSign
-mysign = MiniSign(
-    devicetype='sign',
-    port='/dev/ttyUSB0',
-)
+mysign = MiniSign(devicetype='sign',)
 # make a 16 by 96 pixel outlined box 
 # height max is 256
+
 pic=mysign.queuepix(
       height=16,
       width =96,
@@ -100,18 +90,25 @@ pic=mysign.queuepix(
         "111111111100111111111100111111111100111111111100111111111100111111111100111111111100111111111100"
 );
 # now use that in a message
-mysign.queuemsg(
-    data="%s" % pic
-);
-mysign.sendqueue(
-    device='/dev/ttyUSB0'
-)
+mysign.queuemsg(data="%s" % pic);
+mysign.sendqueue(device=portname)
 
-'''
+
 # try to render something with fonts library
-# max width of the image is 256 pixels (sign only is 16 pixels high by 96 pixels wide)
+#
 
-# need later to format the ogm
+# font setup
+from simplefont import sign_font
+pwd = os.path.dirname(os.path.realpath(__file__))
+new_glyphs_path = '/'.join([pwd,'fonts'])
+font = sign_font(new_glyphs_path)
+
+# sign setup -- sign only is 16 pixels high by 96 pixels wide
+mysign = MiniSign(devicetype='sign',)
+portname = '/dev/ttyUSB0'
+
+# prepare content receptacle
+matrix = font.render_multiline(lines, 8,{"ignore_shift_h" : True, "fixed_width" : 96})
 class Array:
     def zero_one(self, data):
         zero_oned = ""
@@ -120,23 +117,10 @@ class Array:
             zero_oned += joined_row
         return zero_oned
 
-# font setup
-pwd = os.path.dirname(os.path.realpath(__file__))
-new_glyphs_path = '/'.join([pwd,'fonts'])
-font = sign_font(new_glyphs_path)
-
-# sign setup
-portname = '/dev/ttyUSB0'
-mysign = MiniSign(devicetype='sign',)
-
-# sign screen_height hardcoded for now, better if it can be pulled from 
-# the MiniSign class instance 'sign'
-matrix = font.render_multiline(lines, 16 / 2,{"ignore_shift_h" : True, "fixed_width" : 96})
 if not matrix:
     return False
 
-# typeset the OGM as an image
-# pyledsign may not accept images this big -- may need to break it up
+# typeset the OGM
 text_for_sign = Array().zero_one(matrix)
 typeset=mysign.queuepix(height=len(matrix), width =len(matrix[0]), data  = text_for_sign);
 
@@ -144,7 +128,7 @@ typeset=mysign.queuepix(height=len(matrix), width =len(matrix[0]), data  = text_
 mysign.queuemsg(data="%s" % typeset, effect=effect)
 mysign.sendqueue(device=portname)
 time.sleep(6)
-'''
+
 
 print 'done FONT mode test'
 
