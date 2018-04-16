@@ -11,6 +11,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-w', '--write', dest='write', action='store_true', help="Write the outgoing message (OGM) to the LED screen")
 parser.add_argument('-s', '--stop', dest='stop_id', required=True, help='NJTransit bus stop number')
 parser.add_argument('-r', '--route', dest='route_id', required=False, help="NJTransit bus route number (if omitted=ALL)")
+parser.add_argument('-f', '--font', dest='font_type', choices=['text','font'], required=False, default='text', help='Use plain scrolling text or 2-line rendered fonts')
 # parser.add_argument('-d', '--display', dest='display_type', default='sign', choices=['sign','badge'], required=True, help='brightLEDsigns.com display type')
 args = parser.parse_args()
 
@@ -83,22 +84,21 @@ effect = 'hold'
 speed=5
 
 # send to LED
+#handle differently depending on render method
 
 try:
-    '''if args.write == True:        
+    if (args.write == True) and (args.font_type == 'font'):        
         WriteFonts(ogm,effect,speed)
         print 'i tried WriteFonts with'
         print ogm
         print 'Did it display?'
-    '''
 
-    if args.write == True:        
+    elif (args.write == True) and (args.font_type == 'text'):        
         effect = 'scroll'
         WriteText(ogm,effect,speed)
         print 'i tried WriteText with'
         print ogm
         print 'Did it display?'
-    
 
     else:
         pass
