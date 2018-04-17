@@ -1,4 +1,5 @@
 from pyledsign.minisign import MiniSign
+import sys
 
 portname = '/dev/ttyUSB0'
 print portname
@@ -14,20 +15,10 @@ mysign = MiniSign(devicetype='sign',port=portname,)
 # print 'The forecast for JC Heights is %s' % forecast
 
 mysign.queuemsg(data='Hello World')
-# queue up a second message
-#   - using the optional effect parameter.
-#     if not supplied, defaults to 'scroll'
 mysign.queuemsg(data='Is it snowing yet?',effect='snow')
-#
-# send the message to the sign via the serial port
-#   note that the sendqueue() method does not empty
-#   the buffer, so if we have a second sign, on a 
-#   different serial port, we can send everything
-#   to it as well...
-#
 mysign.sendqueue(device=portname)
 print 'done TEXT mode test'
-
+sys.exit()
 
 
 # TEST 2 - RENDERED FONT SMALL
