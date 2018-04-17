@@ -4,7 +4,7 @@
 import urllib2, argparse, os, sys
 from datetime import datetime   
 import xml.etree.ElementTree
-from sign_handler import WriteText, WriteFonts
+from sign_handler import WriteText, WriteFont
 
 
 parser = argparse.ArgumentParser()
@@ -74,6 +74,12 @@ for atype in e.findall('pre'):
 
 line2 = ''
 bus_format = '#%s %s min '
+
+#
+# REFACTOR THIS SO CAN CONTROL # OF BUSES IT SHOWS PER LINE
+# e.g. #119 8 min 24 min 
+#
+
 for bus in arrivals:
     print bus
     if ';' in bus['pt']: # fix for response of APPROACHING e.g. 0 mins prediction
@@ -82,7 +88,7 @@ for bus in arrivals:
     line2 = line2 + bus_entry
 ogm = []
 lines = []
-line1 = 'Wbster+Congrs '+ (datetime.now().strftime('%-I:%M%P'))
+line1 = datetime.datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P'))
 lines.append(line1)
 lines.append(line2)
 ogm = lines[:2]
@@ -94,26 +100,16 @@ speed=1
 
 try:
     if (args.write == True) and (args.font_type == 'font'):        
-        WriteFonts(ogm,effect,speed)
-        print 'i tried WriteFonts with'
+        WriteFont(ogm,effect,speed)
+        print 'i tried WriteFont with'
         print ogm
-        print 'Did it display?'
 
     elif (args.write == True) and (args.font_type == 'text'):        
         effect = 'hold'
         WriteText(ogm,effect,speed)
         print 'i tried WriteText with'
         print ogm
-        print 'Did it display?'
-
-    else:
-        pass
-        print ('---OGM TEST-----------------')
-        print 'END:: Write (-w) flag not set, not sending to LED.'
-        print ogm
 
 except:
-    print ('---OGM ERROR-----------------')
-    print 'Error writing to sign. Are you sure its connected? Really are you sure?'
-    print ogm
     pass
+
