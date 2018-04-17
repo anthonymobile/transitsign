@@ -76,12 +76,12 @@ for bus in arrivals:
     line2 = line2 + bus_entry
 ogm = []
 lines = []
-line1 = (datetime.now().strftime('%-I:%M%P')) + '  Next bus...'
+line1 = (datetime.now().strftime('%-I:%M%P'))
 lines.append(line1)
 lines.append(line2)
 ogm = lines[:2]
 effect = 'hold'
-speed=5
+speed=1
 
 # send to LED
 #handle differently depending on render method
@@ -94,7 +94,7 @@ try:
         print 'Did it display?'
 
     elif (args.write == True) and (args.font_type == 'text'):        
-        effect = 'scroll'
+        effect = 'hold'
         WriteText(ogm,effect,speed)
         print 'i tried WriteText with'
         print ogm
