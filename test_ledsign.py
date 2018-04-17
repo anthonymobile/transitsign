@@ -1,5 +1,5 @@
 from pyledsign.minisign import MiniSign
-import sys
+import sys, time
 
 portname = '/dev/ttyUSB0'
 print portname
