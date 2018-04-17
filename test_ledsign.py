@@ -43,12 +43,11 @@ pic=mysign.queuepix(
         "11111"
 );
 
-mysign.queuemsg(data="a 5 pixel box: %s" % pic);
+mysign.queuemsg(data="a 5 pixel box: %s" % pic, effect='hold');
 mysign.sendqueue(device=portname)
 
 print 'done FONT mode test.. sleep for 6 seconds'
 time.sleep(6)
-sys.exit()
 
 
 # TEST 3 - RENDERED FONT FULL SCREEN
