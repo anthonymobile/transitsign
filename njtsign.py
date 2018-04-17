@@ -15,6 +15,12 @@ parser.add_argument('-f', '--font', dest='font_type', choices=['text','font'], r
 # parser.add_argument('-d', '--display', dest='display_type', default='sign', choices=['sign','badge'], required=True, help='brightLEDsigns.com display type')
 args = parser.parse_args()
 
+# to do
+# 1. add current temp to top line
+# 2. fetch stop name and truncate (with manual label override also)
+# 3. length limit on bottom line to prevent errors
+# 4. add a second stop and rotate every n seconds
+
 # fetching and parsing data
 # right now shows all buses for a single stop
 # direction is implicit
