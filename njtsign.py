@@ -62,7 +62,7 @@ for atype in e.findall('pre'):
 
 # format outgoing message (big sign only)
 #
-# 8:28am Wesbter & Congress
+# 8:28am Webster & Congress
 # 119 3m 6m 19m 85 24m
 #
 
@@ -76,7 +76,7 @@ for bus in arrivals:
     line2 = line2 + bus_entry
 ogm = []
 lines = []
-line1 = (datetime.now().strftime('%-I:%M%P'))
+line1 = 'Wbster+Congrs '+ (datetime.now().strftime('%-I:%M%P'))
 lines.append(line1)
 lines.append(line2)
 ogm = lines[:2]
