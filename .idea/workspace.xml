@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94324e56-f025-40dc-94e7-5f9fb684e14c" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/serialfind.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_ledsign_render.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sign_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/sign_handler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_ledsign.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_ledsign.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="test_ledsign.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test_ledsign.py">
+      <file leaf-file-name="test_ledsign_render.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test_ledsign_render.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="43" column="2" lean-forward="true" selection-start-line="43" selection-start-column="2" selection-end-line="43" selection-end-column="2" />
+            <state relative-caret-position="288">
+              <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -28,10 +31,19 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>font</find>
       <find>simplefont</find>
+      <find>platform</find>
+      <find>sign_font</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -40,7 +52,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/serialfind.py" />
+        <option value="$PROJECT_DIR$/sign_handler.py" />
         <option value="$PROJECT_DIR$/test_ledsign.py" />
+        <option value="$PROJECT_DIR$/test_ledsign_render.py" />
       </list>
     </option>
   </component>
@@ -65,6 +80,12 @@
               <item name="njtsign" type="b2602c69:ProjectViewProjectNode" />
               <item name="njtsign" type="47feb1d3:ProjectViewModuleNode" />
               <item name="njtsign" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="njtsign" type="b2602c69:ProjectViewProjectNode" />
+              <item name="njtsign" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="njtsign" type="462c0819:PsiDirectoryNode" />
+              <item name="fonts" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -95,7 +116,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="test_ledsign" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="test_ledsign_render" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="njtsign" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -107,7 +128,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_ledsign.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_ledsign_render.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -115,7 +136,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test_ledsign" />
+        <item itemvalue="Python.test_ledsign_render" />
       </list>
     </recent_temporary>
   </component>
@@ -151,7 +172,21 @@
       <option name="project" value="LOCAL" />
       <updated>1523924749885</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ready for testing on pi">
+      <created>1523924862324</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1523924862324</updated>
+    </task>
+    <task id="LOCAL-00005" summary="testing full screen bitmap">
+      <created>1523924997094</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1523924997094</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -160,14 +195,14 @@
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50073206" side_tool="true" visible="true" weight="0.38748136" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5021962" side_tool="true" visible="true" weight="0.38748136" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4978038" weight="0.38748136" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49926794" weight="0.32935917" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49926794" visible="true" weight="0.38748136" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -182,9 +217,20 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ready for testing on pi" />
-    <option name="LAST_COMMIT_MESSAGE" value="ready for testing on pi" />
+    <MESSAGE value="testing full screen bitmap" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing full screen bitmap" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/test_ledsign.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test_ledsign.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2415">
@@ -232,10 +278,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/deprecated/pitransitsign_deprecated/transit_functions.py" />
     <entry file="file://$PROJECT_DIR$/OGM_write.py" />
+    <entry file="file://$PROJECT_DIR$/serialfind.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sign_handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test_ledsign.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="43" column="2" lean-forward="true" selection-start-line="43" selection-start-column="2" selection-end-line="43" selection-end-column="2" />
+        <state relative-caret-position="242">
+          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_ledsign_render.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
