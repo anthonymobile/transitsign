@@ -36,7 +36,7 @@ typeset = sign.queuepix(height=len(matrix), width=len(matrix[0]), data=text_for_
 
 # DEBUGGING
 print matrix
-sys.exit()
+
 
 # queue and send message
 sign.queuemsg(data="%s" % typeset, effect='hold');
