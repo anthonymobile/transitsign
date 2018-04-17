@@ -80,7 +80,7 @@ pic=mysign.queuepix(
         "111111111100111111111100111111111100111111111100111111111100111111111100111111111100111111111100"
 );
 # now use that in a message
-mysign.queuemsg(data="%s" % pic);
+mysign.queuemsg(data="%s" % pic,effect='hold');
 mysign.sendqueue(device=portname)
 
 sys.exit()
