@@ -91,6 +91,7 @@ mysign.sendqueue(device=portname)
 # try to render something with fonts library
 #
 
+'''
 # font setup
 from simplefont import sign_font
 pwd = os.path.dirname(os.path.realpath(__file__))
@@ -101,7 +102,8 @@ font = sign_font(new_glyphs_path)
 mysign = MiniSign(devicetype='sign',)
 portname = '/dev/ttyUSB0'
 
-'''IS THIS STUFF FROM THE ORIGINAL PERL SIGN APP?
+
+IS THIS STUFF FROM THE ORIGINAL PERL SIGN APP?
 
 # prepare content receptacle
 matrix = font.render_multiline(lines, 8,{"ignore_shift_h" : True, "fixed_width" : 96})
@@ -122,7 +124,7 @@ class Array:
 # typeset the OGM
 text_for_sign = Array().zero_one(matrix)
 typeset=mysign.queuepix(height=len(matrix), width =len(matrix[0]), data  = text_for_sign);
-'''
+
 
 # send to sign
 mysign.queuemsg(data="%s" % typeset, effect=effect)
@@ -131,4 +133,38 @@ time.sleep(6)
 
 
 print 'done FONT mode test'
+'''
 
+# def OGM_Write(platform, lines, effect, speed):
+# need later to format the ogm
+class Array:
+    def zero_one(self, data):
+        zero_oned = ""
+        for row in data:
+            joined_row = "".join("{0}".format(n) for n in row)
+            zero_oned += joined_row
+        return zero_oned
+
+# font setup
+from simplefont import sign_font
+pwd = os.path.dirname(os.path.realpath(__file__))
+new_glyphs_path = '/'.join([pwd, 'glyphs'])
+
+# sign setup
+portname = '/dev/ttyUSB0'
+sign = MiniSign(devicetype='sign', port=portname, )
+
+font = sign_font(new_glyphs_path)
+
+# sign screen_height hardcoded for now
+matrix = font.render_multiline(lines, 16 / 2, {"ignore_shift_h": True, "fixed_width": 96})
+
+if not matrix:
+    return False
+
+text_for_sign = Array().zero_one(matrix)
+typeset = sign.queuepix(height=len(matrix), width=len(matrix[0]), data=text_for_sign);
+sign.queuemsg(data="%s" % typeset, effect='hold');
+sign.sendqueue(device=portname)
+
+time.sleep(6)
