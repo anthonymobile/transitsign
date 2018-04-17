@@ -159,9 +159,6 @@ font = sign_font(new_glyphs_path)
 # sign screen_height hardcoded for now
 matrix = font.render_multiline(lines, 16 / 2, {"ignore_shift_h": True, "fixed_width": 96})
 
-if not matrix:
-    return False
-
 text_for_sign = Array().zero_one(matrix)
 typeset = sign.queuepix(height=len(matrix), width=len(matrix[0]), data=text_for_sign);
 sign.queuemsg(data="%s" % typeset, effect='hold');
