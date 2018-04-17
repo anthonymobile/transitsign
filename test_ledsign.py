@@ -1,7 +1,9 @@
 from pyledsign.minisign import MiniSign
 import sys, time
 
-portname = '/dev/ttyUSB0'
+import serialfind
+
+portname = serialfind.serialfind()
 print portname
 
 
@@ -83,82 +85,3 @@ pic=mysign.queuepix(
 mysign.queuemsg(data="%s" % pic,effect='hold');
 mysign.sendqueue(device=portname)
 
-sys.exit()
-
-# try to render something with fonts library
-#
-
-'''
-# font setup
-from simplefont import sign_font
-pwd = os.path.dirname(os.path.realpath(__file__))
-new_glyphs_path = '/'.join([pwd,'fonts'])
-font = sign_font(new_glyphs_path)
-
-# sign setup -- sign only is 16 pixels high by 96 pixels wide
-mysign = MiniSign(devicetype='sign',)
-portname = '/dev/ttyUSB0'
-
-
-IS THIS STUFF FROM THE ORIGINAL PERL SIGN APP?
-
-# prepare content receptacle
-matrix = font.render_multiline(lines, 8,{"ignore_shift_h" : True, "fixed_width" : 96})
-
-    if not matrix:
-        return False
-
-class Array:
-    def zero_one(self, data):
-        zero_oned = ""
-        for row in data:
-            joined_row = "".join("{0}".format(n) for n in row)
-            zero_oned += joined_row
-        return zero_oned
-
-
-
-# typeset the OGM
-text_for_sign = Array().zero_one(matrix)
-typeset=mysign.queuepix(height=len(matrix), width =len(matrix[0]), data  = text_for_sign);
-
-
-# send to sign
-mysign.queuemsg(data="%s" % typeset, effect=effect)
-mysign.sendqueue(device=portname)
-time.sleep(6)
-
-
-print 'done FONT mode test'
-'''
-
-# def OGM_Write(platform, lines, effect, speed):
-# need later to format the ogm
-class Array:
-    def zero_one(self, data):
-        zero_oned = ""
-        for row in data:
-            joined_row = "".join("{0}".format(n) for n in row)
-            zero_oned += joined_row
-        return zero_oned
-
-# font setup
-from simplefont import sign_font
-pwd = os.path.dirname(os.path.realpath(__file__))
-new_glyphs_path = '/'.join([pwd, 'glyphs'])
-
-# sign setup
-portname = '/dev/ttyUSB0'
-sign = MiniSign(devicetype='sign', port=portname, )
-
-font = sign_font(new_glyphs_path)
-
-# sign screen_height hardcoded for now
-matrix = font.render_multiline(lines, 16 / 2, {"ignore_shift_h": True, "fixed_width": 96})
-
-text_for_sign = Array().zero_one(matrix)
-typeset = sign.queuepix(height=len(matrix), width=len(matrix[0]), data=text_for_sign);
-sign.queuemsg(data="%s" % typeset, effect='hold');
-sign.sendqueue(device=portname)
-
-time.sleep(6)
