@@ -8,10 +8,10 @@ print portname
 
 mysign = MiniSign(devicetype='sign',port=portname,)
 # queue up a text message (the weather -- see https://pyowm.readthedocs.io/en/latest/)
-from weather import get_weather
+# from weather import get_weather
 
-forecast = get_weather('07307')
-print 'The forecast for JC Heights is %s' % forecast 
+# forecast = get_weather('07307')
+# print 'The forecast for JC Heights is %s' % forecast
 
 mysign.queuemsg(data='Hello World')
 # queue up a second message
@@ -87,6 +87,7 @@ pic=mysign.queuepix(
 mysign.queuemsg(data="%s" % pic);
 mysign.sendqueue(device=portname)
 
+sys.exit()
 
 # try to render something with fonts library
 #
