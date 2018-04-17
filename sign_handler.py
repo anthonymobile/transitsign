@@ -3,6 +3,11 @@
 from pyledsign.minisign import MiniSign
 from simplefont import sign_font
 import os, time
+import serialfind
+
+
+
+portname = serialfind.serialfind()
 
 # LED DISPLAY 2 LINES AS RENDERED FONTS
 def WriteFonts(lines,effect,speed):
