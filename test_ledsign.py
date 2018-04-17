@@ -17,8 +17,10 @@ mysign = MiniSign(devicetype='sign',port=portname,)
 mysign.queuemsg(data='Hello World')
 mysign.queuemsg(data='Is it snowing yet?',effect='snow')
 mysign.sendqueue(device=portname)
-print 'done TEXT mode test'
-sys.exit()
+print 'done TEXT mode test.. sleep for 6 seconds'
+
+time.sleep(6)
+
 
 
 # TEST 2 - RENDERED FONT SMALL
@@ -43,6 +45,10 @@ pic=mysign.queuepix(
 
 mysign.queuemsg(data="a 5 pixel box: %s" % pic);
 mysign.sendqueue(device=portname)
+
+print 'done FONT mode test.. sleep for 6 seconds'
+time.sleep(6)
+sys.exit()
 
 
 # TEST 3 - RENDERED FONT FULL SCREEN

@@ -3,23 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="94324e56-f025-40dc-94e7-5f9fb684e14c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deprecated/Pi Zero Pi B Transit Headless Setup.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/doc/GTFS entities — pygtfs 0.1.2 documentation.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/doc/General Transit Feed Specification Reference  |  Static Transit  |  Google Developers.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/doc/The schedule module — pygtfs 0.1.2 documentation.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/doc/pitransitsign-archtiecture.key" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/doc/transit_pi_headless_installation.html/Pi Zero_Pi B Transit Headless Setup.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/glyphs/7x7.simpleglyphs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/glyphs/amends.simpleglyphs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/glyphs/specific.simpleglyphs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/misc/bashrc-sample" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/misc/create_ssh_tunnel.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/simplefont.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/transit.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/transit_functions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deprecated/pitransitsign_deprecated/weather.py" beforeDir="false" afterPath="$PROJECT_DIR$/weather.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_ledsign.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_ledsign.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,8 +17,11 @@
       <file leaf-file-name="test_ledsign.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test_ledsign.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="125" lean-forward="true" selection-start-line="125" selection-end-line="125" />
+            <state relative-caret-position="232">
+              <caret line="43" column="2" lean-forward="true" selection-start-line="43" selection-start-column="2" selection-end-line="43" selection-end-column="2" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,7 +54,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -85,6 +70,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -144,6 +130,28 @@
       <option name="presentableId" value="Default" />
       <updated>1523892894989</updated>
     </task>
+    <task id="LOCAL-00001" summary="ready for testing on pi">
+      <created>1523924050607</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1523924050607</updated>
+    </task>
+    <task id="LOCAL-00002" summary="ready for testing on pi">
+      <created>1523924615355</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1523924615355</updated>
+    </task>
+    <task id="LOCAL-00003" summary="ready for testing on pi">
+      <created>1523924749885</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1523924749885</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -152,10 +160,10 @@
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50073206" side_tool="true" visible="true" weight="0.38748136" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49926794" weight="0.32935917" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.38748136" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49926794" visible="true" weight="0.38748136" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -172,7 +180,28 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ready for testing on pi" />
+    <option name="LAST_COMMIT_MESSAGE" value="ready for testing on pi" />
+  </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/test_ledsign.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2415">
+          <caret line="161" column="14" lean-forward="true" selection-start-line="161" selection-start-column="14" selection-end-line="161" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_ledsign.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1875">
+          <caret line="125" lean-forward="true" selection-start-line="125" selection-end-line="125" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test_ledsign.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -202,10 +231,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/deprecated/pitransitsign_deprecated/transit_functions.py" />
+    <entry file="file://$PROJECT_DIR$/OGM_write.py" />
     <entry file="file://$PROJECT_DIR$/test_ledsign.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="125" lean-forward="true" selection-start-line="125" selection-end-line="125" />
+        <state relative-caret-position="232">
+          <caret line="43" column="2" lean-forward="true" selection-start-line="43" selection-start-column="2" selection-end-line="43" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
