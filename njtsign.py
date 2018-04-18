@@ -1,5 +1,6 @@
 # LED screen bus arrival display
-# scapes and parses NJT MyBusNow API XML to brightLEDsigns.com display
+# scrapes and parses NJT MyBusNow API XML to brightLEDsigns.com display
+# single stop, single route for now
 
 import urllib2, argparse, os, sys
 from datetime import datetime   
@@ -10,7 +11,7 @@ from sign_handler import WriteText, WriteFont
 parser = argparse.ArgumentParser()
 parser.add_argument('-w', '--write', dest='write', action='store_true', help="Write the outgoing message (OGM) to the LED screen")
 parser.add_argument('-s', '--stop', dest='stop_id', required=True, help='NJTransit bus stop number')
-parser.add_argument('-r', '--route', dest='route_id', required=False, help="NJTransit bus route number (if omitted=ALL)")
+parser.add_argument('-r', '--route', dest='route_id', required=True, help="NJTransit bus route number")
 parser.add_argument('-f', '--font', dest='font_type', choices=['text','font'], required=False, default='text', help='Use plain scrolling text or 2-line rendered fonts')
 # parser.add_argument('-d', '--display', dest='display_type', default='sign', choices=['sign','badge'], required=True, help='brightLEDsigns.com display type')
 args = parser.parse_args()
@@ -73,19 +74,19 @@ for atype in e.findall('pre'):
 #
 
 line2 = ''
-bus_format = '#%s %s min '
+bus_format = '%s min '
 
 #
-# REFACTOR THIS SO CAN CONTROL # OF BUSES IT SHOWS PER LINE
-# e.g. #119 8 min 24 min 
+# REFACTOR THIS TO LOOP OVER ALL THE LINES FOR A SINGLE STOP WITH NO LINE DESIGNATED
 #
 
 for bus in arrivals:
     print bus
     if ';' in bus['pt']: # fix for response of APPROACHING e.g. 0 mins prediction
         bus['pt'] = '0!'
-    bus_entry = bus_format % (bus['rd'], bus['pt'])
+    bus_entry = bus_format % (bus['pt'])
     line2 = line2 + bus_entry
+line2 = "#" + args.route_id + ' ' + line2
 ogm = []
 lines = []
 line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P'))
