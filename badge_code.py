@@ -5,9 +5,6 @@ parser.add_argument('-d', '--display', dest='display_type', default='sign', choi
 args = parser.parse_args()
 
 
-# sign_handler.py
-
-
 # LED DISPLAY 1 LINE AS PLAIN TEXT
 def WriteText(lines, effect, speed):
     portname = '/dev/ttyUSB0'

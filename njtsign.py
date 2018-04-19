@@ -5,26 +5,100 @@
 import urllib2, argparse, os, sys
 from datetime import datetime   
 import xml.etree.ElementTree
-from sign_handler import WriteText, WriteFont
 from weather import get_weather
+from pyledsign.minisign import MiniSign
+from simplefont import sign_font
+import os, time
+
+def serialfind():
+    import platform, os, re
+
+    # 1 figure out platform
+    platform_name = platform.system()
+    tty = ''
+
+    if platform_name == 'Linux':
+        tty = '/dev/ttyUSB0'
+
+    if platform_name == 'Darwin':
+
+        dev_contents = os.listdir('/dev')
+
+        for line in dev_contents:
+            if "Repleo" in line:
+                tty = ('/dev/' + str(line))
+            elif 'tty.usbserial' in line:
+                tty = '/dev/tty.usbserial'
+            else:
+                tty = '/dev/null'
+
+    return
+
+def WriteFont(lines, effect, speed):
+    # prepare the bitmap
+    class Array:
+        def zero_one(self, data):
+            zero_oned = ""
+            for row in data:
+                joined_row = "".join("{0}".format(n) for n in row)
+                zero_oned += joined_row
+            return zero_oned
+
+    # font setup
+    pwd = os.path.dirname(os.path.realpath(__file__))
+    new_glyphs_path = '/'.join([pwd, 'fonts'])
+    font = sign_font(new_glyphs_path)
+
+    # sign setup
+    portname = serialfind.serialfind()
+    sign = MiniSign(devicetype='sign', port=portname, )
+
+    # THIS IS BREAKING WHEN THE TEXT IS TOO LONG
+    # render message as bitmap
+    matrix = font.render_multiline(lines, 16 / 2, {"ignore_shift_h": True, "fixed_width": 96})
+
+    if not matrix:
+        return False
+    text_for_sign = Array().zero_one(matrix)
+    typeset = sign.queuepix(height=len(matrix), width=len(matrix[0]), data=text_for_sign);
+
+
+
+    # queue and send message
+    sign.queuemsg(data="%s" % typeset, effect='hold');
+    sign.sendqueue(device=portname)
+
+    # pause and report
+    time.sleep(6)
+
+
+
+
+
+# refactor so that 'services' to show are key value pairs
+# python njtsign.py 20546,89 30343,119 30343,85 -f font -z 07307 -w
+# parse them and split them at the comma
 
 
 parser = argparse.ArgumentParser()
+parser.add_argument('services', nargs='+', help='Services defined as bus stop#,route# separated by comma with no space')
 parser.add_argument('-w', '--write', dest='write', action='store_true', help="Write the outgoing message (OGM) to the LED screen")
-parser.add_argument('-s', '--stop', dest='stop_id', required=True, help='NJTransit bus stop number')
-parser.add_argument('-r', '--route', dest='route_id', required=True, help="NJTransit bus route number")
 parser.add_argument('-f', '--font', dest='font_type', choices=['text','font'], required=False, default='text', help='Use plain scrolling text or 2-line rendered fonts')
-parser.add_argument('-z', '--zip', dest='zip', required=True, help="ZIPcode for weather")
+args = parser.parse_args()
+print args
 
-# to do
+n=0
+# extract the services to display
+for service in args.services:
+    n=n+1
+    stop_id=service.split(",")[0]
+    route_id=service.split(",")[1]
+    print "service %s is stop %s route %s " % (n,stop_id,route_id)
 
-# 2. fetch stop name and truncate (with manual label override also)
-    #
-# 3. length limit on bottom line to prevent errors
-    # hunt down the original SF muni code
-# 4. add a second stop and rotate every n seconds
-    # strategy to parse arbitrary series of stop, route pairs
-    # https://stackoverflow.com/questions/27146262/create-variable-key-value-pairs-with-argparse-python
+
+# BREAKPOINT --------------------------------------------------------------------------------------------------------
+sys.exit()
+# BREAKPOINT --------------------------------------------------------------------------------------------------------
 
 
 # fetching and parsing data
