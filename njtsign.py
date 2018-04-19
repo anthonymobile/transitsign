@@ -40,6 +40,13 @@ arrivals_url = 'http://mybusnow.njtransit.com/bustime/eta/getStopPredictionsETA.
 submit_url = arrivals_url % (route_id,args.stop_id,api_key)
 print submit_url
 
+#
+# new architecture will need to loop the URL fetch for each stop + route combination
+# which have to be specified in unique, explicit pairs
+# e.g. -s 31031 119 -s 31031 85 -s 31285 87
+#
+
+
 try:
     data = urllib2.urlopen(submit_url).read()
 except urllib2.HTTPError, e:
