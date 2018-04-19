@@ -6,6 +6,7 @@ import urllib2, argparse, os, sys
 from datetime import datetime   
 import xml.etree.ElementTree
 from sign_handler import WriteText, WriteFont
+from weather import get_weather
 
 
 parser = argparse.ArgumentParser()
@@ -13,14 +14,18 @@ parser.add_argument('-w', '--write', dest='write', action='store_true', help="Wr
 parser.add_argument('-s', '--stop', dest='stop_id', required=True, help='NJTransit bus stop number')
 parser.add_argument('-r', '--route', dest='route_id', required=True, help="NJTransit bus route number")
 parser.add_argument('-f', '--font', dest='font_type', choices=['text','font'], required=False, default='text', help='Use plain scrolling text or 2-line rendered fonts')
-# parser.add_argument('-d', '--display', dest='display_type', default='sign', choices=['sign','badge'], required=True, help='brightLEDsigns.com display type')
-args = parser.parse_args()
+parser.add_argument('-z', '--zip', dest='zip', required=True, help="ZIPcode for weather")
 
 # to do
-# 1. add current temp to top line
+
 # 2. fetch stop name and truncate (with manual label override also)
+    #
 # 3. length limit on bottom line to prevent errors
+    # hunt down the original SF muni code
 # 4. add a second stop and rotate every n seconds
+    # strategy to parse arbitrary series of stop, route pairs
+    # https://stackoverflow.com/questions/27146262/create-variable-key-value-pairs-with-argparse-python
+
 
 # fetching and parsing data
 # right now shows all buses for a single stop
@@ -73,6 +78,9 @@ for atype in e.findall('pre'):
 # 119 3m 6m 19m 85 24m
 #
 
+# weather
+temp_now = get_weather.temp(args.zip)
+
 line2 = ''
 bus_format = '%s min '
 
@@ -89,7 +97,7 @@ for bus in arrivals:
 line2 = "#" + args.route_id + ' ' + line2
 ogm = []
 lines = []
-line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P'))
+line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P')) + ' ' + temp_now
 lines.append(line1)
 lines.append(line2)
 ogm = lines[:2]
