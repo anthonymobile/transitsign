@@ -65,6 +65,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument('services', nargs='+', help='Services specified as bus stop#,route# separated by comma with no space')
 parser.add_argument('-w', '--write', dest='write', action='store_true', help="Write the outgoing message (OGM) to the LED screen")
 parser.add_argument('-f', '--font', dest='font_type', choices=['text','font'], required=False, default='text', help='Use plain scrolling text or 2-line rendered fonts')
+parser.add_argument('-z', '--zip', dest='zip', help="ZIP code of stop, for weather")
+
 args = parser.parse_args()
 
 # extract the service specs
@@ -75,7 +77,7 @@ for service in args.services:
     stop_id=service.split(",")[0]
     route_id=service.split(",")[1]
     service_specs.append([n,stop_id,route_id])
-    print "service %s is stop %s route %s" % (n,stop_id,route_id)
+    # print "service %s is stop %s route %s" % (n,stop_id,route_id)
 
 
 #slideshow is a list of lists
@@ -91,7 +93,7 @@ for service in service_specs:
     api_key = '0.3003391435305782'
     arrivals_url = 'http://mybusnow.njtransit.com/bustime/eta/getStopPredictionsETA.jsp?route=%s&stop=%s&key=%s'
     submit_url = arrivals_url % (service[2], service[1], api_key)
-    print submit_url
+    # print submit_url
 
     try:
         data = urllib2.urlopen(submit_url).read()
@@ -125,49 +127,37 @@ for service in service_specs:
         arrival_list.append(fields)
 
     line2 = ''
-    bus_format = '%s min '
-
-    #
-    # REFACTOR THIS TO LOOP OVER ALL THE LINES FOR A SINGLE STOP WITH NO LINE DESIGNATED
-    #
-    # now = datetime.now()
+    bus_format = '%s min'
 
     for bus in arrival_list:
-        print bus
-        if ';' in bus['pt']: # fix for response of APPROACHING e.g. 0 mins prediction
-            bus['pt'] = '0!'
-        bus_entry = bus_format % (bus['pt'])
-        line2 = "#" + bus['rd'] + ' ' + bus_entry
+        # print bus
+        if ';' in bus['pt']: # handle response of APPROACHING e.g. 0 mins prediction
+            bus['pt'] = '!0!'
+        bus_entry = bus_format % (bus['pt'])s
+        line2 = line2 + ' ' + bus_entry
+    line2 = "#" + bus['rd'] + line2
     ogm = []
     lines = []
+    # weather
+    # temp_now = get_weather(args.zip)
+    # line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P')) + '  ' + temp_now
     line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P'))
     lines.append(line1)
     lines.append(line2)
     slide = lines[:2]
     slideshow.append(slide)
 
+print
+print
 print slideshow
 
 sys.exit()
 
-# good up to here
-# test line ------- python njtsign.py 21062,87 30189,119 30189,85 -f font -w
+
 
 
 """
 
-
-    
-
-
-    # format outgoing message (big sign only)
-    #
-    # 8:28am Webster & Congress
-    # 119 3m 6m 19m 85 24m
-    #
-
-    # weather
-    temp_now = get_weather.temp(args.zip)
 
 
     effect = 'hold'
