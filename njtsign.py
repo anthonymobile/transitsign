@@ -60,46 +60,40 @@ def WriteFont(lines, effect, speed):
     sign.sendqueue(device=portname)
     time.sleep(6)
 
-
 # parse services and switches
-# njtsign.py 20546,89 30343,119 30343,85 -f font -w
-
 parser = argparse.ArgumentParser()
-parser.add_argument('services', nargs='+', help='Services defined as bus stop#,route# separated by comma with no space')
+parser.add_argument('services', nargs='+', help='Services specified as bus stop#,route# separated by comma with no space')
 parser.add_argument('-w', '--write', dest='write', action='store_true', help="Write the outgoing message (OGM) to the LED screen")
 parser.add_argument('-f', '--font', dest='font_type', choices=['text','font'], required=False, default='text', help='Use plain scrolling text or 2-line rendered fonts')
 args = parser.parse_args()
-print args
 
-
-# extract the services to display
+# extract the service specs
 n=0
-service_panels=[]
+service_specs=[]
 for service in args.services:
     n=n+1
     stop_id=service.split(",")[0]
     route_id=service.split(",")[1]
-    service_panels.append(n,stop_id,route_id)
-    print "service %s is stop %s route %s " % (n,stop_id,route_id)
+    service_specs.append([n,stop_id,route_id])
+    print "service %s is stop %s route %s" % (n,stop_id,route_id)
 
-# BREAKPOINT --------------------------------------------------------------------------------------------------------
-sys.exit()
-# BREAKPOINT --------------------------------------------------------------------------------------------------------
+# service specs is a list [(1,34343,33),(2,34344,23),etc]
 
-now = datetime.now()
-#
-# ITERATE OVER EACH SERVICE TO BUILD A MESSAGE
-
-for panel in service_panels:
-
-
+# FETCH arrival_list OVER EACH SERVICE service TO BUILD A slide
+for service in service_specs:
     # create the url
     api_key = '0.3003391435305782'
     arrivals_url = 'http://mybusnow.njtransit.com/bustime/eta/getStopPredictionsETA.jsp?route=%s&stop=%s&key=%s'
-    submit_url = arrivals_url % (route_id, args.stop_id, api_key)
+    submit_url = arrivals_url % (service[1], service[2], api_key)
     print submit_url
 
+sys.exit()
 
+# good up to here
+# test line ------- python njtsign.py 21062,87 30189,119 30189,85 -f font -w
+
+
+"""
     try:
         data = urllib2.urlopen(submit_url).read()
     except urllib2.HTTPError, e:
@@ -147,6 +141,7 @@ for panel in service_panels:
     #
     # REFACTOR THIS TO LOOP OVER ALL THE LINES FOR A SINGLE STOP WITH NO LINE DESIGNATED
     #
+    # now = datetime.now()
 
     for bus in arrivals:
         print bus
@@ -217,3 +212,5 @@ try:
 except:
     pass
 
+
+"""

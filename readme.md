@@ -9,15 +9,15 @@ A Python app to grab real-time bus arrival predictions from NJTransit.com BusTim
 ## Usage
 
 ```
-njtsign.py [-h] [-w] -s STOP_ID -r ROUTE_ID [-f {text,font}]
+njtsign.py {stop_id,route_id,...} [-h] [-w] [-f {text,font}]
 
-optional arguments:
+
+required arguments:
+ STOP_ID,ROUTE_ID       service definition identified by NJTransit bus stop number and bus route number
+
+ options
   -h, --help            show this help message and exit
   -w, --write           Write the outgoing message (OGM) to the LED screen
-  -s STOP_ID, --stop STOP_ID
-                        NJTransit bus stop number
-  -r ROUTE_ID, --route ROUTE_ID
-                        NJTransit bus route number
   -f {text,font}, --font {text,font}
                         Use plain scrolling text or 2-line rendered fonts
 ```
