@@ -77,23 +77,22 @@ for service in args.services:
     service_specs.append([n,stop_id,route_id])
     print "service %s is stop %s route %s" % (n,stop_id,route_id)
 
-# service specs is a list [(1,34343,33),(2,34344,23),etc]
 
-# FETCH arrival_list OVER EACH SERVICE service TO BUILD A slide
+#slideshow is a list of lists
+# [ [slide1 line1, slide1,line2],
+#   [slide2 line1, slide2,line2],
+#   [slide3 line1, slide3,line2],
+slideshow=[]
+
+
+# FETCH arrival_list OVER EACH SERVICE service TO BUILD A slide AND APPEND TO slideshow
 for service in service_specs:
     # create the url
     api_key = '0.3003391435305782'
     arrivals_url = 'http://mybusnow.njtransit.com/bustime/eta/getStopPredictionsETA.jsp?route=%s&stop=%s&key=%s'
-    submit_url = arrivals_url % (service[1], service[2], api_key)
+    submit_url = arrivals_url % (service[2], service[1], api_key)
     print submit_url
 
-sys.exit()
-
-# good up to here
-# test line ------- python njtsign.py 21062,87 30189,119 30189,85 -f font -w
-
-
-"""
     try:
         data = urllib2.urlopen(submit_url).read()
     except urllib2.HTTPError, e:
@@ -111,7 +110,7 @@ sys.exit()
     else:
         pass
 
-    arrivals = []
+    arrival_list = []
 
     e = xml.etree.ElementTree.fromstring(data)
     for atype in e.findall('pre'):
@@ -123,7 +122,42 @@ sys.exit()
                     continue
                 fields[field.tag] = field.text.replace("&nbsp", "")
 
-        arrivals.append(fields)
+        arrival_list.append(fields)
+
+    line2 = ''
+    bus_format = '%s min '
+
+    #
+    # REFACTOR THIS TO LOOP OVER ALL THE LINES FOR A SINGLE STOP WITH NO LINE DESIGNATED
+    #
+    # now = datetime.now()
+
+    for bus in arrival_list:
+        print bus
+        if ';' in bus['pt']: # fix for response of APPROACHING e.g. 0 mins prediction
+            bus['pt'] = '0!'
+        bus_entry = bus_format % (bus['pt'])
+        line2 = "#" + bus['rd'] + ' ' + bus_entry
+    ogm = []
+    lines = []
+    line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P'))
+    lines.append(line1)
+    lines.append(line2)
+    slide = lines[:2]
+    slideshow.append(slide)
+
+print slideshow
+
+sys.exit()
+
+# good up to here
+# test line ------- python njtsign.py 21062,87 30189,119 30189,85 -f font -w
+
+
+"""
+
+
+    
 
 
     # format outgoing message (big sign only)
@@ -135,27 +169,7 @@ sys.exit()
     # weather
     temp_now = get_weather.temp(args.zip)
 
-    line2 = ''
-    bus_format = '%s min '
 
-    #
-    # REFACTOR THIS TO LOOP OVER ALL THE LINES FOR A SINGLE STOP WITH NO LINE DESIGNATED
-    #
-    # now = datetime.now()
-
-    for bus in arrivals:
-        print bus
-        if ';' in bus['pt']: # fix for response of APPROACHING e.g. 0 mins prediction
-            bus['pt'] = '0!'
-        bus_entry = bus_format % (bus['pt'])
-        line2 = line2 + bus_entry
-    line2 = "#" + args.route_id + ' ' + line2
-    ogm = []
-    lines = []
-    line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P')) + ' ' + temp_now
-    lines.append(line1)
-    lines.append(line2)
-    ogm = lines[:2]
     effect = 'hold'
     speed=1
 
