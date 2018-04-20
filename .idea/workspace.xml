@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="94324e56-f025-40dc-94e7-5f9fb684e14c" name="Default" comment="added weather code and removed badge support">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/njtsign.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/njtsign.iml" afterDir="false" />
+    <list default="true" id="94324e56-f025-40dc-94e7-5f9fb684e14c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/badge_code.py" beforeDir="false" afterPath="$PROJECT_DIR$/badge_code.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/njtsign.py" beforeDir="false" afterPath="$PROJECT_DIR$/njtsign.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serialfind.py" beforeDir="false" afterPath="$PROJECT_DIR$/serialfind.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign_handler.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,20 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="njtsign.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/njtsign.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="96" lean-forward="true" selection-start-line="96" selection-end-line="96" />
-              <folding>
-                <element signature="e#142#175#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -83,18 +65,7 @@
           <expand>
             <path>
               <item name="njtsign" type="b2602c69:ProjectViewProjectNode" />
-              <item name="njtsign" type="47feb1d3:ProjectViewModuleNode" />
-            </path>
-            <path>
-              <item name="njtsign" type="b2602c69:ProjectViewProjectNode" />
-              <item name="njtsign" type="47feb1d3:ProjectViewModuleNode" />
               <item name="njtsign" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="njtsign" type="b2602c69:ProjectViewProjectNode" />
-              <item name="njtsign" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="njtsign" type="462c0819:PsiDirectoryNode" />
-              <item name="pyledsign" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -280,20 +251,33 @@
       <option name="project" value="LOCAL" />
       <updated>1524169128437</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="re-factored arg parsing for multi-service display">
+      <created>1524179566977</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1524179566978</updated>
+    </task>
+    <task id="LOCAL-00016" summary="purged gitignore files">
+      <created>1524179855938</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1524179855938</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21522693" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16251831" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5058565" side_tool="true" visible="true" weight="0.4441341" />
+      <window_info anchor="bottom" x="257" y="432" width="1366" height="166" id="Event Log" order="10" sideWeight="0.5058565" side_tool="true" type="WINDOWED" weight="0.23184358" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49926794" weight="0.32960895" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49487555" weight="0.25" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4941435" visible="true" weight="0.4441341" />
+      <window_info anchor="bottom" x="43" y="369" width="483" height="342" id="Run" order="2" sideWeight="0.4941435" weight="0.23044693" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -361,7 +345,9 @@
     <MESSAGE value="moved font render code to main routine" />
     <MESSAGE value="added weather code and removed badge support" />
     <MESSAGE value="updated docs" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated docs" />
+    <MESSAGE value="re-factored arg parsing for multi-service display" />
+    <MESSAGE value="purged gitignore files" />
+    <option name="LAST_COMMIT_MESSAGE" value="purged gitignore files" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/njtsign.py">
@@ -443,8 +429,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/njtsign.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="96" lean-forward="true" selection-start-line="96" selection-end-line="96" />
+        <state relative-caret-position="410">
+          <caret line="102" column="4" selection-start-line="102" selection-start-column="4" selection-end-line="165" />
           <folding>
             <element signature="e#142#175#0" expanded="true" />
           </folding>
