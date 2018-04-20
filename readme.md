@@ -1,6 +1,9 @@
-# NJTsign v0.1
+# NJTsign v0.2
 April 2018 
 Anthony Townsend (anthony@bitsandatoms.net)
+
+
+![](https://github.com/anthonymobile/njtsign/blob/rotate_stops/IMG_0819.JPG)
 
 ## Description
 
@@ -9,7 +12,7 @@ A Python app to grab real-time bus arrival predictions from NJTransit.com BusTim
 ## Usage
 
 ```
-njtsign.py {stop_id,route_id,...} [-h] [-w] [-f {text,font}]
+njtsign.py {stop_id1,route_id1} {stop_id2,route_id2} ... [-h] [-w] [-f {text,font}]
 
 
 required arguments:
@@ -25,15 +28,10 @@ required arguments:
 ## Dependencies
 
 **pyserial**
-
-```sudo apt-get install python-serial```
+This is the main one. 
 
 **pyledsign**
-
-```
-git clone git@github.com:BrightLedSigns/pyledsign.git
-cd pyledsign; python setup.py install
-```
+I've bundled this code into the project since its stable for 2 years now. https://github.com/BrightLedSigns/pyledsign
 
 ## NJT Bus Arrival Feed
 
@@ -43,6 +41,6 @@ http://mybusnow.njtransit.com/bustime/eta/eta.jsp?route=---&direction=---&stop=-
 ###API endpoint for the arrivals
 http://mybusnow.njtransit.com/bustime/eta/getStopPredictionsETA.jsp?route=all&stop=30189&key=0.3003391435305782
 
-###API with direction (untested) 
+###API with direction (not yet used) 
 http://mybusnow.njtransit.com/bustime/eta/getStopPredictionsETA.jsp?route=%s&direction=%s&stop=%s&key=0.3003391435305782
-
+Since most stops only serve routes going in a single direction, not worried about this for a while.
