@@ -3,7 +3,7 @@ April 2018
 Anthony Townsend (anthony@bitsandatoms.net)
 
 
-![](https://github.com/anthonymobile/njtsign/blob/rotate_stops/IMG_0819.JPG)
+![](doc/njtsign-hardware-v0.1.jpg)
 
 ## Description
 

@@ -27,7 +27,7 @@ def serialfind():
                 tty = '/dev/null'
     return
 
-def WriteFont(lines, effect, speed):
+def WriteSign(lines):
 
     # prepare the bitmap
     class Array:
@@ -44,7 +44,7 @@ def WriteFont(lines, effect, speed):
     font = sign_font(new_glyphs_path)
 
     # sign setup
-    portname = serialfind.serialfind()
+    portname = serialfind()
     sign = MiniSign(devicetype='sign', port=portname, )
 
     # THIS IS BREAKING WHEN THE TEXT IS TOO LONG
@@ -57,14 +57,12 @@ def WriteFont(lines, effect, speed):
 
     # queue and send message
     sign.queuemsg(data="%s" % typeset, effect='hold');
-    sign.sendqueue(device=portname)
-    time.sleep(6)
+    sign.sendqueue(device=portname, runslots='none')
 
 # parse services and switches
 parser = argparse.ArgumentParser()
 parser.add_argument('services', nargs='+', help='Services specified as bus stop#,route# separated by comma with no space')
 parser.add_argument('-w', '--write', dest='write', action='store_true', help="Write the outgoing message (OGM) to the LED screen")
-parser.add_argument('-f', '--font', dest='font_type', choices=['text','font'], required=False, default='text', help='Use plain scrolling text or 2-line rendered fonts')
 parser.add_argument('-z', '--zip', dest='zip', help="ZIP code of stop, for weather")
 
 args = parser.parse_args()
@@ -133,88 +131,39 @@ for service in service_specs:
         # print bus
         if ';' in bus['pt']: # handle response of APPROACHING e.g. 0 mins prediction
             bus['pt'] = '!0!'
-        bus_entry = bus_format % (bus['pt'])s
+        bus_entry = bus_format % (bus['pt'])
         line2 = line2 + ' ' + bus_entry
     line2 = "#" + bus['rd'] + line2
-    ogm = []
-    lines = []
     # weather
     # temp_now = get_weather(args.zip)
     # line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P')) + '  ' + temp_now
     line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P'))
+    lines = []
     lines.append(line1)
     lines.append(line2)
     slide = lines[:2]
     slideshow.append(slide)
-
-print
-print
-print slideshow
-
-sys.exit()
+    bus['rd'] = '' # otherwise shows bus number from previous loop. need a better way to show 'no buses approaching for requested service'
 
 
+# SEND ALL MESSAGES in QUEUE to sign
+if (args.write == True):
+    for slide in slideshow:
+        WriteSign(slide)
+        print 'i wrote to the sign'
+        print slideshow
 
-
-"""
-
-
-
-    effect = 'hold'
-    speed=1
-
-
-
-
-
-
-#
-# SEND ALL MESSAGES in QUEUE
-
-#
-# ROTATE: TELL THE SCREEN TO SWITCH MESSAGES (60/n sec each)
-
-
-# --------------------------------------------------------------------------------------------------------
-# --------------------------------------------------------------------------------------------------------
-# --------------------------------------------------------------------------------------------------------
-# --------------------------------------------------------------------------------------------------------
-# --------------------------------------------------------------------------------------------------------
-
-#
-# fetching and parsing data
-# right now shows all buses for a single stop
-# direction is implicit
-
-
-
-
-
-
-# route_id = 'all'
-# if args.route_id > 0:
-#    route_id = args.route_id
-
-
-
-
-# send to LED
-#handle differently depending on render method
-
-try:
-    if (args.write == True) and (args.font_type == 'font'):        
-        WriteFont(ogm,effect,speed)
-        print 'i tried WriteFont with'
-        print ogm
-
-    elif (args.write == True) and (args.font_type == 'text'):        
-        effect = 'hold'
-        WriteText(ogm,effect,speed)
-        print 'i tried WriteText with'
-        print ogm
-
-except:
+else:
     pass
 
+# ROTATE: TELL THE SCREEN TO SWITCH MESSAGES (60/n sec each)
 
-"""
+num_slides = len(slideshow)
+slide_duration=60/(num_slides)
+
+print 'cycling through' + num_slides + ' slides for ' + slide_duration + 'seconds each. One minute for full cycle.'
+
+for x in num_slides:
+    sign.sendCmd(runslots,x) # can this call, or should i create a class called sign?
+    time.sleep(slide_duration)
+
