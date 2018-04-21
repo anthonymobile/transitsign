@@ -5,7 +5,7 @@
 import urllib2, argparse, os, sys
 from datetime import datetime   
 import xml.etree.ElementTree
-from weather import get_weather
+# from weather import get_weather
 from pyledsign.minisign import MiniSign
 from simplefont import sign_font
 import os, time
