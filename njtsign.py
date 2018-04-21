@@ -127,6 +127,11 @@ for service in service_specs:
     line2 = ''
     bus_format = '%s min'
 
+
+    #
+    # to fix the numbering carrying over when no bus coming
+    # use a try except loop. if the arrival list is empty, make line2 = 'No scheduled service.' and skip to the append.
+
     for bus in arrival_list:
         # print bus
         if ';' in bus['pt']: # handle response of APPROACHING e.g. 0 mins prediction
@@ -158,7 +163,7 @@ else:
 
 # ROTATE: TELL THE SCREEN TO SWITCH MESSAGES (60/n sec each)
 
-num_slides = len(slideshow)
+num_slides = len(slideshow)  # type: int
 slide_duration=60/(num_slides)
 
 print 'cycling through' + num_slides + ' slides for ' + slide_duration + 'seconds each. One minute for full cycle.'
