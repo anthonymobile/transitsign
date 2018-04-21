@@ -166,9 +166,9 @@ else:
 num_slides = len(slideshow)  # type: int
 slide_duration=60/(num_slides)
 
-print 'cycling through' + num_slides + ' slides for ' + slide_duration + 'seconds each. One minute for full cycle.'
+print 'cycling through' + str(num_slides) + ' slides for ' + str(slide_duration) + 'seconds each. One minute for full cycle.'
 
-for x in num_slides:
+for x in slideshow:
     sign.sendCmd(runslots,x) # can this call, or should i create a class called sign?
     time.sleep(slide_duration)
 
