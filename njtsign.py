@@ -58,10 +58,10 @@ for service in args.services:
     stop_id=service.split(",")[0]
     route_id=service.split(",")[1]
     service_specs.append([n,stop_id,route_id])
-    # print "service %s is stop %s route %s" % (n,stop_id,route_id)
+    print "service %s is stop %s route %s" % (n,stop_id,route_id)
 
 
-#slideshow is a list of lists
+# intialize slideshow as a matrix
 # [ [slide1 line1, slide1,line2],
 #   [slide2 line1, slide2,line2],
 #   [slide3 line1, slide3,line2],
@@ -74,7 +74,7 @@ for service in service_specs:
     api_key = '0.3003391435305782'
     arrivals_url = 'http://mybusnow.njtransit.com/bustime/eta/getStopPredictionsETA.jsp?route=%s&stop=%s&key=%s'
     submit_url = arrivals_url % (service[2], service[1], api_key)
-    # print submit_url
+    print submit_url
 
     try:
         data = urllib2.urlopen(submit_url).read()
@@ -93,8 +93,8 @@ for service in service_specs:
     else:
         pass
 
+    # parse the fetch into a list of arrivals
     arrival_list = []
-
     e = xml.etree.ElementTree.fromstring(data)
     for atype in e.findall('pre'):
         fields = { }
@@ -107,32 +107,31 @@ for service in service_specs:
 
         arrival_list.append(fields)
 
+    # create slideshow
     line2 = ''
     bus_format = '%s min'
-
-
-    #
-    # to fix the numbering carrying over when no bus coming
-    # use a try except loop. if the arrival list is empty, make line2 = 'No scheduled service.' and skip to the append.
-
     for bus in arrival_list:
-        # print bus
-        if ';' in bus['pt']: # handle response of APPROACHING e.g. 0 mins prediction
-            bus['pt'] = '!0!'
-        bus_entry = bus_format % (bus['pt'])
-        line2 = line2 + ' ' + bus_entry
-        print bus['rd']
+        if bool(bus) is True: # make sure there are predictions
+            if ';' in bus['pt']:  # handle response of APPROACHING e.g. 0 mins prediction
+                bus['pt'] = '!0!'
+            bus_entry = bus_format % (bus['pt'])
+            line2 = line2 + ' ' + bus_entry # append the arrival time for each bus e.g. '22 min'
+        else:
+            line2 = 'No arrivals next 30 mins.'
+        line2 = '#' + bus['rd'] + line2
         # routenum = bus['rd']
-    line2 = "#" + line2
-    # weather
-    # temp_now = get_weather(args.zip)
-    # line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P')) + '  ' + temp_now
-    line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P'))
-    lines = []
-    lines.append(line1)
-    lines.append(line2)
-    slide = lines[:2]
-    slideshow.append(slide)
+        # weather
+        # temp_now = get_weather(args.zip)
+        # line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P')) + '  ' + temp_now
+        line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P'))
+        lines = []
+        lines.append(line1)
+        lines.append(line2)
+        print lines
+        slide = lines[:2]
+        slideshow.append(slide)
+
+sys.exit()
 
 # SEND ALL MESSAGES in QUEUE to sign
 if (args.write == True):
