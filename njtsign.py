@@ -10,23 +10,6 @@ from pyledsign.minisign import MiniSign
 from simplefont import sign_font
 import os, time
 
-def serialfind():
-    import platform, os, re
-    platform_name = platform.system()
-    tty = ''
-    if platform_name == 'Linux':
-        tty = '/dev/ttyUSB0'
-    if platform_name == 'Darwin':
-        dev_contents = os.listdir('/dev')
-        for line in dev_contents:
-            if "Repleo" in line:
-                tty = ('/dev/' + str(line))
-            elif 'tty.usbserial' in line:
-                tty = '/dev/tty.usbserial'
-            else:
-                tty = '/dev/null'
-    return
-
 def WriteSign(lines):
 
     # prepare the bitmap
@@ -44,7 +27,7 @@ def WriteSign(lines):
     font = sign_font(new_glyphs_path)
 
     # sign setup
-    portname = serialfind()
+    portname = '/dev/ttyUSB0'
     sign = MiniSign(devicetype='sign', port=portname, )
 
     # THIS IS BREAKING WHEN THE TEXT IS TOO LONG
@@ -138,7 +121,9 @@ for service in service_specs:
             bus['pt'] = '!0!'
         bus_entry = bus_format % (bus['pt'])
         line2 = line2 + ' ' + bus_entry
-    line2 = "#" + bus['rd'] + line2
+        print bus['rd']
+        # routenum = bus['rd']
+    line2 = "#" + line2
     # weather
     # temp_now = get_weather(args.zip)
     # line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P')) + '  ' + temp_now
@@ -148,8 +133,6 @@ for service in service_specs:
     lines.append(line2)
     slide = lines[:2]
     slideshow.append(slide)
-    bus['rd'] = '' # otherwise shows bus number from previous loop. need a better way to show 'no buses approaching for requested service'
-
 
 # SEND ALL MESSAGES in QUEUE to sign
 if (args.write == True):
@@ -166,9 +149,9 @@ else:
 num_slides = len(slideshow)  # type: int
 slide_duration=60/(num_slides)
 
-print 'cycling through' + num_slides + ' slides for ' + slide_duration + 'seconds each. One minute for full cycle.'
+print 'cycling through' + str(num_slides) + ' slides for ' + str(slide_duration) + 'seconds each. One minute for full cycle.'
 
-for x in num_slides:
+for x in slideshow:
     sign.sendCmd(runslots,x) # can this call, or should i create a class called sign?
     time.sleep(slide_duration)
 
