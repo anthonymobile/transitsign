@@ -27,3 +27,17 @@ def get_weather (location):
 		print('Couldnt reach the weather API endpoint. Internet down?')
   
 	return report
+
+
+
+"""
+import pyowm
+
+owm = pyowm.OWM('PASTE YOUR API KEY IN HERE')  
+observation = owm.weather_at_place("Cambridge,uk")  
+w = observation.get_weather()  
+wind = w.get_wind()  
+print(w)  
+print(wind) 
+temperature = w.get_temperature('celsius')  
+"""

@@ -5,7 +5,7 @@
 import urllib2, argparse, os, sys
 from datetime import datetime   
 import xml.etree.ElementTree
-# from weather import get_weather
+from weather import get_weather
 from pyledsign.minisign import MiniSign
 from simplefont import sign_font
 import os, time
@@ -46,8 +46,7 @@ def WriteSign(lines):
 parser = argparse.ArgumentParser()
 parser.add_argument('services', nargs='+', help='Services specified as bus stop#,route# separated by comma with no space')
 parser.add_argument('-w', '--write', dest='write', action='store_true', help="Write the outgoing message (OGM) to the LED screen")
-parser.add_argument('-z', '--zip', dest='zip', help="ZIP code of stop, for weather")
-
+parser.add_argument('-z', '--zip', required='True', dest='zip', help="ZIP code of stop, for weather")
 args = parser.parse_args()
 
 # extract the service specs
@@ -123,7 +122,11 @@ for service in service_specs:
         # weather
         # temp_now = get_weather(args.zip)
         # line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P')) + '  ' + temp_now
-        line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P'))
+
+        degree_sign= u'\N{DEGREE SIGN}'
+        temp_now = get_weather(args.zip)
+        temp_msg = (temp_now['temp']+degree_sign)
+        line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P')) + ' ' + temp_msg
         lines = []
         lines.append(line1)
         lines.append(line2)
