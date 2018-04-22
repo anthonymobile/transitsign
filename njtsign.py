@@ -1,6 +1,5 @@
 # LED screen bus arrival display
 # scrapes and parses NJT MyBusNow API XML to brightLEDsigns.com display
-# single stop, single route for now
 
 import urllib2, argparse, os, sys
 from datetime import datetime   
@@ -127,8 +126,6 @@ for service in service_specs:
         print lines
         slide = lines[:2]
         slideshow.append(slide)
-
-sys.exit()
 
 # SEND ALL MESSAGES in QUEUE to sign
 if (args.write == True):
