@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94324e56-f025-40dc-94e7-5f9fb684e14c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/njtsign.py" beforeDir="false" afterPath="$PROJECT_DIR$/njtsign.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,8 +16,8 @@
       <file leaf-file-name="njtsign.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/njtsign.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="129" column="19" selection-start-line="129" selection-start-column="19" selection-end-line="129" selection-end-column="19" />
+            <state relative-caret-position="175">
+              <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
               <folding>
                 <element signature="e#142#175#0" expanded="true" />
               </folding>
@@ -67,8 +66,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="y" value="23" />
     <option name="width" value="1366" />
-    <option name="height" value="768" />
+    <option name="height" value="745" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -82,11 +82,6 @@
             <path>
               <item name="njtsign" type="b2602c69:ProjectViewProjectNode" />
               <item name="njtsign" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="njtsign" type="b2602c69:ProjectViewProjectNode" />
-              <item name="njtsign" type="462c0819:PsiDirectoryNode" />
-              <item name="doc" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -358,42 +353,52 @@
     <frame x="0" y="0" width="1366" height="768" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.19033675" />
-      <window_info anchor="bottom" id="TODO" order="5" />
-      <window_info anchor="bottom" x="257" y="432" width="1366" height="166" id="Event Log" order="9" sideWeight="0.5058565" side_tool="true" type="WINDOWED" weight="0.23184358" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49487555" weight="0.25" />
-      <window_info anchor="bottom" id="Python Console" order="6" />
-      <window_info active="true" anchor="right" x="43" y="369" width="483" height="342" id="Run" order="3" sideWeight="0.4941435" visible="true" weight="0.40849194" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24963397" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50292826" side_tool="true" visible="true" weight="0.38687152" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49707174" visible="true" weight="0.38687152" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4978038" weight="0.32935917" />
+      <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="2" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49487555" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.19033675" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="5" />
+      <window_info active="true" anchor="right" x="43" y="369" width="483" height="342" id="Run" order="3" sideWeight="0.4941435" visible="true" weight="0.40849194" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" x="257" y="432" width="1366" height="166" id="Event Log" order="9" sideWeight="0.5058565" side_tool="true" type="WINDOWED" weight="0.23184358" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49926794" weight="0.32960895" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Python Console" order="6" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16251831" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49487555" weight="0.25" />
       <window_info anchor="bottom" x="43" y="369" width="483" height="342" id="Run" order="2" sideWeight="0.4941435" visible="true" weight="0.40921786" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49926794" weight="0.32960895" />
+      <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" x="257" y="432" width="1366" height="166" id="Event Log" order="10" sideWeight="0.5058565" side_tool="true" type="WINDOWED" weight="0.23184358" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49487555" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49926794" weight="0.32960895" />
-      <window_info anchor="bottom" id="Python Console" order="7" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -441,6 +446,17 @@
     <MESSAGE value="deleted serialfind" />
     <option name="LAST_COMMIT_MESSAGE" value="deleted serialfind" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/njtsign.py</url>
+          <line>3</line>
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/njtsign.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -460,13 +476,7 @@
     <entry file="file://$PROJECT_DIR$/deprecated/pitransitsign_deprecated/transit_functions.py" />
     <entry file="file://$PROJECT_DIR$/OGM_write.py" />
     <entry file="file://$PROJECT_DIR$/test_ledsign.py" />
-    <entry file="file://$PROJECT_DIR$/serialfind.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/serialfind.py" />
     <entry file="file://$PROJECT_DIR$/test_ledsign_render.py" />
     <entry file="file://$PROJECT_DIR$/sign_handler.py" />
     <entry file="file://$PROJECT_DIR$/njtsign.py">
@@ -498,13 +508,7 @@
     <entry file="file://$PROJECT_DIR$/deprecated/pitransitsign_deprecated/transit_functions.py" />
     <entry file="file://$PROJECT_DIR$/OGM_write.py" />
     <entry file="file://$PROJECT_DIR$/test_ledsign.py" />
-    <entry file="file://$PROJECT_DIR$/serialfind.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/serialfind.py" />
     <entry file="file://$PROJECT_DIR$/test_ledsign_render.py" />
     <entry file="file://$PROJECT_DIR$/njtsign.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -550,20 +554,8 @@
     <entry file="file://$PROJECT_DIR$/OGM_write.py" />
     <entry file="file://$PROJECT_DIR$/test_ledsign.py" />
     <entry file="file://$PROJECT_DIR$/test_ledsign_render.py" />
-    <entry file="file://$PROJECT_DIR$/serialfind.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/badge_code.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/serialfind.py" />
+    <entry file="file://$PROJECT_DIR$/badge_code.py" />
     <entry file="file://$PROJECT_DIR$/pyledsign/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="370">
@@ -595,8 +587,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/njtsign.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="129" column="19" selection-start-line="129" selection-start-column="19" selection-end-line="129" selection-end-column="19" />
+        <state relative-caret-position="175">
+          <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
           <folding>
             <element signature="e#142#175#0" expanded="true" />
           </folding>
