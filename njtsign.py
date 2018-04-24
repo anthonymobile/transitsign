@@ -104,10 +104,10 @@ def main():
                 line2 = line2 + ' ' + bus_entry # append the arrival time for each bus e.g. '22 min'
             else:
                 line2 = 'No arrivals next 30 mins.'
-            degree_sign= u'\N{DEGREE SIGN}'
-            temp_now = get_weather('Jersey City') # hardcoded for now
-            temp_msg = (temp_now['temp']+degree_sign)
-            line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P'))+ ' ' + temp_msg
+            #degree_sign= u'\N{DEGREE SIGN}'
+            #temp_now = get_weather('Jersey City') # hardcoded for now
+            #temp_msg = (temp_now['temp']+degree_sign)
+            line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P')) # + ' ' + temp_msg
             lines = []
             lines.append(line1)
             lines.append('#' + bus['rd'] + line2)
