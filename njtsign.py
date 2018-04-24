@@ -9,7 +9,7 @@ from pyledsign.minisign import MiniSign
 from simplefont import sign_font
 import os, time
 
-def WriteSign(lines):
+def writesign(lines):
 
     # prepare the bitmap
     class Array:
@@ -40,6 +40,7 @@ def WriteSign(lines):
     # queue and send message
     sign.queuemsg(data="%s" % typeset, effect='hold');
     sign.sendqueue(device=portname, runslots='none')
+
 
 # parse services and switches
 parser = argparse.ArgumentParser()
@@ -81,11 +82,6 @@ for service in service_specs:
         sys.exit('Exiting.')
     except urllib2.URLError, e:
         print 'We failed to reach a server. (internet down?)'
-        ogm = []
-        ogm.append('offline')
-        WritePlaintext(ogm,'hold',3)
-        # print 'Reason: ', e.reason
-
         sys.exit('Exiting.')
     else:
         pass
@@ -127,24 +123,19 @@ for service in service_specs:
         slide = lines[:2]
         slideshow.append(slide)
 
-# SEND ALL MESSAGES in QUEUE to sign
-if (args.write == True):
-    for slide in slideshow:
-        WriteSign(slide)
-        print 'i wrote to the sign'
-        print slideshow
+    print slideshow
+    sys.exit()
 
+# manually cycle through each message, queue and send it
+num_slides = len(slideshow)  # type: int
+slide_duration = 60 / (num_slides)
+if (args.write == True):
+    print 'Writing to sign...'
+    slidenum=0
+    for slide in slideshow:
+        print str(slidenum) + ': ',
+        print slide
+        writesign(slide)
+        time.sleep(slide_duration)
 else:
     pass
-
-# ROTATE: TELL THE SCREEN TO SWITCH MESSAGES (60/n sec each)
-
-num_slides = len(slideshow)  # type: int
-slide_duration=60/(num_slides)
-
-print 'cycling through' + str(num_slides) + ' slides for ' + str(slide_duration) + 'seconds each. One minute for full cycle.'
-
-for x in slideshow:
-    sign.sendCmd(runslots,x) # can this call, or should i create a class called sign?
-    time.sleep(slide_duration)
-
