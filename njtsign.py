@@ -111,7 +111,6 @@ def main():
             lines = []
             lines.append(line1)
             lines.append('#' + bus['rd'] + line2)
-            print lines
             slide = lines[:2]
             slideshow.append(slide)
 
@@ -119,8 +118,7 @@ def main():
     # very kludgy need to fix
     if len(slideshow)>1:
         slideshow=slideshow[-1]
-    print slideshow
-    sys.exit()
+    print 'Slides: ', slideshow
 
     # manually cycle through each message, queue and send it
     num_slides = len(slideshow)  # type: int
