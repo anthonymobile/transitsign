@@ -9,6 +9,7 @@ from pyledsign.minisign import MiniSign
 from simplefont import sign_font
 import os, time
 
+
 def writesign(lines):
 
     # prepare the bitmap
@@ -42,100 +43,93 @@ def writesign(lines):
     sign.sendqueue(device=portname, runslots='none')
 
 
-# parse services and switches
-parser = argparse.ArgumentParser()
-parser.add_argument('services', nargs='+', help='Services specified as bus stop#,route# separated by comma with no space')
-parser.add_argument('-w', '--write', dest='write', action='store_true', help="Write the outgoing message (OGM) to the LED screen")
-args = parser.parse_args()
+def main():
 
-# extract the service specs
-n=0
-service_specs=[]
-for service in args.services:
-    n=n+1
-    stop_id=service.split(",")[0]
-    route_id=service.split(",")[1]
-    service_specs.append([n,stop_id,route_id])
-    print "service %s is stop %s route %s" % (n,stop_id,route_id)
+    # parse services and switches
+    parser = argparse.ArgumentParser()
+    parser.add_argument('services', nargs='+', help='Services specified as bus stop#,route# separated by comma with no space')
+    parser.add_argument('-w', '--write', dest='write', action='store_true', help="Write the outgoing message (OGM) to the LED screen")
+    args = parser.parse_args()
 
+    # extract the service specs
+    n=0
+    service_specs=[]
+    for service in args.services:
+        n=n+1
+        stop_id=service.split(",")[0]
+        route_id=service.split(",")[1]
+        service_specs.append([n,stop_id,route_id])
+        print "service %s is stop %s route %s" % (n,stop_id,route_id)
 
-# intialize slideshow as a matrix
-# [ [slide1 line1, slide1,line2],
-#   [slide2 line1, slide2,line2],
-#   [slide3 line1, slide3,line2],
-slideshow=[]
+    # get arrivals for each service and parse
+    slideshow=[]
+    for service in service_specs:
+        # create the url
+        api_key = '0.3003391435305782'
+        arrivals_url = 'http://mybusnow.njtransit.com/bustime/eta/getStopPredictionsETA.jsp?route=%s&stop=%s&key=%s'
+        submit_url = arrivals_url % (service[2], service[1], api_key)
+        print submit_url
 
+        try:
+            data = urllib2.urlopen(submit_url).read()
+        except urllib2.HTTPError, e:
+            print 'The server couldn\'t fulfill the request.'
+            print 'Error code: ', e.code
+            sys.exit('Exiting.')
+        except urllib2.URLError, e:
+            print 'We failed to reach a server. (internet down?)'
+            sys.exit('Exiting.')
+        else:
+            pass
+        arrival_list = []
+        e = xml.etree.ElementTree.fromstring(data)
+        for atype in e.findall('pre'):
+            fields = { }
+            for field in atype.getchildren():
+                if field.tag not in fields and hasattr(field, 'text'):
+                    if field.text is None:
+                        fields[field.tag] = ''
+                        continue
+                    fields[field.tag] = field.text.replace("&nbsp", "")
+            arrival_list.append(fields)
 
-# FETCH arrival_list OVER EACH SERVICE service TO BUILD A slide AND APPEND TO slideshow
-for service in service_specs:
-    # create the url
-    api_key = '0.3003391435305782'
-    arrivals_url = 'http://mybusnow.njtransit.com/bustime/eta/getStopPredictionsETA.jsp?route=%s&stop=%s&key=%s'
-    submit_url = arrivals_url % (service[2], service[1], api_key)
-    print submit_url
+        # create slideshow
+        line2 = ''
+        bus_format = '%s min'
+        for bus in arrival_list:
+            if bool(bus) is True: # make sure there are predictions
+                if ';' in bus['pt']:  # handle response of APPROACHING e.g. 0 mins prediction
+                    bus['pt'] = '!0!'
+                bus_entry = bus_format % (bus['pt'])
+                line2 = line2 + ' ' + bus_entry # append the arrival time for each bus e.g. '22 min'
+            else:
+                line2 = 'No arrivals next 30 mins.'
+            line2 = '#' + bus['rd'] + line2
+            degree_sign= u'\N{DEGREE SIGN}'
+            temp_now = get_weather('Jersey City') # hardcoded for now
+            temp_msg = (temp_now['temp']+degree_sign)
+            line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P'))+ ' ' + temp_msg
+            lines = []
+            lines.append(line1)
+            lines.append(line2)
+            print lines
+            slide = lines[:2]
+            slideshow.append(slide)
 
-    try:
-        data = urllib2.urlopen(submit_url).read()
-    except urllib2.HTTPError, e:
-        print 'The server couldn\'t fulfill the request.'
-        print 'Error code: ', e.code
-        sys.exit('Exiting.')
-    except urllib2.URLError, e:
-        print 'We failed to reach a server. (internet down?)'
-        sys.exit('Exiting.')
+    # manually cycle through each message, queue and send it
+    num_slides = len(slideshow)  # type: int
+    slide_duration = 60 / num_slides
+    if args.write is True:
+        print 'Writing to sign...'
+        slidenum=0
+        for slide in slideshow:
+            print str(slidenum) + ': ',
+            print slide
+            writesign(slide)
+            time.sleep(slide_duration)
     else:
         pass
 
-    # parse the fetch into a list of arrivals
-    arrival_list = []
-    e = xml.etree.ElementTree.fromstring(data)
-    for atype in e.findall('pre'):
-        fields = { }
-        for field in atype.getchildren():
-            if field.tag not in fields and hasattr(field, 'text'):
-                if field.text is None:
-                    fields[field.tag] = ''
-                    continue
-                fields[field.tag] = field.text.replace("&nbsp", "")
 
-        arrival_list.append(fields)
-
-    # create slideshow
-    line2 = ''
-    bus_format = '%s min'
-    for bus in arrival_list:
-        if bool(bus) is True: # make sure there are predictions
-            if ';' in bus['pt']:  # handle response of APPROACHING e.g. 0 mins prediction
-                bus['pt'] = '!0!'
-            bus_entry = bus_format % (bus['pt'])
-            line2 = line2 + ' ' + bus_entry # append the arrival time for each bus e.g. '22 min'
-        else:
-            line2 = 'No arrivals next 30 mins.'
-        line2 = '#' + bus['rd'] + line2
-        degree_sign= u'\N{DEGREE SIGN}'
-        temp_now = get_weather('Jersey City') # hardcoded for now
-        temp_msg = (temp_now['temp']+degree_sign)
-        line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P'))+ ' ' + temp_msg
-        lines = []
-        lines.append(line1)
-        lines.append(line2)
-        print lines
-        slide = lines[:2]
-        slideshow.append(slide)
-
-    print slideshow
-    sys.exit()
-
-# manually cycle through each message, queue and send it
-num_slides = len(slideshow)  # type: int
-slide_duration = 60 / (num_slides)
-if (args.write == True):
-    print 'Writing to sign...'
-    slidenum=0
-    for slide in slideshow:
-        print str(slidenum) + ': ',
-        print slide
-        writesign(slide)
-        time.sleep(slide_duration)
-else:
-    pass
+if __name__ == "__main__":
+    main()
