@@ -104,17 +104,23 @@ def main():
                 line2 = line2 + ' ' + bus_entry # append the arrival time for each bus e.g. '22 min'
             else:
                 line2 = 'No arrivals next 30 mins.'
-            line2 = '#' + bus['rd'] + line2
             degree_sign= u'\N{DEGREE SIGN}'
             temp_now = get_weather('Jersey City') # hardcoded for now
             temp_msg = (temp_now['temp']+degree_sign)
             line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P'))+ ' ' + temp_msg
             lines = []
             lines.append(line1)
-            lines.append(line2)
+            lines.append('#' + bus['rd'] + line2)
             print lines
             slide = lines[:2]
             slideshow.append(slide)
+
+    # removes duplicate slides created by above loop if multiple arriving buses
+    # very kludgy need to fix
+    if len(slideshow)>1:
+        slideshow=slideshow[-1]
+    print slideshow
+    sys.exit()
 
     # manually cycle through each message, queue and send it
     num_slides = len(slideshow)  # type: int
