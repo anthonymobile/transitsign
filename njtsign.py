@@ -70,7 +70,7 @@ def main():
         api_key = '0.3003391435305782'
         arrivals_url = 'http://mybusnow.njtransit.com/bustime/eta/getStopPredictionsETA.jsp?route=%s&stop=%s&key=%s'
         submit_url = arrivals_url % (service[2], service[1], api_key)
-        print submit_url
+        # print submit_url
 
         try:
             data = urllib2.urlopen(submit_url).read()
@@ -98,14 +98,21 @@ def main():
         # create slideshow
         line2 = ''
         bus_format = '%s min'
-        for bus in arrival_list:
-            if bool(bus) is True: # make sure there are predictions
-                if ';' in bus['pt']:  # handle response of APPROACHING e.g. 0 mins prediction
-                    bus['pt'] = '!0!'
-                bus_entry = bus_format % (bus['pt'])
-                line2 = line2 + ' ' + bus_entry # append the arrival time for each bus e.g. '22 min'
-            else:
-                line2 = 'No arrivals next 30 mins.'
+        if len(arrival_list)==0:
+            line2 = 'No scheduled service.'
+            line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P'))  # + ' ' + temp_msg
+            lines = []
+            lines.append(line1)
+            lines.append('#' + service[2] + ' ' + line2)
+            slide = lines[:2]
+            slideshow.append(slide)
+        else:
+            for bus in arrival_list:
+                if bool(bus) is True: # make sure there are predictions
+                    if ';' in bus['pt']:  # handle response of APPROACHING e.g. 0 mins prediction
+                        bus['pt'] = '!0!'
+                    bus_entry = bus_format % (bus['pt'])
+                    line2 = line2 + ' ' + bus_entry # append the arrival time for each bus e.g. '22 min'
             #degree_sign= u'\N{DEGREE SIGN}'
             #temp_now = get_weather('Jersey City') # hardcoded for now
             #temp_msg = (temp_now['temp']+degree_sign)
@@ -115,26 +122,28 @@ def main():
             lines.append('#' + bus['rd'] + line2)
             slide = lines[:2]
             slideshow.append(slide)
+        print line2
+    print slideshow
 
     # removes duplicate slides created by above loop if multiple arriving buses
     # very kludgy need to fix
-    if len(slideshow)>1:
-        slideshow=slideshow[-1]
-        print 'Slides: ', slideshow
+    #if len(slideshow)>1:
+    #    slideshow=slideshow[-1]
+    #    print 'Slides: ', slideshow
+    # else:
+    #    pass
 
-        # manually cycle through each message, queue and send it
-        num_slides = len(slideshow)  # type: int
-        slide_duration = 60 / num_slides
-        if args.write is True:
-            print 'Writing to sign...'
-            slidenum=0
-            for slide in slideshow:
-                print str(slidenum) + ': ',
-                print slide
-                writesign(slide)
-                time.sleep(slide_duration)
-    else:
-        pass
+    # manually cycle through each message, queue and send it
+    num_slides = len(slideshow)  # type: int
+    slide_duration = 60 / num_slides
+    if args.write is True:
+        print 'Writing to sign...'
+        for slot in range(len(slideshow)):
+            print str(slot) + ': ',
+            print slideshow[slot]
+            print 'TESTING SERIAL PORT DISABLED'# writesign(slideshow[slot])
+            print 'Sleeping for '+str(slide_duration)+' seconds...'
+            time.sleep(slide_duration)
 
 
 if __name__ == "__main__":
