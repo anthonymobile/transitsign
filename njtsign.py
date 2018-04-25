@@ -120,19 +120,19 @@ def main():
     # very kludgy need to fix
     if len(slideshow)>1:
         slideshow=slideshow[-1]
-    print 'Slides: ', slideshow
+        print 'Slides: ', slideshow
 
-    # manually cycle through each message, queue and send it
-    num_slides = len(slideshow)  # type: int
-    slide_duration = 60 / num_slides
-    if args.write is True:
-        print 'Writing to sign...'
-        slidenum=0
-        for slide in slideshow:
-            print str(slidenum) + ': ',
-            print slide
-            writesign(slide)
-            time.sleep(slide_duration)
+        # manually cycle through each message, queue and send it
+        num_slides = len(slideshow)  # type: int
+        slide_duration = 60 / num_slides
+        if args.write is True:
+            print 'Writing to sign...'
+            slidenum=0
+            for slide in slideshow:
+                print str(slidenum) + ': ',
+                print slide
+                writesign(slide)
+                time.sleep(slide_duration)
     else:
         pass
 
