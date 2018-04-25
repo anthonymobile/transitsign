@@ -116,11 +116,7 @@ for service in service_specs:
         else:
             line2 = 'No arrivals next 30 mins.'
         line2 = '#' + bus['rd'] + line2
-        degree_sign= u'\N{DEGREE SIGN}'
-        temp_now = get_weather('Jersey City') # hardcoded for now
-        temp_msg = (temp_now['temp']+degree_sign)
-        line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P'))+ ' ' + temp_msg
-        lines = []
+      lines = []
         lines.append(line1)
         lines.append(line2)
         print lines
