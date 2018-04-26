@@ -2,14 +2,22 @@
 May 2018 
 Anthony Townsend (anthony@bitsandatoms.net)
 
-#### Object Oriented Version of earlier code
-
 
 ## Description
 
-A Python app to grab real-time bus arrival predictions from NJTransit.com BusTime app and push them to a brightledsigns.com display via USB serial cable.
+A Python app to grab real-time bus arrival predictions from NJTransit.com BusTime app and push them to a brightledsigns.com display via USB serial cable. Now fully object-oriented implementation.
+
+## Hardware
+
+Raspberry Pi (should run ok on a 0, 2 or 3 and a ['Mini' 16 by 96 pixel sign](https://brightledsigns.com/programmable/indoor/bs-4x16-mini) from BrightLedSigns.com). Budget is about $150, including $90 for the sign and up to $60 for Pi, WiFi card and case.
+
+![the hardware](njtsign-hardware-v0.1.jpg)
 
 ## Classes
+
+- Service
+- Slide
+- SimpleFont
 
 ## Usage
 

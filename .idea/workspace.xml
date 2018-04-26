@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/bustime.py" line="17" />
+    <bookmark url="file://$PROJECT_DIR$/Service.py" description="BUG: am/pm date format after midnight?" line="79" />
+    <bookmark url="file://$PROJECT_DIR$/Slide.py" description="TODO: finish / check" line="39" />
+    <bookmark url="file://$PROJECT_DIR$/bustime.py" description="TODO: finish and test last section" line="33" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94324e56-f025-40dc-94e7-5f9fb684e14c" name="Default" comment="" />
+    <list default="true" id="94324e56-f025-40dc-94e7-5f9fb684e14c" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/SimpleFont.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Service.py" beforeDir="false" afterPath="$PROJECT_DIR$/Service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slide.py" beforeDir="false" afterPath="$PROJECT_DIR$/Slide.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bustime.py" beforeDir="false" afterPath="$PROJECT_DIR$/bustime.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deprecated/njtsign.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deprecated/simplefont.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deprecated/weather.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/njtsign-hardware-v0.1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/njtsign-hardware-v0.1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/to-do.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,14 +31,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="bustime.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="bustime.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bustime.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="146">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
               <folding>
-                <element signature="e#0#15#0" expanded="true" />
+                <element signature="e#0#20#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="readme.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/readme.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="218">
+                <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -32,8 +58,23 @@
       <file leaf-file-name="Service.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Service.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="817">
-              <caret line="43" selection-start-line="43" selection-end-line="43" />
+            <state relative-caret-position="130">
+              <caret line="79" selection-start-line="79" selection-end-line="79" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Slide.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Slide.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="403">
+              <caret line="39" selection-start-line="39" selection-end-line="39" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -49,11 +90,13 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>font</find>
       <find>simplefont</find>
       <find>platform</find>
       <find>sign_font</find>
       <find>print</find>
+      <find>weather</find>
+      <find>font</find>
+      <find>import</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -73,12 +116,15 @@
         <option value="$PROJECT_DIR$/serialfind.py" />
         <option value="$PROJECT_DIR$/badge_code.py" />
         <option value="$PROJECT_DIR$/pyledsign/__init__.py" />
-        <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/njtsign.py" />
         <option value="$PROJECT_DIR$/pyledsign/Service.py" />
-        <option value="$PROJECT_DIR$/Slide.py" />
+        <option value="$PROJECT_DIR$/deprecated/njtsign.py" />
+        <option value="$PROJECT_DIR$/deprecated/weather.py" />
+        <option value="$PROJECT_DIR$/SimpleFont.py" />
         <option value="$PROJECT_DIR$/Service.py" />
+        <option value="$PROJECT_DIR$/Slide.py" />
         <option value="$PROJECT_DIR$/bustime.py" />
+        <option value="$PROJECT_DIR$/readme.md" />
       </list>
     </option>
   </component>
@@ -98,6 +144,11 @@
               <item name="njtsign" type="b2602c69:ProjectViewProjectNode" />
               <item name="njtsign" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="njtsign" type="b2602c69:ProjectViewProjectNode" />
+              <item name="njtsign" type="462c0819:PsiDirectoryNode" />
+              <item name="pyledsign" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -111,12 +162,12 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/doc" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/pyledsign" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/doc" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -131,7 +182,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.#87 no write">
+  <component name="RunManager" selected="Python.1 stop, 2 lines">
     <configuration name="1 stop, 2 lines" type="PythonConfigurationType" factoryName="Python">
       <module name="njtsign" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -144,44 +195,8 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/njtsign.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bustime.py" />
       <option name="PARAMETERS" value="30189,119 30189,85 -w" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="2 stops, 3 lines NO WRITE" type="PythonConfigurationType" factoryName="Python">
-      <module name="njtsign" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/njtsign.py" />
-      <option name="PARAMETERS" value="21062,87 30189,119 30189,85" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="2 stops, 3 lines" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="njtsign" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/njtsign.py" />
-      <option name="PARAMETERS" value="21062,87 30189,119 30189,85 -w" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -198,7 +213,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/njtsign.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bustime.py" />
       <option name="PARAMETERS" value="21062,87" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -207,14 +222,7 @@
     <list>
       <item itemvalue="Python.1 stop, 2 lines" />
       <item itemvalue="Python.#87 no write" />
-      <item itemvalue="Python.2 stops, 3 lines NO WRITE" />
-      <item itemvalue="Python.2 stops, 3 lines" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.2 stops, 3 lines" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -416,14 +424,21 @@
       <option name="project" value="LOCAL" />
       <updated>1524601982587</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="2nd, close to working draft">
+      <created>1524682955582</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1524682955583</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4944134" visible="true" weight="0.17203514" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49162012" visible="true" weight="0.17203514" />
       <window_info anchor="bottom" id="TODO" order="5" />
       <window_info anchor="bottom" x="257" y="432" width="1366" height="166" id="Event Log" order="9" sideWeight="0.5058565" side_tool="true" type="WINDOWED" weight="0.23184358" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49487555" weight="0.25" />
@@ -431,7 +446,7 @@
       <window_info anchor="bottom" x="43" y="369" width="483" height="342" id="Run" order="10" sideWeight="0.4941435" weight="0.40782124" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Favorites" order="2" sideWeight="0.50558656" side_tool="true" weight="0.17203514" />
+      <window_info id="Favorites" order="2" sideWeight="0.5083799" side_tool="true" visible="true" weight="0.17203514" />
       <window_info anchor="bottom" id="Debug" order="2" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -441,6 +456,25 @@
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49926794" weight="0.32960895" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" x="43" y="369" width="483" height="342" id="Run" order="10" sideWeight="0.4941435" visible="true" weight="0.40782124" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49292454" visible="true" weight="0.17203514" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="5" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49926794" weight="0.32960895" />
+      <window_info anchor="bottom" id="Python Console" order="6" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.4" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" x="257" y="432" width="1366" height="166" id="Event Log" order="9" sideWeight="0.5058565" side_tool="true" type="WINDOWED" weight="0.23184358" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49487555" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info active="true" id="Favorites" order="2" sideWeight="0.5070755" side_tool="true" visible="true" weight="0.17203514" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -489,7 +523,8 @@
     <MESSAGE value="slideshow rewrite - has bugs in slide text prep" />
     <MESSAGE value="fixed duplicate slides and route # bugs" />
     <MESSAGE value="first draft of the oop code" />
-    <option name="LAST_COMMIT_MESSAGE" value="first draft of the oop code" />
+    <MESSAGE value="2nd, close to working draft" />
+    <option name="LAST_COMMIT_MESSAGE" value="2nd, close to working draft" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -497,11 +532,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../pyledsign/pyledsign/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/deprecated/pitransitsign_deprecated/transit_functions.py" />
-    <entry file="file://$PROJECT_DIR$/OGM_write.py" />
-    <entry file="file://$PROJECT_DIR$/test_ledsign.py" />
-    <entry file="file://$PROJECT_DIR$/serialfind.py" />
     <entry file="file://$PROJECT_DIR$/test_ledsign_render.py" />
     <entry file="file://$PROJECT_DIR$/sign_handler.py" />
     <entry file="file://$PROJECT_DIR$/njtsign.py" />
@@ -547,51 +577,95 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/weather.py" />
-    <entry file="file://$PROJECT_DIR$/readme.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="75">
-            <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/njtsign.py" />
+    <entry file="file://$PROJECT_DIR$/pyledsign/Service.py" />
+    <entry file="file://$PROJECT_DIR$/deprecated/weather.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/njtsign.py" />
-    <entry file="file://$PROJECT_DIR$/pyledsign/Service.py" />
     <entry file="file://$PROJECT_DIR$/deprecated/njtsign.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="57" column="65" lean-forward="true" selection-start-line="50" selection-end-line="57" selection-end-column="65" />
+        <state relative-caret-position="152">
+          <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deprecated/simplefont.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="130" column="17" lean-forward="true" selection-start-line="130" selection-start-column="17" selection-end-line="130" selection-end-column="17" />
+          <folding>
+            <element signature="e#81#90#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleFont.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="128" selection-start-line="128" selection-end-line="128" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Slide.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="403">
-          <caret line="51" column="26" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Service.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="817">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
+    <entry file="file://$PROJECT_DIR$/doc/to-do.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bustime.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="146">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#20#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/njtsign-hardware-v0.1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="218">
+            <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>

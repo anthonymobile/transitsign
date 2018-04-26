@@ -1,7 +1,7 @@
-import argparse
+import argparse, sys
 
 from Service import Service
-#from Slide import Slide
+from Slide import Slide
 
 
 def main():
@@ -18,13 +18,18 @@ def main():
     for svc in args.services:
         stop_id = svc.split(",")[0]
         route_id = svc.split(",")[1]
+        svc = Service(stop_id,route_id)
         print "service: stop %s route %s <<<< " % (stop_id, route_id),
-        arrivals = Service(stop_id,route_id).get_arrivals()
-        print arrivals
-        slide_text = arrivals.compose_lines
-        print "slide text: %s " % slide_text
-        slide_type = Slide.typeset(slide_text)
-        slideshow.append(slide_type)
+        arrival_data = svc.get_arrivals()
+        print arrival_data
+        slide_text = svc.compose_lines(arrival_data)
+        print "slide text: %s" % slide_text
+        this_slide = Slide()
+        this_slide_typeset = this_slide.typeset(slide_text)
+        print this_slide_typeset
+        slideshow.append(this_slide_typeset)
+
+
 
     # now start sending the slideshow off to the sign with the sign class or function (or put that in Slide?)
 

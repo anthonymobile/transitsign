@@ -1,11 +1,13 @@
-class Service:
+import sys
+from datetime import datetime
 
+class Service:
 
     def __init__(self, stop, route):
         self.stop = stop  # type: int
         self.route = route # type: int
+        self.arrivals_list = []
         # self.forecast = forecast  # type: str
-
 
     def get_arrivals(self):
         import urllib2
@@ -29,7 +31,6 @@ class Service:
             pass
         # print data
 
-        self.arrivals_list = []
         e = xml.etree.ElementTree.fromstring(data)
         for atype in e.findall('pre'):
             fields = {}
@@ -42,7 +43,6 @@ class Service:
             self.arrivals_list.append(fields)
         return self.arrivals_list
 
-
     def get_weather(self):
         import pyowm
 
@@ -53,21 +53,20 @@ class Service:
             w = observation.get_weather()
             temps = w.get_temperature(unit='fahrenheit')  # {'temp_max': 10.5, 'temp': 9.7, 'temp_min': 9.0}
 
-            temp_report = "%.0f" % temps['temp']
+            self.temp_report = "%.0f" % temps['temp']
             # degree_sign = u'\N{DEGREE SIGN}'
             # temp_msg = (temp_report + degree_sign)
 
         except:
             print('Couldnt reach the weather API endpoint. Internet down?')
 
-        return temp_report
+        return self.temp_report
 
-
-    def compose_lines(self):
-        # format the two-line text message to display
+    def compose_lines(self,arrival_data):
+        self.arrival_data = arrival_data
         line2 = ''
         bus_format = '%s min'
-        for bus in arrival_list:
+        for bus in arrival_data:
             if bool(bus) is True:  # make sure there are predictions
                 if ';' in bus['pt']:  # handle response of APPROACHING e.g. 0 mins prediction
                     bus['pt'] = '!0!'
@@ -75,14 +74,13 @@ class Service:
                 line2 = line2 + ' ' + bus_entry  # append the arrival time for each bus e.g. '22 min'
             else:
                 line2 = 'No arrivals next 30 mins.'
-            degree_sign = u'\N{DEGREE SIGN}'
-            temp_now = get_weather('Jersey City')  # hardcoded for now
-            temp_msg = (temp_now['temp'] + degree_sign)
-            line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P')) + ' ' + temp_msg
-            lines = []
-            lines.append(line1)
-            lines.append('#' + bus['rd'] + line2)
-            lines = lines[:2]
+            # degree_sign = u'\N{DEGREE SIGN}'
+            # temp_now = get_weather('Jersey City')  # hardcoded for now
+            # temp_msg = (temp_now['temp'] + degree_sign)
+            line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P')) # + ' ' + temp_msg
+            self.lines = []
+            self.lines.append(line1)
+            self.lines.append('#' + bus['rd'] + line2)
+            self.lines = self.lines[:2]
 
         return self.lines
-
