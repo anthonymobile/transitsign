@@ -141,7 +141,8 @@ def main():
         for slot in range(len(slideshow)):
             print str(slot) + ': ',
             print slideshow[slot]
-            print 'TESTING SERIAL PORT DISABLED'# writesign(slideshow[slot])
+            # print 'TESTING SERIAL PORT DISABLED'# writesign(slideshow[slot])
+            writesign(slideshow[slot])
             print 'Sleeping for '+str(slide_duration)+' seconds...'
             time.sleep(slide_duration)
 
