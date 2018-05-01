@@ -69,6 +69,11 @@ All in, you can build this for about $160 including shipping if you are smart.
 
 As of [this commit](https://github.com/anthonymobile/njtsign/commit/ac4694b5dbfc15693f858e8efdae78e9933b983f) the master branch codebase is working pretty solid as best I can tell. However, I am working on a rewrite that refactors most of the messy script as classes and is considerably faster and should provide generic resuable code for rendering the 2-line 8-pixel fonts on the BrightLedSigns Mini sign. It's here on the [oop-refactor branch](https://github.com/anthonymobile/njtsign/tree/oop-refactor).
 
+Things I'd like to add:
+- Weather. Most of the code is in there, just needs to be debugged
+- Trap for lines that are too long. If there's too much text, and the bitmap is bigger than 96 pixels long, the sign simply won't take it and writing will fail. Usually, as the sign cycles, it will recover on the next service, but the one that failed will continue. Usually the culprit is 3 or more inbound buses, which, thanks to current budgets is extremely rare. There just aren't many routes in the state with that kind of frequency.
+- Headsign display. This would be part of a customizable display for the first line. The data is in the API response it just needs to be formatted in a smart way and handled per previous bullet in a way that doesn't bork the screen.
+
 ## Hudson County Support for Public Displays
 
 If you are in Jersey City, Hoboken, Bayonne, or other Hudson County communities, I'm happy to meet and help you setup one of these for yourself if you display it in a public place like a store, school, church, or your own window, etc. Ping me here on github or njtsign at bitsandatoms dot net.
