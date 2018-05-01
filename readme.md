@@ -12,7 +12,7 @@ A Python app to grab real-time bus arrival predictions from NJTransit.com BusTim
 ## Usage
 
 ```
-njtsign.py {stop_id1,route_id1} {stop_id2,route_id2} ... [-h] [-w] [-f {text,font}]
+njtsign.py {stop_id1,route_id1} {stop_id2,route_id2} ... [-h] [-w]
 
 
 required arguments:
