@@ -44,3 +44,25 @@ http://mybusnow.njtransit.com/bustime/eta/getStopPredictionsETA.jsp?route=all&st
 ###API with direction (not yet used) 
 http://mybusnow.njtransit.com/bustime/eta/getStopPredictionsETA.jsp?route=%s&direction=%s&stop=%s&key=0.3003391435305782
 Since most stops only serve routes going in a single direction, not worried about this for a while.
+
+
+## Automation
+
+The program as coded only runs a single 1-minute loop. Ideally you want to run it every minute as a cron job. Here are some of the ways I use it near my intersection in Jersey City Heights, where my family uses multiple bus routes on a daily basis to get to various destinations.
+
+```
+# just 119
+# * * * * * cd /home/pi/njtsign && python2 njtsign.py 30189,119 -w
+
+# just webster ave 119 and 85
+# * * * * * cd /home/pi/njtsign && python njtsign.py 30189,119 30189,85 -w
+
+# 4 routes from the heights - nyc 119,123 hob term 85,87
+# * * * * * cd /home/pi/njtsign && python njtsign.py 30189,119 21062,123 30189,$
+
+# 119,85,119 and 87 - double cycle 119
+# * * * * * cd /home/pi/njtsign && python njtsign.py 30189,119 30189,85 30189,1$
+
+# fast cycle 10 seconds with focus on 119 -- 119,85,119,87,119,86P
+* * * * * cd /home/pi/njtsign && python njtsign.py 30189,119 30189,85 30189,119 21062,87 30189,119 86,21065 -w
+```
