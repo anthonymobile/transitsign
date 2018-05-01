@@ -33,18 +33,9 @@ This is the main one.
 **pyledsign**
 I've bundled this code into the project since its stable for 2 years now. https://github.com/BrightLedSigns/pyledsign
 
-## NJT Bus Arrival Feed
+## Data Source
 
-### mobile website
-http://mybusnow.njtransit.com/bustime/eta/eta.jsp?route=---&direction=---&stop=---&id=30189&showAllBusses=on&findstop=on
-
-###API endpoint for the arrivals
-http://mybusnow.njtransit.com/bustime/eta/getStopPredictionsETA.jsp?route=all&stop=30189&key=0.3003391435305782
-
-###API with direction (not yet used) 
-http://mybusnow.njtransit.com/bustime/eta/getStopPredictionsETA.jsp?route=%s&direction=%s&stop=%s&key=0.3003391435305782
-Since most stops only serve routes going in a single direction, not worried about this for a while.
-
+The app is powered by the prediction times on NJ Transit's Clever Devices API, which is the same service that all NJT's own apps and sites use. You can see the XML that comes back from the API for [arrivals](http://mybusnow.njtransit.com/bustime/eta/getStopPredictionsETA.jsp?route=all&stop=30189&key=0.3003391435305782).
 
 ## Automation
 
@@ -64,5 +55,5 @@ The program as coded only runs a single 1-minute loop. Ideally you want to run i
 # * * * * * cd /home/pi/njtsign && python njtsign.py 30189,119 30189,85 30189,1$
 
 # fast cycle 10 seconds with focus on 119 -- 119,85,119,87,119,86P
-* * * * * cd /home/pi/njtsign && python njtsign.py 30189,119 30189,85 30189,119 21062,87 30189,119 86,21065 -w
+* * * * * cd /home/pi/njtsign && python njtsign.py 30189,119 30189,85 30189,119 21062,87 30189,119 21065,86 -w
 ```
