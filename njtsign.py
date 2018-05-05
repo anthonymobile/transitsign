@@ -91,7 +91,7 @@ def main():
             arrival_list.append(fields)
 
         # truncate if more than 2 arrivals so we don't get a sign write bork
-        if len(arrival_list) >2
+        if len(arrival_list) > 2:
             arrival_list = arrival_list[:2]
         else:
             pass
