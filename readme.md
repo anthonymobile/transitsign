@@ -71,8 +71,8 @@ As of [this commit](https://github.com/anthonymobile/njtsign/commit/ac4694b5dbfc
 
 Things I'd like to add:
 - Weather. Most of the code is in there, just needs to be debugged
-- Trap for lines that are too long. If there's too much text, and the bitmap is bigger than 96 pixels long, the sign simply won't take it and writing will fail. Usually, as the sign cycles, it will recover on the next service, but the one that failed will continue. Usually the culprit is 3 or more inbound buses, which, thanks to current budgets is extremely rare. There just aren't many routes in the state with that kind of frequency.
 - Headsign display. This would be part of a customizable display for the first line. The data is in the API response it just needs to be formatted in a smart way and handled per previous bullet in a way that doesn't bork the screen.
+- ([fixed as of commit f7a9ea5](https://github.com/anthonymobile/njtsign/commit/f7a9ea56208e077e1352eb564c3fec00c6462463#diff-502317879204e7ff8e75decdfaac7fbb) - display now limited to next 2 arrivals) Trap for lines that are too long. If there's too much text, and the bitmap is bigger than 96 pixels long, the sign simply won't take it and writing will fail. Usually, as the sign cycles, it will recover on the next service, but the one that failed will continue. Usually the culprit is 3 or more inbound buses, which, thanks to current budgets is extremely rare. There just aren't many routes in the state with that kind of frequency.
 
 ## Hudson County Support for Public Displays
 
