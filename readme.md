@@ -11,13 +11,13 @@ A Python app to grab real-time bus arrival predictions from NJTransit.com BusTim
 
 Raspberry Pi (should run ok on a 0, 2 or 3 and a ['Mini' 16 by 96 pixel sign](https://brightledsigns.com/programmable/indoor/bs-4x16-mini) from BrightLedSigns.com). Budget is about $150, including $90 for the sign and up to $60 for Pi, WiFi card and case.
 
-![the hardware](njtsign-hardware-v0.1.jpg)
+![the hardware](doc/njtsign-hardware-v0.1.jpg)
 
 ## Classes
 
 - Service
 - Slide
-- SimpleFont
+- FontSimple
 
 ## Usage
 

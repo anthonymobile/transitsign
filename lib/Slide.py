@@ -1,5 +1,5 @@
 import os
-from simplefont import sign_font
+from fonts.FontSimple import sign_font
 from pyledsign.minisign import MiniSign
 
 
@@ -21,7 +21,7 @@ class Slide:
         self.slide_text = slide_text
         # font setup
         pwd = os.path.dirname(os.path.realpath(__file__))
-        new_glyphs_path = '/'.join([pwd, 'fonts'])
+        new_glyphs_path = '../'.join(['fonts'])
         font = sign_font(new_glyphs_path)
 
         # sign setup

@@ -3,7 +3,7 @@ import numpy
 import math
 numpy.set_printoptions(threshold=numpy.nan)
 
-class SimpleFont:
+class FontSimple:
     def __init__(self, data):
         self.glyphs = {}
         self.load_glyphs(data)
@@ -129,7 +129,7 @@ class SimpleFont:
 
 def sign_font(glyphs_path):
     # Returns the default, most useful instance of the font used in signs.
-    sf = SimpleFont(\
+    sf = FontSimple(\
             open('/'.join([glyphs_path,'7x7.simpleglyphs'])).readlines())
 
     # Load amendments to the letters I don't like.

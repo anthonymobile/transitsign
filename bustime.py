@@ -1,7 +1,7 @@
 import argparse, sys
 
-from Service import Service
-from Slide import Slide
+from lib.Service import Service
+from lib.Slide import Slide
 
 
 def main():
@@ -28,7 +28,6 @@ def main():
         this_slide_typeset = this_slide.typeset(slide_text)
         print this_slide_typeset
         slideshow.append(this_slide_typeset)
-
 
 
     # now start sending the slideshow off to the sign with the sign class or function (or put that in Slide?)
