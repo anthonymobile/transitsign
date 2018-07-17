@@ -2,20 +2,14 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/lib/Service.py" description="BUG: am/pm date format after midnight?" line="79" />
-    <bookmark url="file://$PROJECT_DIR$/lib/Slide.py" description="TODO: finish / check" line="39" />
     <bookmark url="file://$PROJECT_DIR$/bustime.py" description="TODO: finish and test last section" line="32" />
+    <bookmark url="file://$PROJECT_DIR$/lib/Slide.py" description="truncate bitmap if it is over length of screen" line="30" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94324e56-f025-40dc-94e7-5f9fb684e14c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/fonts/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/__init__.py" afterDir="false" />
+    <list default="true" id="94324e56-f025-40dc-94e7-5f9fb684e14c" name="Default" comment="refactor and working no-write">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleFont.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Slide.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Slide.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bustime.py" beforeDir="false" afterPath="$PROJECT_DIR$/bustime.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/njtsign-hardware-v0.1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/doc/njtsign-hardware-v0.1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/FontSimple.py" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/FontSimple.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,8 +26,8 @@
       <file leaf-file-name="bustime.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bustime.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-368">
-              <caret line="24" column="52" lean-forward="true" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
+            <state relative-caret-position="550">
+              <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -41,38 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FontSimple.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FontSimple.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fonts/FontSimple.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="129" column="25" selection-start-line="129" selection-start-column="14" selection-end-line="129" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Service.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/Service.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="844">
-              <caret line="79" selection-start-line="79" selection-end-line="79" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Slide.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/Slide.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="22" column="57" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-73">
+              <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
             </state>
           </provider>
         </entry>
@@ -91,13 +58,13 @@
       <find>simplefont</find>
       <find>platform</find>
       <find>sign_font</find>
-      <find>print</find>
       <find>weather</find>
       <find>font</find>
       <find>import</find>
       <find>7x7</find>
       <find>args.write</find>
       <find>glyphs_path</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -126,21 +93,21 @@
         <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/Service.py" />
         <option value="$PROJECT_DIR$/FontSimple.py" />
-        <option value="$PROJECT_DIR$/bustime.py" />
         <option value="$PROJECT_DIR$/lib/Slide.py" />
+        <option value="$PROJECT_DIR$/bustime.py" />
+        <option value="$PROJECT_DIR$/fonts/FontSimple.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1366" />
-    <option name="height" value="768" />
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -162,6 +129,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -193,7 +161,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.#87 no write">
+  <component name="RunManager" selected="Python.#126 write">
     <configuration name="1 stop, 2 lines" type="PythonConfigurationType" factoryName="Python">
       <module name="njtsign" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -208,6 +176,24 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bustime.py" />
       <option name="PARAMETERS" value="30189,119 30189,85 -w" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="#126 write" type="PythonConfigurationType" factoryName="Python">
+      <module name="njtsign" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bustime.py" />
+      <option name="PARAMETERS" value="20496,126 -w" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -230,8 +216,28 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="#87 write" type="PythonConfigurationType" factoryName="Python">
+      <module name="njtsign" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bustime.py" />
+      <option name="PARAMETERS" value="21062,87 -w" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <list>
       <item itemvalue="Python.#87 no write" />
+      <item itemvalue="Python.#87 write" />
+      <item itemvalue="Python.#126 write" />
       <item itemvalue="Python.1 stop, 2 lines" />
     </list>
   </component>
@@ -442,23 +448,30 @@
       <option name="project" value="LOCAL" />
       <updated>1524682955583</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="refactor and working no-write">
+      <created>1531746730477</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1531746730478</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48906562" visible="true" weight="0.17152777" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4848485" visible="true" weight="0.25277779" />
       <window_info anchor="bottom" id="TODO" order="5" />
       <window_info anchor="bottom" x="257" y="432" width="1366" height="166" id="Event Log" order="9" sideWeight="0.5058565" side_tool="true" type="WINDOWED" weight="0.23184358" />
-      <window_info active="true" anchor="bottom" x="43" y="369" width="483" height="342" id="Run" order="10" sideWeight="0.4941435" visible="true" weight="0.4068396" />
+      <window_info active="true" anchor="bottom" x="43" y="369" width="483" height="342" id="Run" order="10" sideWeight="0.4941435" visible="true" weight="0.3384434" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49487555" weight="0.25" />
       <window_info anchor="bottom" id="Python Console" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Debug" order="2" weight="0.4" />
-      <window_info id="Favorites" order="2" sideWeight="0.5109344" side_tool="true" visible="true" weight="0.17152777" />
+      <window_info id="Favorites" order="2" sideWeight="0.5151515" side_tool="true" visible="true" weight="0.25277779" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -470,21 +483,21 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49292454" visible="true" weight="0.17203514" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="5" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49487555" weight="0.25" />
       <window_info anchor="bottom" x="43" y="369" width="483" height="342" id="Run" order="10" sideWeight="0.4941435" visible="true" weight="0.40782124" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49926794" weight="0.32960895" />
+      <window_info anchor="bottom" id="Python Console" order="6" />
       <window_info anchor="bottom" id="Debug" order="2" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" x="257" y="432" width="1366" height="166" id="Event Log" order="9" sideWeight="0.5058565" side_tool="true" type="WINDOWED" weight="0.23184358" />
-      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49487555" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info active="true" id="Favorites" order="2" sideWeight="0.5070755" side_tool="true" visible="true" weight="0.17203514" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49926794" weight="0.32960895" />
-      <window_info anchor="bottom" id="Python Console" order="6" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -535,7 +548,8 @@
     <MESSAGE value="fixed duplicate slides and route # bugs" />
     <MESSAGE value="first draft of the oop code" />
     <MESSAGE value="2nd, close to working draft" />
-    <option name="LAST_COMMIT_MESSAGE" value="2nd, close to working draft" />
+    <MESSAGE value="refactor and working no-write" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor and working no-write" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -612,26 +626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bustime.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-368">
-          <caret line="24" column="52" lean-forward="true" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fonts/FontSimple.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="129" column="25" selection-start-line="129" selection-start-column="14" selection-end-line="129" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/Service.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="844">
@@ -644,11 +638,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/Slide.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="22" column="57" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
+        <state relative-caret-position="160">
+          <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bustime.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fonts/FontSimple.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-73">
+          <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
         </state>
       </provider>
     </entry>

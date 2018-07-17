@@ -19,14 +19,14 @@ def main():
         stop_id = svc.split(",")[0]
         route_id = svc.split(",")[1]
         svc = Service(stop_id,route_id)
-        print "service: stop %s route %s <<<< " % (stop_id, route_id),
+        print "service: stop %s route %s" % (stop_id, route_id)
         arrival_data = svc.get_arrivals()
-        print arrival_data
+        # print arrival_data
         slide_text = svc.compose_lines(arrival_data)
         print "slide text: %s" % slide_text
         this_slide = Slide()
         this_slide_typeset = this_slide.typeset(slide_text)
-        print this_slide_typeset
+        # print this_slide_typeset
         slideshow.append(this_slide_typeset)
 
 
@@ -40,10 +40,12 @@ def main():
 
         print 'Writing to sign...'
 
+        sys.exit()
+
         for slide in slideshow:
-            print str(slidenum) + ': ',
             print slide
-            slideshow[slidenum].writesign
+            print str(slide) + ': ',
+            slide.writesign()
             time.sleep(slide_duration)
 
     else:

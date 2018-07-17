@@ -70,13 +70,9 @@ class FontSimple:
             # Insert interval between letters.
             width += 1 + add_shift_h
 
-        # Return error if pic is bigger than allowed for
-        if width > opts["fixed_width"]:
-            return None
-
         # now render the final array
-        result = numpy.zeros(height * opts["fixed_width"], \
-                dtype=int).reshape((height, opts["fixed_width"]))
+        result = numpy.zeros(height * width,
+                dtype=int).reshape((height, width))
 
         for xy in buf:
             bit = buf[xy]
@@ -84,34 +80,44 @@ class FontSimple:
             col = xy[1]
             result[row][col] = bit
 
-        # Update width from mere maximum width to preset width if any.
-        text_width = width
-        image_width = None
-        if opts["fixed_width"]:
-            image_width = opts["fixed_width"]
-        else:
-            image_width = width
+        # truncate array if pic is bigger than allowed for. e.g. if width > opts["fixed_width"]
+
+        print 'opts["fixed_width"]', opts["fixed_width"]
 
         # Convert to list from numpy array
         new_result = []
         for row in result:
+            # print result
             new_result.append(row.tolist())
 
-        '''
-        # Center the row
-        for i, row in enumerate(new_result):
-            # Check how much we should *remove* from right
-            slice_total = text_width - image_width
+        sign_width = opts["fixed_width"]
 
-            # How much to slice from the right & put back in the left
-            slice_l = int(math.floor(slice_total/2))
+        print "initial width:", width,
+        if width > sign_width:
+            print "/ sign width:", sign_width,
+            print "/ truncating to:", sign_width
 
-            # Slice right & pad left
-            if slice_total < 0:
-                sliced_row = row[:slice_l]
-                expanded_row = [0] * int(math.fabs(slice_l)) + sliced_row
-                new_result[i] = expanded_row
-        '''
+            for i, row in enumerate(new_result):
+                slice_r = int(sign_width)
+                # Slice right & no pad
+                sliced_row = row[slice_r:]
+                new_result[i] = sliced_row
+                print "new pixel row length:",len(new_result[i])
+                # print new_result[i]
+
+            # # Center the row
+            #
+            #     # Check how much we should *remove* from right
+            #     slice_total = text_width - image_width
+            #     # How much to slice from the right & put back in the left
+            #     slice_l = int(math.floor(slice_total/2))
+            #     # Slice right & pad left
+            #     if slice_total < 0:
+            #         sliced_row = row[:slice_l]
+            #         expanded_row = [0] * int(math.fabs(slice_l)) + sliced_row
+            #         new_result[i] = expanded_row
+        else:
+            print "/ sign width:", sign_width
 
         return new_result
 
