@@ -99,25 +99,25 @@ class FontSimple:
 
             for i, row in enumerate(new_result):
                 slice_r = int(sign_width)
-                # Slice right & no pad
+                # Slice right & pad
                 sliced_row = row[slice_r:]
                 new_result[i] = sliced_row
-                print "new pixel row length:",len(new_result[i])
-                # print new_result[i]
 
-            # # Center the row
-            #
-            #     # Check how much we should *remove* from right
-            #     slice_total = text_width - image_width
-            #     # How much to slice from the right & put back in the left
-            #     slice_l = int(math.floor(slice_total/2))
-            #     # Slice right & pad left
-            #     if slice_total < 0:
-            #         sliced_row = row[:slice_l]
-            #         expanded_row = [0] * int(math.fabs(slice_l)) + sliced_row
-            #         new_result[i] = expanded_row
+                print "new pixel row length:",len(new_result[i])
+
         else:
             print "/ sign width:", sign_width
+
+        for row in new_result:
+            for j, short_row in enumerate(new_result):
+                expanded_row = (short_row + 96 * [int(0)])[:96]
+                new_result[j] = expanded_row
+
+            print '(', len(row),')',
+            for number in row:
+                print number,
+            print "\n",
+
 
         return new_result
 
