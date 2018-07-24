@@ -1,6 +1,6 @@
 import re
 import numpy
-import math
+import sys
 numpy.set_printoptions(threshold=numpy.nan)
 
 class FontSimple:
@@ -80,46 +80,47 @@ class FontSimple:
             col = xy[1]
             result[row][col] = bit
 
+
+        #---------------------------------------------------------------------------------------------------------------
         # truncate array if pic is bigger than allowed for. e.g. if width > opts["fixed_width"]
-
-        print 'opts["fixed_width"]', opts["fixed_width"]
-
+        #---------------------------------------------------------------------------------------------------------------
         # Convert to list from numpy array
         new_result = []
         for row in result:
             # print result
             new_result.append(row.tolist())
 
+
+        # HANDLE MESSAGES TOO LONG - TRUNCATE
+
         sign_width = opts["fixed_width"]
 
-        print "initial width:", width,
         if width > sign_width:
+            print '----------------MESSAGE TOO LONG------------'
+            print "initial width:", width,
             print "/ sign width:", sign_width,
             print "/ truncating to:", sign_width
 
             for i, row in enumerate(new_result):
                 slice_r = int(sign_width)
                 # Slice right & pad
-                sliced_row = row[slice_r:]
+                sliced_row = row[:slice_r]
                 new_result[i] = sliced_row
 
                 print "new pixel row length:",len(new_result[i])
 
         else:
-            print "/ sign width:", sign_width
+            print "sign width:", sign_width
 
         for row in new_result:
             for j, short_row in enumerate(new_result):
                 expanded_row = (short_row + 96 * [int(0)])[:96]
                 new_result[j] = expanded_row
 
-            print '(', len(row),')',
-            for number in row:
-                print number,
-            print "\n",
-
-
         return new_result
+
+        #---------------------------------------------------------------------------------------------------------------
+
 
     # Same as render, but renders several lines (its an array), and places them
     # below each other.  Accepts the same options as "render," and also these:
