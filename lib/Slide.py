@@ -35,7 +35,8 @@ class Slide:
             return False
         text_to_set = Array().zero_one(matrix)
         self.typeset = sign.queuepix(height=len(matrix), width=len(matrix[0]), data=text_to_set)
-        return self.typeset
+
+        return
 
     def writesign(self):
         # sign setup
@@ -43,5 +44,5 @@ class Slide:
         sign = MiniSign(devicetype='sign', port=portname, )
 
         # queue and send message
-        sign.queuemsg(data="%s" % typeset, effect='hold');
+        sign.queuemsg(data="%s" % self.typeset, effect='hold');
         sign.sendqueue(device=portname, runslots='none')

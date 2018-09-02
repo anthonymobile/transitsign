@@ -28,8 +28,8 @@ def main():
         print "slide text: %s" % slide_text
 
         this_slide = Slide()
-        this_slide_typeset = this_slide.typeset(slide_text)
-        slideshow.append(this_slide_typeset)
+        this_slide.typeset(slide_text)
+        slideshow.append(this_slide)
 
 
     # now start sending the slideshow off to the sign with the sign class or function (or put that in Slide?)
@@ -42,8 +42,10 @@ def main():
 
         print 'Writing to sign...'
 
+        print slideshow
+
         for slide in slideshow:
-            print slide
+            print slide.typeset
             print str(slide) + ': ',
             slide.writesign()
             time.sleep(slide_duration)
