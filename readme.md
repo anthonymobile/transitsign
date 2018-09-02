@@ -62,7 +62,7 @@ The program as coded only runs a single 1-minute loop. Ideally you want to run i
 All in, you can build this for about $160 including shipping if you are smart.
 1. Pi - I use a Pi 2 B, and its more than fast enough ([$35](https://www.canakit.com/raspberry-pi-2.html?cid=usd&src=raspberrypi) from CanaKit). I think it will work on a Zero but hasn't been tested. A 3 is probably overkill.
 2. Case and power supply. You'll need a case for the Pi and at least 2000mA power supply, prefrerably more as you'll be powering the LED over its USB data cable as well. About $10 for each.
-3. Screen - You want the 4 x 16 LED Mini Desk Sign[$90](https://brightledsigns.com/programmable/indoor/bs-4x16-mini) from BrightLEDSigns.com. I originally set out to make this work on the smaller, cheaper badge-size sign as well, but it was just too hard to get a good amount of information on and really mucked up the code.
+3. Screen - You want the 4 x 16 LED Mini Desk Sign[$90](https://brightledsigns.com/programmable/indoor/bs-4x16-mini) from BrightLEDSigns.com. (Update - BrightLedSigns is out of stock but points out that AliExpress still carries what appears to be [the same model](https://www.aliexpress.com/item/16x96Matrix-Led-desktop-display-red-color-LED-dot-matrix-signs-indoor-LED-moving-message-display-led/32522881975.html). We ordered one on 1 Sept 2018 for evaluation).
 4. Wifi Dongle - Any of the $10-15 USB WiFi stubs for the Pi should work.
 
 ## Development
