@@ -1,28 +1,37 @@
+<<<<<<< HEAD
+# NJTsign v2.01
+=======
 # NJTsign v1.0
+>>>>>>> master
 May 2018 
 Anthony Townsend (anthony@bitsandatoms.net)
 
 
-![](doc/njtsign-hardware-v0.1.jpg)
-
 ## Description
 
-A Python app to grab real-time bus arrival predictions from NJTransit.com BusTime app and push them to a brightledsigns.com display via USB serial cable.
+A Python app to grab real-time bus arrival predictions from NJTransit.com BusTime app and push them to a brightledsigns.com display via USB serial cable. Now fully object-oriented implementation.
+
+## Hardware
+
+<<<<<<< HEAD
+Raspberry Pi (should run ok on a 0, 2 or 3 and a ['Mini' 16 by 96 pixel sign](https://brightledsigns.com/programmable/indoor/bs-4x16-mini) from BrightLedSigns.com. Update - BrightLedSigns is out of stock but points out that AliExpress still carries what appears to be [the same model](https://www.aliexpress.com/item/16x96Matrix-Led-desktop-display-red-color-LED-dot-matrix-signs-indoor-LED-moving-message-display-led/32522881975.html). We ordered one on 1 Sept 2018 for evaluation). Budget is about $150, including $90 for the sign and up to $60 for Pi, WiFi card and case.
+=======
+```
+njtsign.py {stop_id1,route_id1} {stop_id2,route_id2} ... [-h] [-w]
+>>>>>>> master
+
+![the hardware](doc/njtsign-hardware-v0.1.jpg)
+
+## Classes
+
+- Service
+- Slide
+- FontSimple
 
 ## Usage
 
 ```
-njtsign.py {stop_id1,route_id1} {stop_id2,route_id2} ... [-h] [-w]
-
-
-required arguments:
- STOP_ID,ROUTE_ID       service definition identified by NJTransit bus stop number and bus route number
-
- options
-  -h, --help            show this help message and exit
-  -w, --write           Write the outgoing message (OGM) to the LED screen
-  -f {text,font}, --font {text,font}
-                        Use plain scrolling text or 2-line rendered fonts
+TBD
 ```
 
 ## Dependencies
@@ -33,6 +42,18 @@ This is the main one.
 **pyledsign**
 I've bundled this code into the project since its stable for 2 years now. https://github.com/BrightLedSigns/pyledsign
 
+<<<<<<< HEAD
+**pyown**
+For talking to open weather.
+
+## NJT Bus Arrival Feeds
+
+#### mobile website
+http://mybusnow.njtransit.com/bustime/eta/eta.jsp?route=---&direction=---&stop=---&id=30189&showAllBusses=on&findstop=on
+
+#### API endpoint for the arrivals
+http://mybusnow.njtransit.com/bustime/eta/getStopPredictionsETA.jsp?route=all&stop=30189&key=0.3003391435305782
+=======
 ## Data Source
 
 The app is powered by the prediction times on NJ Transit's Clever Devices API, which is the same service that all NJT's own apps and sites use. You can see the XML that comes back from the API for [arrivals](http://mybusnow.njtransit.com/bustime/eta/getStopPredictionsETA.jsp?route=all&stop=30189&key=0.3003391435305782).
@@ -78,3 +99,4 @@ Things I'd like to add:
 
 If you are in Jersey City, Hoboken, Bayonne, or other Hudson County communities, I'm happy to meet and help you setup one of these for yourself if you display it in a public place like a store, school, church, or your own window, etc. Ping me here on github or njtsign at bitsandatoms dot net.
 
+>>>>>>> master
