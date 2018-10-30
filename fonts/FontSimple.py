@@ -61,7 +61,7 @@ class FontSimple:
                     bit_col = width + j + add_shift_h
                     buf[(bit_row, bit_col)] = bit
                     if bit_row < 0:
-                        print "negative value for letter %s" % c_code
+                        print("negative value for letter %s" % c_code)
             # Compute the new width.
             if glyph["bitmap"][0]:
                 width += len(glyph["bitmap"][0])
@@ -96,10 +96,10 @@ class FontSimple:
         sign_width = opts["fixed_width"]
 
         if width > sign_width:
-            print '----------------MESSAGE TOO LONG------------'
-            print "initial width:", width,
-            print "/ sign width:", sign_width,
-            print "/ truncating to:", sign_width
+            print('----------------MESSAGE TOO LONG------------')
+            print("initial width:", width, end=' ')
+            print("/ sign width:", sign_width, end=' ')
+            print("/ truncating to:", sign_width)
 
             for i, row in enumerate(new_result):
                 slice_r = int(sign_width)
@@ -107,10 +107,10 @@ class FontSimple:
                 sliced_row = row[:slice_r]
                 new_result[i] = sliced_row
 
-                print "new pixel row length:",len(new_result[i])
+                print("new pixel row length:",len(new_result[i]))
 
         else:
-            print "sign width:", sign_width
+            print("sign width:", sign_width)
 
         for row in new_result:
             for j, short_row in enumerate(new_result):

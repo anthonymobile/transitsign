@@ -10,7 +10,7 @@ class Service:
         # self.forecast = forecast  # type: str
 
     def get_arrivals(self):
-        import urllib2
+        import urllib.request, urllib.error, urllib.parse
         import xml.etree.ElementTree
 
         api_key = '0.3003391435305782'
@@ -19,13 +19,13 @@ class Service:
         # print submit_url
 
         try:
-            data = urllib2.urlopen(submit_url).read()
-        except urllib2.HTTPError, e:
-            print 'The server couldn\'t fulfill the request.'
-            print 'Error code: ', e.code
+            data = urllib.request.urlopen(submit_url).read()
+        except urllib.error.HTTPError as e:
+            print('The server couldn\'t fulfill the request.')
+            print('Error code: ', e.code)
             sys.exit('Exiting.')
-        except urllib2.URLError, e:
-            print 'We failed to reach a server. (internet down?)'
+        except urllib.error.URLError as e:
+            print('We failed to reach a server. (internet down?)')
             sys.exit('Exiting.')
         else:
             pass
