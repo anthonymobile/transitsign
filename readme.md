@@ -36,7 +36,7 @@ python njtsign.py {stop_id1,route_id1} {stop_id2,route_id2} ... [-h] [-w]
 
 ## Implementation
 
-As of v2.0 is now fully Python 3, object-oriented code.
+As of v2.0 (about Oct 29 2018) is now fully Python 3, object-oriented code.
 
 #### Classes
 
