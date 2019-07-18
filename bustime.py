@@ -1,9 +1,10 @@
-import argparse, sys
+import argparse
+import time
 
 from lib.Service import Service
 from lib.Slide import Slide
+import urllib.request
 import json
-
 
 def main():
 
@@ -16,10 +17,8 @@ def main():
 
     slideshow=[]
 
-
-    import urllib.request, json
     try:
-        with urllib.request.urlopen(controller_url) as url:
+        with urllib.request.urlopen(args.controller_url) as url:
             services = json.loads(url.read().decode())
 
     # sample response
@@ -53,19 +52,19 @@ def main():
 
     # now parse the json
 
-    sjson = json.loads(services)
-    for service in sjson['services']:
+    services_json = json.loads(services)
+    for service in services_json['services']:
 
         svc = Service(service['stop_id'],service['route_id'])
         print (svc.stop)
         print("service: stop {a} route {b}".format(a=svc.stop, b=svc.route))
 
-        arrival_data = svc.get_arrivals()
-        slide_text = svc.compose_lines(arrival_data)
-        print ("slide text: {text}".format(text=slide_text))
+        # arrival_data = svc.get_arrivals()
+        # slide_text = svc.compose_lines(arrival_data)
+        print ("slide text: {text}".format(text=svc.slide_text))
 
         this_slide = Slide()
-        this_slide.typeset(slide_text)
+        this_slide.typeset(svc.slide_text)
         slideshow.append(this_slide)
 
 

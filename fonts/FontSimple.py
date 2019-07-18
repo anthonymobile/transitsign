@@ -1,7 +1,8 @@
 import re
 import numpy
 import sys
-numpy.set_printoptions(threshold=numpy.nan)
+# numpy.set_printoptions(threshold=numpy.nan)
+numpy.set_printoptions(threshold=sys.maxsize) # per https://github.com/numpy/numpy/issues/12987
 
 class FontSimple:
     def __init__(self, data):
@@ -71,8 +72,10 @@ class FontSimple:
             width += 1 + add_shift_h
 
         # now render the final array
-        result = numpy.zeros(height * width,
-                dtype=int).reshape((height, width))
+        # OLD # result = numpy.zeros(height * width,dtype=int).reshape((height, width))
+        # NEW #
+        height=int(height)
+        result = numpy.zeros(height * width,dtype=int).reshape((height, width))
 
         for xy in buf:
             bit = buf[xy]
