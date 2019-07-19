@@ -38,6 +38,9 @@ class Service:
             pass
         # print data
         e = xml.etree.ElementTree.fromstring(data)
+
+        x = e.findall('noPredictionMessage')
+
         if e.findall('noPredictionMessage'):
             self.arrivals_list.append('No service.')
             return self.arrivals_list
@@ -57,7 +60,10 @@ class Service:
         line2 = ''
         bus_format = '%s min'
         if self.arrivals_list[0]=='No service.':
-            self.lines=['No service']
+            line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P'))
+            line2 = 'No service'
+            self.lines.append(line1)
+            self.lines.append(line2)
             return self.lines
 
         for bus in self.arrival_data:
