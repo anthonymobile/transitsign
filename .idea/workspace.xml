@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="502f01c5-fddd-452a-a305-a282d807316e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/njtsign.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/njtsign.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bustime.py" beforeDir="false" afterPath="$PROJECT_DIR$/bustime.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/FontSimple.py" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/FontSimple.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Service.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,35 +25,14 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bustime.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="65" column="28" lean-forward="true" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
+            <state relative-caret-position="125">
+              <caret line="35" column="11" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/Service.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="644">
-              <caret line="67" selection-start-line="67" selection-end-line="67" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pyledsign/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="9" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -102,12 +77,22 @@
             <path>
               <item name="njtsign" type="b2602c69:ProjectViewProjectNode" />
               <item name="njtsign" type="462c0819:PsiDirectoryNode" />
+              <item name="doc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="njtsign" type="b2602c69:ProjectViewProjectNode" />
+              <item name="njtsign" type="462c0819:PsiDirectoryNode" />
               <item name="fonts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="njtsign" type="b2602c69:ProjectViewProjectNode" />
               <item name="njtsign" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="njtsign" type="b2602c69:ProjectViewProjectNode" />
+              <item name="njtsign" type="462c0819:PsiDirectoryNode" />
+              <item name="pyledsign" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -167,8 +152,8 @@
       <option name="SDK_HOME" value="/opt/bin/anaconda3/envs/njtsign/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="false" />
+      <option name="ADD_SOURCE_ROOTS" value="false" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bustime.py" />
       <option name="PARAMETERS" value="30189,85 20162,87" />
@@ -194,42 +179,55 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1563474503110</updated>
-      <workItem from="1563474504800" duration="2137000" />
+      <workItem from="1563474504800" duration="2412000" />
+      <workItem from="1563482059047" duration="607000" />
+      <workItem from="1563500103465" duration="238000" />
     </task>
+    <task id="LOCAL-00001" summary="fixed bugs from numpy syntax changes, added environment file for conda setup">
+      <created>1563476905809</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1563476905809</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2137000" />
+    <option name="totallyTimeSpent" value="3271000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24964234" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25679544" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="Python Console" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="4" weight="0.3299363" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="4" visible="true" weight="0.23057325" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.3299363" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info anchor="right" id="SciView" order="0" show_stripe_button="false" weight="0.3297568" />
+      <window_info anchor="right" id="SciView" order="0" weight="0.3297568" />
       <window_info anchor="right" id="Database" order="1" show_stripe_button="false" weight="0.3297568" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="2" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
-      <window_info active="true" anchor="right" id="Debug" order="5" visible="true" weight="0.481402" />
-      <window_info anchor="right" id="Run" order="6" weight="0.50500715" />
+      <window_info anchor="right" id="Debug" order="5" weight="0.481402" />
+      <window_info anchor="right" id="Run" order="6" visible="true" weight="0.51216024" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fixed bugs from numpy syntax changes, added environment file for conda setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bugs from numpy syntax changes, added environment file for conda setup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -247,7 +245,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/njtsign$bustime_85_87.coverage" NAME="bustime 85,87 Coverage Results" MODIFIED="1563476862416" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/njtsign$bustime_85_87.coverage" NAME="bustime 85,87 Coverage Results" MODIFIED="1563500356882" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/njtsign$bustime_85_87_write.coverage" NAME="bustime 85,87 write Coverage Results" MODIFIED="1563476827560" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
@@ -276,12 +274,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bustime.py">
+    <entry file="file://$PROJECT_DIR$/environment.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pyledsign/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="65" column="28" lean-forward="true" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
+        <state relative-caret-position="60">
+          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -293,12 +294,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pyledsign/__init__.py">
+    <entry file="file://$PROJECT_DIR$/bustime.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="9" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+        <state relative-caret-position="125">
+          <caret line="35" column="11" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
           <folding>
-            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>

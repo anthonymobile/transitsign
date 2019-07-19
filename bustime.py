@@ -1,8 +1,8 @@
 import argparse
 import time
 
-from lib.Service import Service
-from lib.Slide import Slide
+from Service import Service
+from Slide import Slide
 import urllib.request
 import json
 
