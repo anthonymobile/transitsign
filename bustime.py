@@ -17,9 +17,9 @@ def main():
 
     slideshow=[]
 
-    try:
-        with urllib.request.urlopen(args.controller_url) as url:
-            services = json.loads(url.read().decode())
+    # try:
+    #     with urllib.request.urlopen(args.controller_url) as url:
+    #         services = json.loads(url.read().decode())
 
     # sample response
     #
@@ -37,16 +37,16 @@ def main():
     # }
 
 
-    except:
-        services_list = []
-        for svc in args.services:
-            insert=dict()
-            insert['route_id']=svc.split(",")[1]
-            insert['stop_id']=svc.split(",")[0]
-            services_list.append(insert)
-        services_dict=dict()
-        services_dict['services']=services_list
-        services = json.dumps(services_dict)
+    # except:
+    services_list = []
+    for svc in args.services:
+        insert=dict()
+        insert['route_id']=svc.split(",")[1]
+        insert['stop_id']=svc.split(",")[0]
+        services_list.append(insert)
+    services_dict=dict()
+    services_dict['services']=services_list
+    services = json.dumps(services_dict)
 
     print(services)
 

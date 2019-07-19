@@ -38,6 +38,10 @@ class Service:
             pass
         # print data
         e = xml.etree.ElementTree.fromstring(data)
+        if e.findall('noPredictionMessage'):
+            self.arrivals_list.append('No service.')
+            return self.arrivals_list
+
         for atype in e.findall('pre'):
             fields = {}
             for field in atype.getchildren():
@@ -52,6 +56,10 @@ class Service:
     def compose_lines(self):
         line2 = ''
         bus_format = '%s min'
+        if self.arrivals_list[0]=='No service.':
+            self.lines=['No service']
+            return self.lines
+
         for bus in self.arrival_data:
             if bool(bus) is True:  # make sure there are predictions
                 if ';' in bus['pt']:  # handle response of APPROACHING e.g. 0 mins prediction
