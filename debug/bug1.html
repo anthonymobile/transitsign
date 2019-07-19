@@ -1,0 +1,28 @@
+pi@raspberrypi:~/njtsign $ /usr/bin/python3 /home/pi/njtsign/bustime.py 85,30189 87,21062 -w
+{"services": [{"route_id": "30189", "stop_id": "85"}, {"route_id": "21062", "stop_id": "87"}]}
+85
+service: stop 85 route 30189
+slide text: ['Fri 3:01 am', 'No service']
+sign width: 96
+sign width: 96
+87
+service: stop 87 route 21062
+slide text: ['Fri 3:01 am', 'No service']
+sign width: 96
+sign width: 96
+Writing to sign...
+[<Slide.Slide object at 0xb4da9fd0>, <Slide.Slide object at 0xb4d93070>]
+<i:1>
+<Slide.Slide object at 0xb4da9fd0>:
+Traceback (most recent call last):
+  File "/home/pi/njtsign/bustime.py", line 93, in <module>
+    main()
+  File "/home/pi/njtsign/bustime.py", line 86, in main
+    slide.writesign()
+  File "/home/pi/njtsign/Slide.py", line 48, in writesign
+    sign.sendqueue(device=portname, runslots='none')
+  File "/home/pi/njtsign/pyledsign/minisign.py", line 118, in sendqueue
+    msgobj.data=this.processtags(msgobj.data)
+  File "/home/pi/njtsign/pyledsign/minisign.py", line 284, in processtags
+    data=data.replace(match,str(this.gettag(match),'latin-1'))
+TypeError: decoding str is not supported

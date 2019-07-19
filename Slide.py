@@ -28,7 +28,7 @@ class Slide:
         portname = '/dev/ttyUSB0'
         sign = MiniSign(devicetype='sign', port=portname, )
 
-        # THIS IS BREAKING WHEN THE TEXT IS TOO LONG
+        # bug THIS IS BREAKING WHEN THE TEXT IS TOO LONG
         # render message as bitmap
         matrix = font.render_multiline(self.slide_text, 16 / 2, {"ignore_shift_h": True, "fixed_width": 96})
         if not matrix:
