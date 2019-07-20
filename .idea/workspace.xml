@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="502f01c5-fddd-452a-a305-a282d807316e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/debug/bug1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/njtsign.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/njtsign.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Slide.py" beforeDir="false" afterPath="$PROJECT_DIR$/Slide.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +45,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Slide.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-90">
+            <state relative-caret-position="195">
               <caret line="15" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
@@ -96,16 +98,16 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+  <component name="ProjectFrameBounds">
+    <option name="width" value="1508" />
+    <option name="height" value="976" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
+      <showMembers ProjectPane="false" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -121,6 +123,11 @@
             <path>
               <item name="njtsign" type="b2602c69:ProjectViewProjectNode" />
               <item name="njtsign" type="462c0819:PsiDirectoryNode" />
+              <item name="doc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="njtsign" type="b2602c69:ProjectViewProjectNode" />
+              <item name="njtsign" type="462c0819:PsiDirectoryNode" />
               <item name="fonts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -128,29 +135,11 @@
               <item name="njtsign" type="462c0819:PsiDirectoryNode" />
               <item name="pyledsign" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="njtsign" type="b2602c69:ProjectViewProjectNode" />
-              <item name="njtsign" type="462c0819:PsiDirectoryNode" />
-              <item name="pyledsign" type="462c0819:PsiDirectoryNode" />
-              <item name="__init__.py" type="8704e2dd:PyFileNode" />
-            </path>
-            <path>
-              <item name="njtsign" type="b2602c69:ProjectViewProjectNode" />
-              <item name="njtsign" type="462c0819:PsiDirectoryNode" />
-              <item name="pyledsign" type="462c0819:PsiDirectoryNode" />
-              <item name="__init__.py" type="8704e2dd:PyFileNode" />
-              <item name="LedSign" type="dd8bbb05:PyElementNode" />
-            </path>
-            <path>
-              <item name="njtsign" type="b2602c69:ProjectViewProjectNode" />
-              <item name="njtsign" type="462c0819:PsiDirectoryNode" />
-              <item name="pyledsign" type="462c0819:PsiDirectoryNode" />
-              <item name="minisign.py" type="8704e2dd:PyFileNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -177,30 +166,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.bustime 85,87 write">
-    <configuration name="bustime 85,87 write" type="PythonConfigurationType" factoryName="Python">
-      <module name="njtsign" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="/opt/bin/anaconda3/envs/njtsign/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bustime.py" />
-      <option name="PARAMETERS" value="30189,85 20162,87 --write" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="bustime 85,87" type="PythonConfigurationType" factoryName="Python">
+  <component name="RunManager" selected="Python.bustime 85,87 write (remote:signpi)">
+    <configuration name="bustime 85,87 (local)" type="PythonConfigurationType" factoryName="Python">
       <module name="njtsign" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -222,9 +189,31 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="bustime 85,87 write (remote:signpi)" type="PythonConfigurationType" factoryName="Python">
+      <module name="njtsign" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bustime.py" />
+      <option name="PARAMETERS" value="30189,85 20162,87 --write" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Python.bustime 85,87" />
-      <item itemvalue="Python.bustime 85,87 write" />
+      <item itemvalue="Python.bustime 85,87 (local)" />
+      <item itemvalue="Python.bustime 85,87 write (remote:signpi)" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -242,6 +231,7 @@
       <workItem from="1563500103465" duration="1652000" />
       <workItem from="1563536035107" duration="176000" />
       <workItem from="1563565304263" duration="901000" />
+      <workItem from="1563585936173" duration="716000" />
     </task>
     <task id="LOCAL-00001" summary="fixed bugs from numpy syntax changes, added environment file for conda setup">
       <created>1563476905809</created>
@@ -275,19 +265,21 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5748000" />
+    <option name="totallyTimeSpent" value="6464000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
+    <frame x="0" y="0" width="1508" height="976" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2628205" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.3410959" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="File Transfer" weight="0.32928476" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="Python Console" order="3" weight="0.32997763" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="4" visible="true" weight="0.39932886" />
+      <window_info anchor="bottom" id="Terminal" order="4" weight="0.40044743" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.3299363" />
@@ -300,7 +292,7 @@
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
       <window_info anchor="right" id="Debug" order="5" weight="0.481402" />
-      <window_info anchor="right" id="Run" order="6" visible="true" weight="0.5117521" />
+      <window_info active="true" anchor="right" id="Run" order="6" visible="true" weight="0.5116438" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,6 +319,8 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/njtsign$bustime_85_87.coverage" NAME="bustime 85,87 Coverage Results" MODIFIED="1563566469499" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/njtsign$bustime_85_87_write.coverage" NAME="bustime 85,87 write Coverage Results" MODIFIED="1563566321637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/njtsign$bustime_85_87__local_.coverage" NAME="bustime 85,87 (local) Coverage Results" MODIFIED="1563586471282" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/njtsign$bustime_85_87_write__remote_signpi_.coverage" NAME="bustime 85,87 write (remote:signpi) Coverage Results" MODIFIED="1563586663448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/fonts/7x7.simpleglyphs">
@@ -386,7 +380,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Slide.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-90">
+        <state relative-caret-position="195">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
