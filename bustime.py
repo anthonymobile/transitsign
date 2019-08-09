@@ -80,6 +80,8 @@ def main():
 
         slideshow.append(svc.slide_text)
 
+    # todo figure out how to make the sign loop over the slots
+    # todo or run it persistently like last version and manually rewrite the sign (less attractive but it works)
     # render and write to sign
     if args.write is True:
         num_slides = len(slideshow)  # type: int

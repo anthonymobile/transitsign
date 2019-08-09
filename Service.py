@@ -61,7 +61,7 @@ class Service:
         bus_format = '%s min'
         if self.arrivals_list[0]=='No service.':
             line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P'))
-            line2 = 'No service'
+            line2 = 'No service {a}'.format(a=self.route)
             self.lines.append(line1)
             self.lines.append(line2)
             return self.lines
