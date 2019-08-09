@@ -1,14 +1,15 @@
 import argparse
+import os
 import time
 
 from Service import Service
-from Slide import Slide
 import urllib.request
 import json
 from pyledsign.minisign import MiniSign
 from fonts.FontSimple import sign_font
 
 # font setup
+pwd = os.path.dirname(os.path.realpath(__file__))
 new_glyphs_path = '../'.join(['fonts'])
 font = sign_font(new_glyphs_path)
 

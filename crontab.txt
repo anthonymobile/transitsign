@@ -1,0 +1,1 @@
+* * * * * cd /home/pi/njtsign && /usr/bin/python3 /home/pi/njtsign/bustime.py 85,30189 --write
