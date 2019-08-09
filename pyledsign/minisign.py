@@ -282,6 +282,7 @@ class MiniSign(LedSign):
                 data=data.replace(match,this.gettag(match))
             else:
                 data=data.replace(match,str(this.gettag(match),'latin-1'))
+                # data=data.replace(match,this.gettag(match))
         dtags={
             '%y' : '\DY', '%d' : '\DD', '%m' : '\DL', 
             '%H' : '\DH', '%M' : '\DM', '%S' : '\DS',
