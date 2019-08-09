@@ -80,22 +80,29 @@ def main():
 
         slideshow.append(svc.slide_text)
 
-    # todo figure out how to make the sign loop over the slots
-    # todo or run it persistently like last version and manually rewrite the sign (less attractive but it works)
     # render and write to sign
     if args.write is True:
         num_slides = len(slideshow)  # type: int
         slide_duration = 60 / num_slides
         print ('Writing to sign...')
 
-        for slide in slideshow:
-            # render message as bitmap
-            matrix = font.render_multiline(slide, 16 / 2, {"ignore_shift_h": True, "fixed_width": 96})
-            if not matrix:
-                return False
-            text_to_set = Array().zero_one(matrix)
-            typeset_slide = sign.queuepix(height=len(matrix), width=len(matrix[0]), data=text_to_set)
-            sign.queuemsg(data="%s" % typeset_slide, effect='hold');
+
+        # HOME VERSION
+        # uses a single slide with first and second services on the lines
+        slide = []
+        for s in slideshow:
+            slide.append(s[1])
+
+        #todo figure out how to add the time to the right hand side if there is room w/0 truncating
+        # maybe try to render it and except width > 96 and then render it without
+
+        # render message as bitmap
+        matrix = font.render_multiline(slide, 16 / 2, {"ignore_shift_h": True, "fixed_width": 96})
+        if not matrix:
+            return False
+        text_to_set = Array().zero_one(matrix)
+        typeset_slide = sign.queuepix(height=len(matrix), width=len(matrix[0]), data=text_to_set)
+        sign.queuemsg(data="%s" % typeset_slide, effect='hold');
         # queue and send message
         sign.sendqueue(device=portname, runslots='none')
         time.sleep(slide_duration)
