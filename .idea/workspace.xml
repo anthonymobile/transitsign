@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="502f01c5-fddd-452a-a305-a282d807316e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/bustime.py" beforeDir="false" afterPath="$PROJECT_DIR$/bustime.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Service.py" beforeDir="false" afterPath="$PROJECT_DIR$/Service.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +71,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.bustime 87 write (remote:signpi)">
+  <component name="RunManager" selected="Python.bustime 85 write (remote:signpi)">
+    <configuration name="bustime 85 write (remote:signpi)" type="PythonConfigurationType" factoryName="Python">
+      <module name="njtsign" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bustime.py" />
+      <option name="PARAMETERS" value="30189,85 --write" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="bustime 85,87 (local)" type="PythonConfigurationType" factoryName="Python">
       <module name="njtsign" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -141,6 +164,7 @@
       <item itemvalue="Python.bustime 85,87 (local)" />
       <item itemvalue="Python.bustime 85,87 write (remote:signpi)" />
       <item itemvalue="Python.bustime 87 write (remote:signpi)" />
+      <item itemvalue="Python.bustime 85 write (remote:signpi)" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -161,7 +185,7 @@
       <workItem from="1563585936173" duration="852000" />
       <workItem from="1565237006629" duration="36000" />
       <workItem from="1565291972365" duration="4940000" />
-      <workItem from="1565321919777" duration="368000" />
+      <workItem from="1565321919777" duration="1482000" />
     </task>
     <task id="LOCAL-00001" summary="fixed bugs from numpy syntax changes, added environment file for conda setup">
       <created>1563476905809</created>
@@ -212,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565322142820</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="WIP">
+      <created>1565322462423</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1565322462423</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,7 +270,8 @@
     <MESSAGE value="ready to start debugging Python3 final version on remote pi environment" />
     <MESSAGE value="Python 3 version working. need to adjust slot timing and message content" />
     <MESSAGE value="working better. need to figure out how to run as daemon" />
-    <option name="LAST_COMMIT_MESSAGE" value="working better. need to figure out how to run as daemon" />
+    <MESSAGE value="WIP" />
+    <option name="LAST_COMMIT_MESSAGE" value="WIP" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -253,8 +285,9 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/njtsign$bustime_85_write__remote_signpi_.coverage" NAME="bustime 85 write (remote:signpi) Coverage Results" MODIFIED="1565325284276" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/njtsign$bustime_85_87.coverage" NAME="bustime 85,87 Coverage Results" MODIFIED="1563566469499" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/njtsign$bustime_87_write__remote_signpi_.coverage" NAME="bustime 87 write (remote:signpi) Coverage Results" MODIFIED="1565322292574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/njtsign$bustime_87_write__remote_signpi_.coverage" NAME="bustime 87 write (remote:signpi) Coverage Results" MODIFIED="1565325252284" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/njtsign$bustime_85_87_write.coverage" NAME="bustime 85,87 write Coverage Results" MODIFIED="1563566321637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/njtsign$bustime_85_87_write__remote_signpi_.coverage" NAME="bustime 85,87 write (remote:signpi) Coverage Results" MODIFIED="1565321597214" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/njtsign$bustime_85_87__local_.coverage" NAME="bustime 85,87 (local) Coverage Results" MODIFIED="1563586471282" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

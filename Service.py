@@ -70,13 +70,13 @@ class Service:
             if bool(bus) is True:  # make sure there are predictions
                 if ';' in bus['pt']:  # handle response of APPROACHING e.g. 0 mins prediction
                     bus['pt'] = '!0!'
-                bus_entry = bus_format % (bus['pt'])
+                bus_entry = bus_format % (bus['pt'].split(' ')[0])
                 line2 = line2 + ' ' + bus_entry  # append the arrival time for each bus e.g. '22 min'
             else:
                 line2 = 'No arrivals next 30 mins.'
             line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P')) # + ' ' + temp_msg
             self.lines.append(line1)
-            self.lines.append('#' + bus['rd'] + line2)
+            self.lines.append('(' + bus['rd'] + ')'+ line2)
             self.lines = self.lines[:2]
 
         return self.lines
