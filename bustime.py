@@ -93,8 +93,6 @@ def main():
         for s in slideshow:
             slide.append(s[1])
 
-        #todo figure out how to add the time to the right hand side if there is room w/0 truncating
-        # maybe try to render it and except width > 96 and then render it without
 
         # render message as bitmap
         matrix = font.render_multiline(slide, 16 / 2, {"ignore_shift_h": True, "fixed_width": 96})

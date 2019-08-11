@@ -58,25 +58,39 @@ class Service:
 
     def compose_lines(self):
         line2 = ''
-        bus_format = '%s min'
+        bus_format = '%s min '
         if self.arrivals_list[0]=='No service.':
             line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P'))
             line2 = '{a}. No arrivals'.format(a=self.route)
             self.lines.append(line1)
             self.lines.append(line2)
             return self.lines
-
-        for bus in self.arrival_data:
-            if bool(bus) is True:  # make sure there are predictions
-                if ';' in bus['pt']:  # handle response of APPROACHING e.g. 0 mins prediction
-                    bus['pt'] = '!0!'
-                bus_entry = bus_format % (bus['pt'].split(' ')[0])
-                line2 = line2 + ' ' + bus_entry  # append the arrival time for each bus e.g. '22 min'
-            else:
-                line2 = 'No arrivals next 30 mins.'
+        else:
+            for bus in self.arrival_data:
+                if bool(bus) is True:  # make sure there are predictions
+                    if 'APPROACHING' in bus['pt']:
+                        bus['pt'] = '!0!'
+                    # if ';' in bus['pt']:  # handle response of APPROACHING e.g. 0 mins prediction #bug not working
+                    #     bus['pt'] = '!0!'
+                    bus_entry = bus_format % (bus['pt'].split(' ')[0])
+                    try:
+                        line2 = line2 + bus_entry  # append the arrival time for each bus e.g. '22 min'
+                        # bug check if adding this will make the diplay too long
+                        #  by calling font.render_multiline and see if it is <= 96 pixels, but not use those results its just a check
+                    except:
+                        # if its too long, we dont add this bus and continue the loop
+                        pass
+                    continue
+                else:
+                    line2 = 'No arrivals next 30 mins.'
             line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P')) # + ' ' + temp_msg
             self.lines.append(line1)
-            self.lines.append(bus['rd'] + '.' + line2)
+            self.lines.append(bus['rd'] + '. ' + line2)
             self.lines = self.lines[:2]
 
-        return self.lines
+            # todo blink if under 3 minutes for 85, 5 for 87
+
+            #todo add time
+            # if there is room, add time to the rightmost on line 1 or 2
+
+            return self.lines
