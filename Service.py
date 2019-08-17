@@ -54,6 +54,8 @@ class Service:
                         continue
                     fields[field.tag] = field.text.replace("&nbsp", "")
             self.arrivals_list.append(fields)
+        # trim anything more than first 2 arrivals
+        self.arrivals_list=self.arrivals_list[:2]
         return self.arrivals_list
 
     def compose_lines(self):
@@ -70,7 +72,7 @@ class Service:
                 if bool(bus) is True:  # make sure there are predictions
                     if 'APPROACHING' in bus['pt']:
                         bus['pt'] = '!0!'
-                    # if ';' in bus['pt']:  # handle response of APPROACHING e.g. 0 mins prediction #bug not working
+                    # if ';' in bus['pt']:  # handle response of APPROACHING e.g. 0 mins prediction
                     #     bus['pt'] = '!0!'
                     bus_entry = bus_format % (bus['pt'].split(' ')[0])
                     try:

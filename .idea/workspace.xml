@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="502f01c5-fddd-452a-a305-a282d807316e" name="Default Changelist" comment="fixed most things">
+    <list default="true" id="502f01c5-fddd-452a-a305-a282d807316e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Service.py" beforeDir="false" afterPath="$PROJECT_DIR$/Service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bustime.py" beforeDir="false" afterPath="$PROJECT_DIR$/bustime.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -194,7 +193,8 @@
       <workItem from="1565321919777" duration="1595000" />
       <workItem from="1565363083659" duration="913000" />
       <workItem from="1565368259963" duration="209000" />
-      <workItem from="1565454870862" duration="8185000" />
+      <workItem from="1565454870862" duration="8399000" />
+      <workItem from="1565976400257" duration="715000" />
     </task>
     <task id="LOCAL-00001" summary="fixed bugs from numpy syntax changes, added environment file for conda setup">
       <created>1563476905809</created>
@@ -266,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565363973350</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fixed most things">
+      <created>1565534878743</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1565534878743</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,14 +303,15 @@
     <MESSAGE value="WIP" />
     <MESSAGE value="working well under cron with new text format" />
     <MESSAGE value="customized version for AT home" />
-    <option name="LAST_COMMIT_MESSAGE" value="customized version for AT home" />
+    <MESSAGE value="fixed most things" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed most things" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Service.py</url>
-          <line>68</line>
+          <line>70</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
