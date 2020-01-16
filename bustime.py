@@ -1,6 +1,6 @@
 import argparse
 import os
-import time
+import sys
 
 from Service import Service
 import urllib.request
@@ -70,13 +70,16 @@ def main():
 
     # create the sign
     portname = '/dev/ttyUSB0'
-    sign = MiniSign(devicetype='sign', port=portname, )
+    if args.badge == True:
+        sign = MiniSign(devicetype='badge', port=portname, )
+    elif args.badge == False:
+        sign = MiniSign(devicetype='sign', port=portname, )
 
     # fetch the arrival predictions and format sign message text
     services_json = json.loads(services)
     for service in services_json['services']:
 
-        svc = Service(service['stop_id'],service['route_id'])
+        svc = Service(service['stop_id'],service['route_id'],args.badge)
         print("service: stop {a} route {b}".format(a=svc.stop, b=svc.route))
         print ("slide text: {text}".format(text=svc.slide_text))
 
@@ -99,18 +102,37 @@ def main():
         # render message as bitmap
 
         if args.badge is True:
-            matrix = font.render(slide[0], 8, {"ignore_shift_h": True, "fixed_width": 48})
+            width=48
+            matrix = font.render(slide[0], 12, {"ignore_shift_h": True, "fixed_width": width})
+
+            # # pad the matrix with 2 rows above and below
+            # dummy_row = ([0] * width)
+            # matrix.insert(8, dummy_row)
+            # matrix.insert(8, dummy_row)
+            # matrix.insert(0, dummy_row)
+            # matrix.insert(0, dummy_row)
 
         elif args.badge is False:
-            matrix = font.render_multiline(slide, 16 / 2, {"ignore_shift_h": True, "fixed_width": 96})
+            width=96
+            matrix = font.render_multiline(slide, 16 / 2, {"ignore_shift_h": True, "fixed_width": width})
         if not matrix:
             return False
+
+        for n in matrix:
+            for c in n:
+                if c == 1:
+                    sys.stdout.write('*')
+                else:
+                    sys.stdout.write('-')
+            print ()
+
         text_to_set = Array().zero_one(matrix)
+
         typeset_slide = sign.queuepix(height=len(matrix), width=len(matrix[0]), data=text_to_set)
         sign.queuemsg(data="%s" % typeset_slide, effect='hold');
         # queue and send message
         sign.sendqueue(device=portname, runslots='none')
-        time.sleep(slide_duration)
+        # time.sleep(slide_duration)
 
 
 if __name__ == "__main__":
