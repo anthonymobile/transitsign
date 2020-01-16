@@ -29,7 +29,7 @@ def main():
     parser.add_argument('services', nargs='+', help='Services specified as bus stop#,route# separated by comma with no space')
     parser.add_argument('-c', '--controller', dest='controller_url', required=False, help="URL for config API e.g. http://buswatcher.code4jc.org/api/v1/sign?id=1&key=a7e6b3")
     parser.add_argument('-w', '--write', dest='write', action='store_true', help="Write the outgoing message (OGM) to the LED screen")
-    parser.add_argument('-b', '--badge', dest='write', action='store_true', help="Use badge")
+    parser.add_argument('-b', '--badge', dest='badge', action='store_true', help="Use badge")
 
     args = parser.parse_args()
 
@@ -99,7 +99,7 @@ def main():
         # render message as bitmap
 
         if args.badge is True:
-            matrix = font.render(slide, 12, {"ignore_shift_h": True, "fixed_width": 36})
+            matrix = font.render(slide[0], 8, {"ignore_shift_h": True, "fixed_width": 48})
 
         elif args.badge is False:
             matrix = font.render_multiline(slide, 16 / 2, {"ignore_shift_h": True, "fixed_width": 96})
