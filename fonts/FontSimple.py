@@ -117,7 +117,7 @@ class FontSimple:
 
         for row in new_result:
             for j, short_row in enumerate(new_result):
-                expanded_row = (short_row + 96 * [int(0)])[:96]
+                expanded_row = (short_row + sign_width * [int(0)])[:sign_width]
                 new_result[j] = expanded_row
 
         return new_result

@@ -3,11 +3,12 @@ from datetime import datetime
 
 class Service:
 
-    def __init__(self, stop, route):
+    def __init__(self, stop, route, badge):
 
         # passed
         self.stop = stop  # type: int
         self.route = route # type: int
+        self.badge = badge # type: boolean
 
         # init to be filled
         self.arrivals_list = []
@@ -54,29 +55,59 @@ class Service:
                         continue
                     fields[field.tag] = field.text.replace("&nbsp", "")
             self.arrivals_list.append(fields)
+        # trim anything more than first 2 arrivals
+        self.arrivals_list=self.arrivals_list[:2]
         return self.arrivals_list
 
     def compose_lines(self):
         line2 = ''
-        bus_format = '%s min'
+        bus_format = '%s min '
         if self.arrivals_list[0]=='No service.':
             line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P'))
-            line2 = 'No service {a}'.format(a=self.route)
+            line2 = '{a}. No arrivals'.format(a=self.route)
             self.lines.append(line1)
             self.lines.append(line2)
             return self.lines
+        else:
+            for bus in self.arrival_data:
+                if bool(bus) is True:  # make sure there are predictions
+                    if 'APPROACHING' in bus['pt']:
+                        bus['pt'] = '!0!'
+                    # if ';' in bus['pt']:  # handle response of APPROACHING e.g. 0 mins prediction
+                    #     bus['pt'] = '!0!'
+                    bus_entry = bus_format % (bus['pt'].split(' ')[0])
+                    try:
+                        # append the arrival time for each bus e.g. '22 min'
+                        if self.badge == True:
+                            # line2 = bus_entry
+                            line2 = line2 + bus_entry
+                        elif self.badge == False:
+                            line2 = line2 + bus_entry  # append the arrival time for each bus e.g. '22 min'
 
-        for bus in self.arrival_data:
-            if bool(bus) is True:  # make sure there are predictions
-                if ';' in bus['pt']:  # handle response of APPROACHING e.g. 0 mins prediction
-                    bus['pt'] = '!0!'
-                bus_entry = bus_format % (bus['pt'].split(' ')[0])
-                line2 = line2 + ' ' + bus_entry  # append the arrival time for each bus e.g. '22 min'
-            else:
-                line2 = 'No arrivals next 30 mins.'
+                    except:
+                        # if its too long, we dont add this bus and continue the loop
+                        pass
+                    continue
+                else:
+                    line2 = 'No arrivals next 30 mins.'
             line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P')) # + ' ' + temp_msg
             self.lines.append(line1)
-            self.lines.append('(' + bus['rd'] + ')'+ line2)
+
+            if self.badge == True:
+                self.lines.append(line2) # bug why does this break for a compound string on badge?
+                # self.lines.append('chick en')
+                # self.lines.append('chick' +'en')
+            elif self.badge == False:
+                self.lines.append(bus['rd'] + '. ' + line2)
+
+
+
+
             self.lines = self.lines[:2]
 
-        return self.lines
+            # todo blink if under 3 minutes for 85, 5 for 87
+
+            #todo add time
+            # if there is room, add time to the rightmost on line 1 or 2
+
+            return self.lines
