@@ -77,13 +77,13 @@ class Service:
                     #     bus['pt'] = '!0!'
                     bus_entry = bus_format % (bus['pt'].split(' ')[0])
                     try:
-                        # line2 = line2 + bus_entry  # append the arrival time for each bus e.g. '22 min'
+                        # append the arrival time for each bus e.g. '22 min'
                         if self.badge == True:
-                            line2 = bus_entry
+                            # line2 = bus_entry
+                            line2 = line2 + bus_entry
                         elif self.badge == False:
                             line2 = line2 + bus_entry  # append the arrival time for each bus e.g. '22 min'
 
-                        # todo check if adding this will make the diplay too long by calling font.render_multiline and see if it is <= 96 pixels, but not use those results its just a check
                     except:
                         # if its too long, we dont add this bus and continue the loop
                         pass
@@ -94,7 +94,9 @@ class Service:
             self.lines.append(line1)
 
             if self.badge == True:
-                self.lines.append(line2)
+                self.lines.append(line2) # bug why does this break for a compound string on badge?
+                # self.lines.append('chick en')
+                # self.lines.append('chick' +'en')
             elif self.badge == False:
                 self.lines.append(bus['rd'] + '. ' + line2)
 

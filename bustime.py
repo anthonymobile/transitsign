@@ -81,7 +81,11 @@ def main():
 
         svc = Service(service['stop_id'],service['route_id'],args.badge)
         print("service: stop {a} route {b}".format(a=svc.stop, b=svc.route))
-        print ("slide text: {text}".format(text=svc.slide_text))
+
+        if args.badge is True:
+            print("slide text: {text}".format(text=svc.slide_text[0]))
+        elif args.badge is False:
+            print ("slide text: {text}".format(text=svc.slide_text))
 
         slideshow.append(svc.slide_text)
 
