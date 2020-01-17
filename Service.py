@@ -3,11 +3,12 @@ from datetime import datetime
 
 class Service:
 
-    def __init__(self, stop, route):
+    def __init__(self, stop, route, badge):
 
         # passed
         self.stop = stop  # type: int
         self.route = route # type: int
+        self.badge = badge # type: boolean
 
         # init to be filled
         self.arrivals_list = []
@@ -76,9 +77,13 @@ class Service:
                     #     bus['pt'] = '!0!'
                     bus_entry = bus_format % (bus['pt'].split(' ')[0])
                     try:
-                        line2 = line2 + bus_entry  # append the arrival time for each bus e.g. '22 min'
-                        # bug check if adding this will make the diplay too long
-                        #  by calling font.render_multiline and see if it is <= 96 pixels, but not use those results its just a check
+                        # append the arrival time for each bus e.g. '22 min'
+                        if self.badge == True:
+                            # line2 = bus_entry
+                            line2 = line2 + bus_entry
+                        elif self.badge == False:
+                            line2 = line2 + bus_entry  # append the arrival time for each bus e.g. '22 min'
+
                     except:
                         # if its too long, we dont add this bus and continue the loop
                         pass
@@ -87,7 +92,17 @@ class Service:
                     line2 = 'No arrivals next 30 mins.'
             line1 = datetime.now().strftime('%a') + ' ' + (datetime.now().strftime('%-I:%M %P')) # + ' ' + temp_msg
             self.lines.append(line1)
-            self.lines.append(bus['rd'] + '. ' + line2)
+
+            if self.badge == True:
+                self.lines.append(line2) # bug why does this break for a compound string on badge?
+                # self.lines.append('chick en')
+                # self.lines.append('chick' +'en')
+            elif self.badge == False:
+                self.lines.append(bus['rd'] + '. ' + line2)
+
+
+
+
             self.lines = self.lines[:2]
 
             # todo blink if under 3 minutes for 85, 5 for 87

@@ -5,14 +5,14 @@
       <paths name="pi@192.168.1.180:22">
         <serverdata>
           <mappings>
-            <mapping deploy="/home/pi/njtsign" local="$PROJECT_DIR$" />
+            <mapping deploy="/njtsign" local="$PROJECT_DIR$" />
           </mappings>
         </serverdata>
       </paths>
       <paths name="signpi">
         <serverdata>
           <mappings>
-            <mapping deploy="njtsign" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/tmp/pycharm_project_157" local="$PROJECT_DIR$" />
           </mappings>
         </serverdata>
       </paths>
