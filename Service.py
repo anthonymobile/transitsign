@@ -94,9 +94,9 @@ class Service:
             self.lines.append(line1)
 
             if self.badge == True:
-                self.lines.append(line2) # bug why does this break for a compound string on badge?
-                # self.lines.append('chick en')
-                # self.lines.append('chick' +'en')
+                # self.lines.append(line2) # works
+                self.lines.append(bus['rd'] + '. ' + line2)
+
             elif self.badge == False:
                 self.lines.append(bus['rd'] + '. ' + line2)
 

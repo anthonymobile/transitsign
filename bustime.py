@@ -83,7 +83,7 @@ def main():
         print("service: stop {a} route {b}".format(a=svc.stop, b=svc.route))
 
         if args.badge is True:
-            print("slide text: {text}".format(text=svc.slide_text[0]))
+            print("slide text: {text}".format(text=svc.slide_text[1]))
         elif args.badge is False:
             print ("slide text: {text}".format(text=svc.slide_text))
 
