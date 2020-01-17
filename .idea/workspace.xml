@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="502f01c5-fddd-452a-a305-a282d807316e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service.py" beforeDir="false" afterPath="$PROJECT_DIR$/Service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bustime.py" beforeDir="false" afterPath="$PROJECT_DIR$/bustime.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,7 +11,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/njtsign$bustime_85_write_BADGE__remote_signpi_.coverage" NAME="bustime 85 write BADGE (remote:signpi) Coverage Results" MODIFIED="1579233401995" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/njtsign$bustime_85_write_BADGE__remote_signpi_.coverage" NAME="bustime 85 write BADGE (remote:signpi) Coverage Results" MODIFIED="1579234523283" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/njtsign$bustime_85_write__remote_signpi_.coverage" NAME="bustime 85 write (remote:signpi) Coverage Results" MODIFIED="1579178906904" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
@@ -38,8 +36,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bustime.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="95" column="36" lean-forward="true" selection-start-line="95" selection-start-column="36" selection-end-line="95" selection-end-column="36" />
+            <state relative-caret-position="462">
+              <caret line="115" column="39" lean-forward="true" selection-start-line="115" selection-start-column="39" selection-end-line="115" selection-end-column="39" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -50,8 +48,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Service.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="89" column="28" lean-forward="true" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="28" />
+            <state relative-caret-position="250">
+              <caret line="63" column="18" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fonts/FontSimple.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="250">
+              <caret line="45" column="66" selection-start-line="45" selection-start-column="66" selection-end-line="45" selection-end-column="66" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -80,6 +90,7 @@
       <find>MiniSign</find>
       <find>Serive</find>
       <find>badge</find>
+      <find>matrix</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -119,6 +130,11 @@
             <path>
               <item name="njtsign" type="b2602c69:ProjectViewProjectNode" />
               <item name="njtsign" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="njtsign" type="b2602c69:ProjectViewProjectNode" />
+              <item name="njtsign" type="462c0819:PsiDirectoryNode" />
+              <item name="fonts" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -305,6 +321,7 @@
       <workItem from="1579177382990" duration="427000" />
       <workItem from="1579178533533" duration="569000" />
       <workItem from="1579231163505" duration="1132000" />
+      <workItem from="1579234277188" duration="199000" />
     </task>
     <task id="LOCAL-00001" summary="fixed bugs from numpy syntax changes, added environment file for conda setup">
       <created>1563476905809</created>
@@ -411,11 +428,18 @@
       <option name="project" value="LOCAL" />
       <updated>1579179080796</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="working with rt. tt min badge">
+      <created>1579234419779</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1579234419779</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8322000" />
+    <option name="totallyTimeSpent" value="8521000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -428,15 +452,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26037195" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2639485" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="TODO" order="3" weight="0.3297568" />
       <window_info anchor="bottom" id="File Transfer" order="0" sideWeight="0.49928468" weight="0.28674698" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.4985694" visible="true" weight="0.40963855" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.4985694" weight="0.26385543" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.3626506" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -506,7 +531,8 @@
     <MESSAGE value="testing remote deployment pycharm" />
     <MESSAGE value="working on badge, offset bug to fix" />
     <MESSAGE value="badge working for 1 route, shows arrival time only" />
-    <option name="LAST_COMMIT_MESSAGE" value="badge working for 1 route, shows arrival time only" />
+    <MESSAGE value="working with rt. tt min badge" />
+    <option name="LAST_COMMIT_MESSAGE" value="working with rt. tt min badge" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -551,16 +577,6 @@
     <entry file="file://$PROJECT_DIR$/temp.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/fonts/FontSimple.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="142" column="18" selection-start-line="142" selection-start-column="18" selection-end-line="142" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pyledsign/minisign.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -568,17 +584,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fonts/FontSimple.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="45" column="66" selection-start-line="45" selection-start-column="66" selection-end-line="45" selection-end-column="66" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Service.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="89" column="28" lean-forward="true" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="28" />
+        <state relative-caret-position="250">
+          <caret line="63" column="18" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bustime.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="95" column="36" lean-forward="true" selection-start-line="95" selection-start-column="36" selection-end-line="95" selection-end-column="36" />
+        <state relative-caret-position="462">
+          <caret line="115" column="39" lean-forward="true" selection-start-line="115" selection-start-column="39" selection-end-line="115" selection-end-column="39" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

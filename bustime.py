@@ -107,14 +107,12 @@ def main():
 
         if args.badge is True:
             width=48
-            matrix = font.render(slide[0], 12, {"ignore_shift_h": True, "fixed_width": width})
+            matrix = font.render(slide[0], 8, {"ignore_shift_h": True, "fixed_width": width})
 
-            # # pad the matrix with 2 rows above and below
-            # dummy_row = ([0] * width)
-            # matrix.insert(8, dummy_row)
-            # matrix.insert(8, dummy_row)
-            # matrix.insert(0, dummy_row)
-            # matrix.insert(0, dummy_row)
+            # # center the matrix with 2 rows above
+            dummy_row = ([0] * width)
+            matrix.insert(0, dummy_row)
+            matrix.insert(0, dummy_row)
 
         elif args.badge is False:
             width=96
