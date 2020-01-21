@@ -3,12 +3,13 @@ from datetime import datetime
 
 class Service:
 
-    def __init__(self, stop, route, badge):
+    def __init__(self, stop, route, badge, rt_display):
 
         # passed
         self.stop = stop  # type: int
         self.route = route # type: int
         self.badge = badge # type: boolean
+        self.rt_display = rt_display # type: boolean
 
         # init to be filled
         self.arrivals_list = []
@@ -94,8 +95,13 @@ class Service:
             self.lines.append(line1)
 
             if self.badge == True:
-                # self.lines.append(line2) # works
-                self.lines.append(bus['rd'] + '. ' + line2)
+
+                if self.rt_display == True:
+                    # self.lines.append(line2) # works
+                    self.lines.append(line2)
+                elif self.rt_display == False:
+                    # self.lines.append(line2) # works
+                    self.lines.append(bus['rd'] + '. ' + line2)
 
             elif self.badge == False:
                 self.lines.append(bus['rd'] + '. ' + line2)

@@ -30,6 +30,7 @@ def main():
     parser.add_argument('-c', '--controller', dest='controller_url', required=False, help="URL for config API e.g. http://buswatcher.code4jc.org/api/v1/sign?id=1&key=a7e6b3")
     parser.add_argument('-w', '--write', dest='write', action='store_true', help="Write the outgoing message (OGM) to the LED screen")
     parser.add_argument('-b', '--badge', dest='badge', action='store_true', help="Use badge")
+    parser.add_argument('-r', '--rt_display', dest='rt_display', action='store_true', help="Surpress rute display")
 
     args = parser.parse_args()
 
@@ -79,7 +80,7 @@ def main():
     services_json = json.loads(services)
     for service in services_json['services']:
 
-        svc = Service(service['stop_id'],service['route_id'],args.badge)
+        svc = Service(service['stop_id'],service['route_id'],args.badge,args.rt_display)
         print("service: stop {a} route {b}".format(a=svc.stop, b=svc.route))
 
         if args.badge is True:
